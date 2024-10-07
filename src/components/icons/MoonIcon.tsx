@@ -1,6 +1,10 @@
-interface MoonIconProps {}
+import clsx from 'clsx';
 
-export const MoonIcon = (props: MoonIconProps) => {
+interface MoonIconProps {
+  className?: string;
+}
+
+export const MoonIcon = ({ className }: MoonIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,7 +12,7 @@ export const MoonIcon = (props: MoonIconProps) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-6"
+      className={clsx(className, 'size-6')}
     >
       <path
         strokeLinecap="round"

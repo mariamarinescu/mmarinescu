@@ -1,6 +1,10 @@
-interface SunIconProps {}
+import clsx from 'clsx';
 
-export const SunIcon = (props: SunIconProps) => {
+interface SunIconProps {
+  className?: string;
+}
+
+export const SunIcon = ({ className }: SunIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,7 +12,7 @@ export const SunIcon = (props: SunIconProps) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-6"
+      className={clsx(className, 'size-6')}
     >
       <path
         strokeLinecap="round"
