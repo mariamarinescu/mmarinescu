@@ -6,8 +6,8 @@ interface ToggleButtonProps {
   initialEnabled?: boolean;
   onChange?: (enabled: boolean) => void;
   label?: string; // Accessibility label
-  activeIcon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  inactiveIcon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  activeIcon?: JSX.Element;
+  inactiveIcon?: JSX.Element;
   className?: string;
   activeBgColor?: string;
   inactiveBgColor?: string;
@@ -54,11 +54,11 @@ export const ToggleButton: React.FC<ToggleButtonProps> = (
             )}
           >
             <div className="absolute inset-0 flex items-center justify-center">
-              {checked && ActiveIcon ? (
-                <ActiveIcon className="w-4 h-4 text-yellow-500" />
-              ) : !checked && InactiveIcon ? (
-                <InactiveIcon className="w-4 h-4 text-blue-500" />
-              ) : null}
+              {checked && ActiveIcon
+                ? ActiveIcon
+                : !checked && InactiveIcon
+                  ? InactiveIcon
+                  : null}
             </div>
           </span>
         </button>
