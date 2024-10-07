@@ -2,37 +2,83 @@ import { Switch } from '@headlessui/react';
 import clsx from 'clsx';
 import React, { useState } from 'react';
 
+interface SizeClass {
+  button: string;
+  inner: string;
+  translate: string; // Toggle effect transition classes
+  iconSize: string;
+}
+
+interface SizeClasses {
+  small: SizeClass;
+  medium: SizeClass;
+  large: SizeClass;
+}
+
+type Size = keyof SizeClasses;
+
 interface ToggleButtonProps {
   initialEnabled?: boolean;
   onChange?: (enabled: boolean) => void;
   label?: string; // Accessibility label
-  activeIcon?: JSX.Element;
-  inactiveIcon?: JSX.Element;
+  activeIcon?: React.ReactNode;
+  inactiveIcon?: React.ReactNode;
   className?: string;
   activeBgColor?: string;
   inactiveBgColor?: string;
+  size?: Size;
 }
 
-export const ToggleButton: React.FC<ToggleButtonProps> = (
-  props: ToggleButtonProps
-) => {
-  const {
-    initialEnabled = false,
-    onChange,
-    label,
-    activeIcon: ActiveIcon,
-    inactiveIcon: InactiveIcon,
-    className,
-    activeBgColor = 'bg-blue-600',
-    inactiveBgColor = 'bg-gray-200',
-  } = props;
+const sizeClasses: SizeClasses = {
+  small: {
+    button: 'h-7 w-[54px]',
+    inner: 'h-5 w-5',
+    translate: 'translate-x-6',
+    iconSize: 'w-3 h-3',
+  },
+  medium: {
+    button: 'h-[40px] w-[72px]',
+    inner: 'h-7 w-7',
+    translate: 'translate-x-8',
+    iconSize: 'w-4 h-4',
+  },
+  large: {
+    button: 'h-10 w-[88px]',
+    inner: 'h-9 w-9',
+    translate: 'translate-x-10',
+    iconSize: 'w-5 h-5',
+  },
+};
 
+export const ToggleButton: React.FC<ToggleButtonProps> = ({
+  initialEnabled = false,
+  onChange,
+  label,
+  activeIcon,
+  inactiveIcon,
+  className,
+  activeBgColor = 'bg-blue-600',
+  inactiveBgColor = 'bg-gray-200',
+  size = 'medium',
+}) => {
   const [enabled, setEnabled] = useState(initialEnabled);
 
   const handleToggle = () => {
     const newEnabledState = !enabled;
     setEnabled(newEnabledState);
-    if (onChange) onChange(newEnabledState);
+    onChange?.(newEnabledState);
+  };
+
+  const currentSizeClasses = sizeClasses[size];
+
+  const renderIcon = (isActive: boolean) => {
+    const icon = isActive ? activeIcon : inactiveIcon;
+
+    return icon
+      ? React.cloneElement(icon as React.ReactElement, {
+          className: currentSizeClasses.iconSize,
+        })
+      : null;
   };
 
   return (
@@ -40,25 +86,23 @@ export const ToggleButton: React.FC<ToggleButtonProps> = (
       {({ checked }) => (
         <button
           className={clsx(
-            'group inline-flex h-8 w-16 items-center rounded-full p-1 cursor-pointer',
+            'group inline-flex items-center rounded-full p-1 cursor-pointer',
             className,
-            checked ? activeBgColor : inactiveBgColor
+            checked ? activeBgColor : inactiveBgColor,
+            currentSizeClasses.button
           )}
           aria-label={label} // Add accessibility label
         >
           <span className="sr-only">{label}</span>
           <span
             className={clsx(
-              'h-6 w-6 rounded-full bg-white transition-transform duration-300 ease-in-out',
-              checked ? 'translate-x-8' : 'translate-x-0'
+              'rounded-full bg-white transition-transform duration-300 ease-in-out',
+              currentSizeClasses.inner,
+              checked ? currentSizeClasses.translate : 'translate-x-1'
             )}
           >
             <div className="absolute inset-0 flex items-center justify-center">
-              {checked && ActiveIcon
-                ? ActiveIcon
-                : !checked && InactiveIcon
-                  ? InactiveIcon
-                  : null}
+              {renderIcon(checked)}
             </div>
           </span>
         </button>
