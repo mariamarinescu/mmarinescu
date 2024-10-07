@@ -81,29 +81,35 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
       : null;
   };
 
+  const buttonBaseClasses =
+    'group inline-flex items-center rounded-full p-1 transition-colors duration-700 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200';
+
+  const buttonStateClasses = enabled ? activeBgColor : inactiveBgColor;
+  const buttonSizeClasses = currentSizeClasses.button;
+
   return (
     <Switch checked={enabled} onChange={handleToggle} as={React.Fragment}>
       {({ checked }) => (
         <button
+          role="switch"
+          aria-checked={checked}
           className={clsx(
-            'group inline-flex items-center rounded-full p-1 cursor-pointer',
             className,
-            checked ? activeBgColor : inactiveBgColor,
-            currentSizeClasses.button
+            buttonBaseClasses,
+            buttonStateClasses,
+            buttonSizeClasses
           )}
-          aria-label={label} // Add accessibility label
+          aria-label={label} // Accessibility label
         >
           <span className="sr-only">{label}</span>
           <span
             className={clsx(
-              'rounded-full bg-white transition-transform duration-300 ease-in-out',
-              currentSizeClasses.inner,
-              checked ? currentSizeClasses.translate : 'translate-x-1'
+              'flex items-center justify-center rounded-full bg-white transition-transform duration-300 ease-in-out',
+              checked ? currentSizeClasses.translate : 'translate-x-1',
+              currentSizeClasses.inner
             )}
           >
-            <div className="absolute inset-0 flex items-center justify-center">
-              {renderIcon(checked)}
-            </div>
+            {renderIcon(checked)}
           </span>
         </button>
       )}
