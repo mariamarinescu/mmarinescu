@@ -5,7 +5,7 @@ export const DarkModeButton = () => {
 
   return (
     <ToggleButton
-      activeIcon={<SunIcon className="size-7" />}
+      activeIcon={<SunIcon className="size-6" />}
       inactiveIcon={<MoonIcon className="size-7" />}
       className="absolute top-4 right-4 h-12 w-20"
       label="Toggle dark mode"
