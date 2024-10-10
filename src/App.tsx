@@ -1,13 +1,8 @@
 import './App.css';
-import { DarkModeButton } from './components';
+import { AppModule } from './modules';
 
 const App = () => {
-  return (
-    <div className="bg-yellow-100 dark:bg-blue-950 min-h-screen w-screen relative grid ">
-      <DarkModeButton />
-      <div />
-    </div>
-  );
+  return <AppModule />;
 };
 
 export default App;

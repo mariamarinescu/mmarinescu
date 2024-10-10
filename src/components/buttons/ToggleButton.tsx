@@ -57,7 +57,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
   activeIcon,
   inactiveIcon,
   className,
-  activeBgColor = 'bg-blue-600',
+  activeBgColor = 'bg-gray-900',
   inactiveBgColor = 'bg-gray-200',
   size = 'medium',
 }) => {
