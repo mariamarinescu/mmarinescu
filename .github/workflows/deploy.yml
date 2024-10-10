@@ -3,7 +3,11 @@ name: Deploy to GitHub Pages
 on:
   pull_request:
     branches:
-      - main
+      - main  # Deploy preview when PR is created against main
+
+  push:
+    branches:
+      - main  # Deploy after PR is merged into main
 
 jobs:
   deploy:
@@ -11,10 +15,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '16'
 
@@ -25,7 +29,16 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
+        if: github.event_name == 'push'  # Deploy to production after merge
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+
+      - name: Deploy PR Preview to GitHub Pages
+        if: github.event_name == 'pull_request'  # Deploy preview for PRs
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages-preview  # Deploy PR preview to separate branch
