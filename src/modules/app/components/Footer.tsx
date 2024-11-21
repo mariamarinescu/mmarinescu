@@ -12,11 +12,11 @@ export const Footer: React.FC<FooterProps> = ({ className }: FooterProps) => {
     <footer
       className={clsx(
         className,
-        'bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 h-auto text-center w-full border-t dark:border-gray-700'
+        'bg-white dark:bg-th-darker-gray text-center w-full'
       )}
     >
-      <div className="container mx-auto py-2 h-auto">
-        <p className="text-sm">
+      <div className="container mx-auto h-auto">
+        <p className="text-xs text-gray-800 dark:text-th-medium-light-gray-1">
           &copy; {currentYear} Maria-Fontica Marinescu. All rights reserved.
         </p>
       </div>

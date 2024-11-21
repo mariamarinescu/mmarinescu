@@ -5,5 +5,20 @@
   "tabWidth": 2,
   "trailingComma": "es5",
   "endOfLine": "lf",
-  "printWidth": 80
+  "printWidth": 80,
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["react", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/no-deprecated": "warn"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
 }

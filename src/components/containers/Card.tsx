@@ -22,21 +22,19 @@ interface BodyProps {
   children: ReactNode;
 }
 
-interface FooterProps {
-  className?: string;
-  children: ReactNode;
-}
-
 const Card: React.FC<CardProps> & {
   Header: React.FC<HeaderProps> & {
     Title: React.FC<HeaderTitleProps>;
   };
   Body: React.FC<BodyProps>;
-  Footer: React.FC<FooterProps>;
-} = ({ className, children }) => {
+} = ({ className, children }: CardProps) => {
   return (
     <div
-      className={clsx('overflow-hidden bg-white rounded-lg shadow', className)}
+      className={clsx(
+        'group overflow-hidden bg-th-light-gray-1 border border-gray-300 rounded-md transition-colors',
+        'hover:border-green-400 dark:hover:border-none dark:border-none dark:bg-black dark:hover:bg-black',
+        className
+      )}
     >
       {children}
     </div>
@@ -47,7 +45,8 @@ const Header: React.FC<HeaderProps> = ({ className, children }) => {
   return (
     <div
       className={clsx(
-        'px-4 py-5 bg-white border-b border-gray-200 sm:px-6',
+        'h-9 max-h-12 px-4 py-2 flex items-center justify-start border-b border-gray-300 text-gray-900 dark:text-white transition-colors',
+        'group-hover:border-green-400 dark:hover:border-none dark:border-none bg-th-light-gray-1 dark:bg-th-lighter-gray',
         className
       )}
     >
@@ -65,28 +64,23 @@ HeaderWithTitle.Title = ({ className, as = 'h3', children }) => {
 
   return (
     <Tag
-      className={clsx('text-lg font-medium leading-6 text-gray-900', className)}
+      className={clsx(
+        'text-xs font-xs leading-6 text-th-medium-light-gray-3 dark:text-th-medium-light-gray-2',
+        className
+      )}
     >
       {children}
     </Tag>
   );
 };
 
-const Body: React.FC<BodyProps> = ({ className, children }) => {
-  return <div className={clsx('px-4 py-5 sm:p-6', className)}>{children}</div>;
-};
-
-const Footer: React.FC<FooterProps> = ({ className, children }) => {
+const Body: React.FC<BodyProps> = ({ children }) => {
   return (
-    <div className={clsx('bg-white border-t border-gray-200', className)}>
-      {children}
-    </div>
+    <div className="px-4 py-5 sm:p-6 border-none max-h-inherit">{children}</div>
   );
 };
 
-// Assign the sub-components to Card
 Card.Header = HeaderWithTitle;
 Card.Body = Body;
-Card.Footer = Footer;
 
 export default Card;

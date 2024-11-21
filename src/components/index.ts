@@ -1,4 +1,4 @@
 export * from './buttons';
 export * from './containers';
-export * from './icons';
+export { default as Card } from './containers/Card';
 export * from './inputs';

@@ -1,0 +1,1 @@
+export { checkIsMobile } from './ui';
