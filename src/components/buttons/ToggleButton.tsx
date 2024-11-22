@@ -10,9 +10,10 @@ interface SizeClass {
 }
 
 interface SizeClasses {
-  small: SizeClass;
-  medium: SizeClass;
-  large: SizeClass;
+  xxs: SizeClass;
+  sm: SizeClass;
+  md: SizeClass;
+  lg: SizeClass;
 }
 
 type Size = keyof SizeClasses;
@@ -30,19 +31,25 @@ interface ToggleButtonProps {
 }
 
 const sizeClasses: SizeClasses = {
-  small: {
+  xxs: {
+    button: 'h-4 w-[54px]',
+    inner: 'h-5 w-5',
+    translate: 'translate-x-6',
+    iconSize: 'w-3 h-3',
+  },
+  sm: {
     button: 'h-7 w-[54px]',
     inner: 'h-5 w-5',
     translate: 'translate-x-6',
     iconSize: 'w-3 h-3',
   },
-  medium: {
+  md: {
     button: 'h-[40px] w-[72px]',
     inner: 'h-7 w-7',
     translate: 'translate-x-8',
     iconSize: 'w-4 h-4',
   },
-  large: {
+  lg: {
     button: 'h-10 w-[88px]',
     inner: 'h-9 w-9',
     translate: 'translate-x-10',
@@ -59,7 +66,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
   className,
   activeBgColor = 'bg-green-600',
   inactiveBgColor = 'bg-white',
-  size = 'small',
+  size = 'sm',
 }) => {
   const [enabled, setEnabled] = useState(initialEnabled);
 
