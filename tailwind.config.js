@@ -33,7 +33,7 @@ export default {
         'darker-gray-1': '#212429',
       },
       screens: {
-        xxs: '320px',
+        xs: '320px',
       },
     },
   },

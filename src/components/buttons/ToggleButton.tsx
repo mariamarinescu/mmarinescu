@@ -10,7 +10,7 @@ interface SizeClass {
 }
 
 interface SizeClasses {
-  xxs: SizeClass;
+  xs: SizeClass;
   sm: SizeClass;
   md: SizeClass;
   lg: SizeClass;
@@ -31,7 +31,7 @@ interface ToggleButtonProps {
 }
 
 const sizeClasses: SizeClasses = {
-  xxs: {
+  xs: {
     button: 'h-4 w-[54px]',
     inner: 'h-5 w-5',
     translate: 'translate-x-6',
