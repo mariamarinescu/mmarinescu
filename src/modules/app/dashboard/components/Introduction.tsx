@@ -17,22 +17,24 @@ export const Introduction = () => {
   // const isMobile = checkIsMobile();
 
   return (
-    <Swiper
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={50}
-      slidesPerView={1}
-      navigation
-      pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
-    >
-      <SwiperSlide>{content}</SwiperSlide>
-      <SwiperSlide>{content}</SwiperSlide>
-      <SwiperSlide>{content}</SwiperSlide>
-      <SwiperSlide>{content}</SwiperSlide>
-      ...
-    </Swiper>
+    <div className="">
+      <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={50}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log('slide change')}
+      >
+        <SwiperSlide>{content}</SwiperSlide>
+        <SwiperSlide>{content}</SwiperSlide>
+        <SwiperSlide>{content}</SwiperSlide>
+        <SwiperSlide>{content}</SwiperSlide>
+        ...
+      </Swiper>
+    </div>
 
     // <div className="h-full w-full flex">
     //   <div className="bg-red rounded-md w-full sm-w m-6"></div>

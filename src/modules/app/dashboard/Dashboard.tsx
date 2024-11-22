@@ -1,3 +1,9 @@
+import { Introduction } from './components';
+
 export const Dashboard = () => {
-  return <div className="absolute">{/* <Introduction className="" /> */}</div>;
+  return (
+    <div className="flex bg-blue-700">
+      <Introduction />
+    </div>
+  );
 };
