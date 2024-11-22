@@ -1,13 +1,15 @@
 // import Swiper core and required modules
-import { A11y, Navigation, Pagination, Scrollbar } from 'swiper/modules';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import {
+  IntroductionDetailsCard,
+  IntroductionMainCard,
+} from './introductionCards';
+import { useStyle } from './introductionCards/useStyle';
 
 const content = () => {
   return <div className="h-[700px] w-[500px]" />;
@@ -15,26 +17,31 @@ const content = () => {
 
 export const Introduction = () => {
   // const isMobile = checkIsMobile();
+  const { style } = useStyle();
 
   return (
-    <div className="">
-      <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={50}
-        slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log('slide change')}
-      >
-        <SwiperSlide>{content}</SwiperSlide>
-        <SwiperSlide>{content}</SwiperSlide>
-        <SwiperSlide>{content}</SwiperSlide>
-        <SwiperSlide>{content}</SwiperSlide>
-        ...
-      </Swiper>
+    <div className="w-[90vw] h-[60vh] xl:w-[85vw] 2xl:w-[1200px]  md:h-[550px] flex flex-col gap-3 sm:gap-0 sm:flex-row overflow-y-scroll items-center p-1">
+      <IntroductionMainCard style={style} />
+      <IntroductionDetailsCard style={style} />
     </div>
+    // <div className="">
+    //   <Swiper
+    //     modules={[Navigation, Pagination, Scrollbar, A11y]}
+    //     spaceBetween={50}
+    //     slidesPerView={1}
+    //     navigation
+    //     pagination={{ clickable: true }}
+    //     scrollbar={{ draggable: true }}
+    //     onSwiper={(swiper) => console.log(swiper)}
+    //     onSlideChange={() => console.log('slide change')}
+    //   >
+    //     <SwiperSlide>{content}</SwiperSlide>
+    //     <SwiperSlide>{content}</SwiperSlide>
+    //     <SwiperSlide>{content}</SwiperSlide>
+    //     <SwiperSlide>{content}</SwiperSlide>
+    //     ...
+    //   </Swiper>
+    // </div>
 
     // <div className="h-full w-full flex">
     //   <div className="bg-red rounded-md w-full sm-w m-6"></div>

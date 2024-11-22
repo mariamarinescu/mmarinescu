@@ -4,15 +4,14 @@ const BubbleComponent = () => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    // Set a timeout to hide the bubble after 4 minutes
     const timer = setTimeout(() => {
       setIsVisible(false);
-    }, 240000); // 240000 milliseconds = 4 minutes
+    }, 240000);
 
-    return () => clearTimeout(timer); // Cleanup the timer on unmount
+    return () => clearTimeout(timer);
   }, []);
 
-  if (!isVisible) return null; // Return null if the bubble should not be visible
+  if (!isVisible) return null;
 
   return (
     <div className="sm:order-none order-first h-14 w-14 sm:w-20 sm:ml-10 sm:h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0 bubble fade-in">

@@ -29,6 +29,11 @@ export default {
         'th-light-gray-2': '#F4F4F4',
         'th-light-gray-3': '#D7D7D7',
         'th-light-gray-4': '#ECECEC',
+        'lighter-gray-1': '#262931',
+        'darker-gray-1': '#212429',
+      },
+      screens: {
+        xxs: '320px',
       },
     },
   },

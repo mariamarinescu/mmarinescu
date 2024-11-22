@@ -1,7 +1,11 @@
 import { IoMdMoon, IoMdSunny } from 'react-icons/io';
 import { ToggleButton } from '../../../components';
 
-export const DarkModeButton = ({ isMobile }: { isMobile?: boolean }) => {
+interface DarkModeButtonProps {
+  isMobile?: boolean;
+}
+
+export const DarkModeButton: React.FC<DarkModeButtonProps> = ({ isMobile }) => {
   const toggleDarkMode = () => document.body.classList.toggle('dark');
 
   return (
@@ -12,10 +16,10 @@ export const DarkModeButton = ({ isMobile }: { isMobile?: boolean }) => {
       }
       activeBgColor="bg-th-darker-gray hover:bg-th-lighter-gray"
       inactiveBgColor="hover:bg-th-lighter-gray"
-      className="top-4 right-4 h-14 w-14 dark:border-th-medium-gray border border-gray-950"
+      className="top-4 right-4 dark:border-th-medium-gray border border-gray-950"
       label="Toggle dark mode"
       onChange={toggleDarkMode}
-      size={isMobile ? 'small' : 'medium'}
+      size={isMobile ? 'sm' : 'md'}
     />
   );
 };
