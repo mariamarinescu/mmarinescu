@@ -13,7 +13,7 @@ const content = () => {
   return <div className="h-[700px] w-[500px]" />;
 };
 
-export const Introduction = ({ className }: { className?: string }) => {
+export const Introduction = () => {
   // const isMobile = checkIsMobile();
 
   return (
