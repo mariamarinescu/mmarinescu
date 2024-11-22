@@ -11,10 +11,6 @@ import {
 } from './introductionCards';
 import { useStyle } from './introductionCards/useStyle';
 
-const content = () => {
-  return <div className="h-[700px] w-[500px]" />;
-};
-
 export const Introduction = () => {
   // const isMobile = checkIsMobile();
   const { style } = useStyle();
