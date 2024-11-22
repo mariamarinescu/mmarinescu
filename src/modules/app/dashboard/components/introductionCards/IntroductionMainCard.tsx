@@ -13,10 +13,10 @@ export const IntroductionMainCard: React.FC<IntroductionMainCardProps> = ({
     <div
       className={clsx(
         style,
-        'h-[94%] bg-darker-gray-1 rounded-r-lg sm:rounded-r-none'
+        'h-[94%] bg-white dark:bg-darker-gray-1 border-darker-gray-1 border rounded-r-lg sm:rounded-r-none'
       )}
     >
-      <div className="w-full h-full text-white flex flex-col gap-4">
+      <div className="w-full h-full text-black dark:text-white flex flex-col gap-4">
         <h3 className="text-xl md:text-2xl xl:text-3xl">Hi, I'm Maria!</h3>
 
         <div className="overflow-scroll w-full h-full text-md md:text-lg xl:text-xl">

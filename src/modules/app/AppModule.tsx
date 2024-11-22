@@ -13,7 +13,7 @@ export const AppModule = () => {
       <div className="flex items-center grow w-full justify-center">
         <Dashboard />
       </div>
-      <div className="bg-white dark:bg-th-darker-gray text-center w-full h-auto sm:h-10 xl:h-16 bottom-0">
+      <div className="bg-white dark:bg-th-darker-gray border-t-th-darker-gray border text-center w-full h-auto sm:h-10 xl:h-16 bottom-0">
         <Footer />
       </div>
     </main>

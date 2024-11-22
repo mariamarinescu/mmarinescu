@@ -17,7 +17,12 @@ export const IntroductionDetailsCard: React.FC<
   IntroductionDetailsCardProps
 > = ({ style }) => {
   return (
-    <div className={clsx(style, 'h-full bg-lighter-gray-1 flex items-center')}>
+    <div
+      className={clsx(
+        style,
+        'h-full bg-white dark:bg-lighter-gray-1 border-lighter-gray-1 border flex items-center'
+      )}
+    >
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={50}
