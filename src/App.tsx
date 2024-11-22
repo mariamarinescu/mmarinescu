@@ -1,5 +1,7 @@
-import './App.css';
 import { AppModule } from './modules';
+
+import './index.css';
+import './tailwind.css';
 
 const App = () => {
   return <AppModule />;

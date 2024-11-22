@@ -6,7 +6,7 @@ import { LinkedInShareButton } from '.';
 export const ResumeDownloadButton = ({ isMobile }: { isMobile?: boolean }) => {
   return (
     <>
-      <div className="flex align-end w-full pt-2">
+      <div className="flex align-end w-full pt-2 gap-4 m-auto">
         <LinkedInShareButton
           size={isMobile ? 32 : 0}
           className="linkedin-share-button"

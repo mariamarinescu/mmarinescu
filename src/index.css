@@ -1,36 +1,45 @@
-/* Import Tailwind directives */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Global styles */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;      /* Ensure padding and border are included in the element's total width and height */
-    scroll-behavior: smooth;     /* Enable smooth scrolling */
-    -webkit-font-smoothing: antialiased; /* Improve font rendering */
-    text-rendering: optimizeLegibility;  /* Improve text readability */
-    overflow-x: hidden;          /* Prevent horizontal scrollbars */
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
   
-  /* Ensure that all elements follow the same box model */
   *, *::before, *::after {
     box-sizing: inherit;
   }
 
-  /* Set a base font size and family */
 body {
     font-family: 'roboto', sans-serif;
-    line-height: 1.5;                /* Consistent line spacing */
+    line-height: 1.5; 
   }
   
-  /* Ensure full height behavior */
   #root {
     min-height: 100vh;
+    min-width: 100vw;
     display: flex;
     flex-direction: column;
     margin: 0;
     padding: 0;
+  }
+
+  .card {
+    padding: 2em;
+  }
+  
+  .read-the-docs {
+    color: #888;
+  }
+  
+  
+  .linkedin-share-button {
+    cursor: pointer;
+  }
+  
+  .linkedin-share-button:hover:not(:active) {
+    opacity: 0.75;
   }
