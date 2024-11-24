@@ -101,18 +101,13 @@ export const IntroductionDetailsCard: React.FC<
       )}
     >
       <Swiper
-        // style={{
-        //   width: '1800px',
-        // }}
         modules={[Navigation, Pagination, Scrollbar, A11y, Zoom]}
         spaceBetween={50}
         slidesPerView={1}
         zoom
         navigation
         pagination={{ clickable: true }}
-        // scrollbar={{ draggable: true }}
         onSwiper={(swiper) => console.log(swiper)}
-        // onSlideChange={() => setNextSlide(true)}
       >
         {imageCollection.map(({ isZoomable, ...imageComponentProps }) => (
           <SwiperSlide zoom={isZoomable}>

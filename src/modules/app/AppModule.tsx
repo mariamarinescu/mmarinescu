@@ -6,8 +6,8 @@ export const AppModule = () => {
   const isMobile = checkIsMobile();
 
   return (
-    <main className="flex flex-col content-between relative w-screen h-screen">
-      <div className="flex items-center gap-4 flex-row justify-end w-screen bg-white h-8 sm:h-16 xl:h-20 px-6 md:px-9 py-4 md:py-4 ">
+    <main className="flex flex-col content-between w-screen h-screen">
+      <div className="flex items-center gap-4 flex-row justify-end w-screen bg-white h-8 sm:h-16 xl:h-20 px-6 md:px-9 py-8">
         <TopBar isMobile={isMobile} />
       </div>
       <div className="flex items-center grow w-full justify-center">

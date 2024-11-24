@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { LinkedInShareButton } from 'modules/app/components';
 import { MdOutlineFileDownload } from 'react-icons/md';
 
 interface IntroductionMainCardProps {
@@ -65,7 +64,6 @@ export const IntroductionMainCard: React.FC<IntroductionMainCardProps> = ({
               Resume
             </a>
           </button>
-          <LinkedInShareButton size={28} />
         </div>
       </div>
     </div>

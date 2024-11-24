@@ -31,7 +31,7 @@ const Card: React.FC<CardProps> & {
   return (
     <div
       className={clsx(
-        'group overflow-hidden bg-th-light-gray-1 border border-gray-300 rounded-md transition-colors',
+        'group overflow-scroll bg-th-light-gray-1 border border-gray-300 rounded-md transition-colors',
         'hover:border-green-400 dark:hover:border-none dark:border-none dark:bg-black dark:hover:bg-black',
         className
       )}

@@ -12,7 +12,7 @@ export const Footer: React.FC<FooterProps> = ({ className }: FooterProps) => {
     <footer
       className={clsx(className, 'flex items-center justify-center h-full')}
     >
-      <div className="mx-auto h-auto">
+      <div className="mx-auto h-auto py-2">
         <p className="text-[8px] text-xs md:text-md xl:text-xl text-gray-800 dark:text-th-medium-light-gray-1">
           &copy; {currentYear} Maria-Fontica Marinescu. All rights reserved.
         </p>
