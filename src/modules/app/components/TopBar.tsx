@@ -29,10 +29,6 @@ export const TopBar: React.FC<TopBarProps> = ({ isMobile }: TopBarProps) => {
 
   const onClose = () => setContactModalOpen(false);
 
-  console.log({ contactModalOpen });
-
-  const handleSubmit2 = (data: any) => console.log({ data });
-
   return (
     <>
       <LinkedInShareButton size={40} />
