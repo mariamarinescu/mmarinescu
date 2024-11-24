@@ -1,5 +1,6 @@
 import { clsx } from 'clsx';
 import { useId } from 'react';
+import { UseFormRegisterReturn } from 'react-hook-form';
 import { Label } from './Label';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -11,6 +12,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
   rounded?: 'none' | 'sm' | 'md' | 'lg';
   className?: string;
+  register?: UseFormRegisterReturn;
 }
 
 export const Input: React.FC<InputProps> = (props: InputProps) => {
@@ -24,6 +26,7 @@ export const Input: React.FC<InputProps> = (props: InputProps) => {
     className = '',
     errorText = '',
     rounded = 'lg',
+    register,
     ...rest
   } = props;
 
@@ -64,6 +67,7 @@ export const Input: React.FC<InputProps> = (props: InputProps) => {
         ])}
         disabled={disabled}
         required={required}
+        {...register}
         {...rest}
       />
       {error && <p className="mt-2 text-sm text-red-600">{errorText}</p>}
