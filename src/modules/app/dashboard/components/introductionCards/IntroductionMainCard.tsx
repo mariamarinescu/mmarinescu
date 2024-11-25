@@ -55,11 +55,12 @@ export const IntroductionMainCard: React.FC<IntroductionMainCardProps> = ({
             <MdOutlineFileDownload size={20} color="black" />
             <a
               className="mx-1 text-sm hidden xs:inline-block text-black"
-              href="src/assets/resume.pdf"
+              href="https://drive.google.com/file/d/1oyYbZ2uWGPqFRSOI_O12q4TP9P0VgMqs/view?usp=sharing"
               download="MMResume.pdf"
               data-tooltip-id="my-tooltip"
               data-tooltip-content="Download resume"
               data-tooltip-place="bottom"
+              target="_blank"
             >
               Resume
             </a>
