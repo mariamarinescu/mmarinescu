@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
 import { useId } from 'react';
-import { UseFormRegisterReturn } from 'react-hook-form';
+import { FieldError, UseFormRegisterReturn } from 'react-hook-form';
 import { Label } from './Label';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -13,6 +13,8 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   rounded?: 'none' | 'sm' | 'md' | 'lg';
   className?: string;
   register?: UseFormRegisterReturn;
+  fieldError?: FieldError;
+  errorMessage?: string;
 }
 
 export const Input: React.FC<InputProps> = (props: InputProps) => {
@@ -24,7 +26,7 @@ export const Input: React.FC<InputProps> = (props: InputProps) => {
     disabled = false,
     valid = false,
     className = '',
-    errorText = '',
+    errorMessage = '',
     rounded = 'lg',
     register,
     ...rest
@@ -55,22 +57,24 @@ export const Input: React.FC<InputProps> = (props: InputProps) => {
           {label} {required && '*'}
         </Label>
       )}
-      <input
-        id={id}
-        type={type}
-        className={clsx([
-          styles.base,
-          rounded && styles.rounded[rounded],
-          error ? styles.state.error : styles.state.normal,
-          valid ? styles.state.valid : styles.state.normal,
-          disabled && styles.state.disabled,
-        ])}
-        disabled={disabled}
-        required={required}
-        {...register}
-        {...rest}
-      />
-      {error && <p className="mt-2 text-sm text-red-600">{errorText}</p>}
+      <div className="flex w-full h-full flex-col gap-1">
+        <input
+          id={id}
+          type={type}
+          className={clsx([
+            styles.base,
+            rounded && styles.rounded[rounded],
+            error ? styles.state.error : styles.state.normal,
+            valid ? styles.state.valid : styles.state.normal,
+            disabled && styles.state.disabled,
+          ])}
+          disabled={disabled}
+          required={required}
+          {...register}
+          {...rest}
+        />
+        {error && <p className="text-xs text-red-600">{errorMessage}</p>}
+      </div>
     </div>
   );
 };

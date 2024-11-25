@@ -6,7 +6,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { GrContact } from 'react-icons/gr';
 import { DarkModeButton, LinkedInShareButton } from '.';
 
-interface IFormInput {
+interface FormValues {
   firstName: string;
   lastName: string;
   email: string;
@@ -22,13 +22,14 @@ export const TopBar: React.FC<TopBarProps> = ({ isMobile }: TopBarProps) => {
   const {
     register,
     handleSubmit,
-    formState: { isValid },
-  } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = (data) =>
-    console.log({ 'myData:': data });
+    formState: { isValid, errors },
+  } = useForm<FormValues>();
+  const onSubmit: SubmitHandler<FormValues> = (data) =>
+    console.log({ 'myData:': data, errors });
 
   const onClose = () => setContactModalOpen(false);
 
+  console.log({ errors });
   return (
     <>
       <LinkedInShareButton size={40} />
@@ -50,32 +51,65 @@ export const TopBar: React.FC<TopBarProps> = ({ isMobile }: TopBarProps) => {
                 min: 3,
               })}
               label="First name:"
+              error={!!Object.keys(errors?.firstName ?? {}).length}
+              fieldError={errors?.firstName}
+              errorMessage={
+                errors?.firstName?.type === 'required'
+                  ? 'First name is required.'
+                  : ''
+              }
             />
+
             <Input
               register={register('lastName', {
                 required: true,
                 min: 3,
               })}
               label="Last name:"
+              error={!!Object.keys(errors?.lastName ?? {}).length}
+              fieldError={errors?.lastName}
+              errorMessage={
+                errors?.lastName?.type === 'required'
+                  ? 'Last name is required.'
+                  : ''
+              }
             />
             <Input
               register={register('email', {
                 required: true,
               })}
               label="E-mail address:"
+              error={!!Object.keys(errors?.email ?? {}).length}
+              fieldError={errors?.email}
+              errorMessage={
+                errors?.email?.type === 'required'
+                  ? 'E-mail is required.'
+                  : 'Seems that e-mail is incorrect. Please try again!'
+              }
             />
+
             <Input
               register={register('user_message', {
                 required: true,
               })}
               label="Message:"
+              error={!!Object.keys(errors?.user_message ?? {}).length}
+              fieldError={errors?.user_message}
+              errorMessage={
+                errors?.user_message?.type === 'required'
+                  ? 'Message cannot be empty!'
+                  : ''
+              }
             />
           </div>
 
           <SimpleButton
-            disabled={!isValid}
+            // disabled={!isValid}
             type="submit"
-            onClick={(values: any) => console.log({ submitVal: values })}
+            onClick={(values: any) => {
+              console.log({ submitVal: values });
+              return onSubmit(values);
+            }}
           >
             <p
               className={clsx(

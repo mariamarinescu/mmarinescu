@@ -17,7 +17,7 @@ export const Modal: React.FC<ModalProps> = ({
 }) => {
   return (
     <ResponsiveModal open={modalOpen} onClose={onClose}>
-      <div className="w-[400px] h-[400px] bg-white">
+      <div className="w-[400px] h-full bg-white">
         <h2>{title}</h2>
         {children}
       </div>
