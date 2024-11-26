@@ -12,8 +12,6 @@ export const TopBar: React.FC<TopBarProps> = ({ isMobile }: TopBarProps) => {
 
   const formRef = useRef<any>();
 
-  console.log({ formRef });
-
   return (
     <>
       <LinkedInShareButton size={40} />
@@ -26,7 +24,7 @@ export const TopBar: React.FC<TopBarProps> = ({ isMobile }: TopBarProps) => {
       <ContactModal
         formRef={formRef}
         open={contactModalOpen}
-        onClose={() => setContactModalOpen(true)}
+        onClose={() => setContactModalOpen(false)}
       />
     </>
   );

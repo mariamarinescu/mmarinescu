@@ -9,7 +9,6 @@ interface sendEmailProps {
 
 export const useSendEmail = () => {
   return ({ ref, event }: sendEmailProps) => {
-    console.log('inside of the HOOK', { ref, event });
     event.preventDefault();
 
     return emailjs

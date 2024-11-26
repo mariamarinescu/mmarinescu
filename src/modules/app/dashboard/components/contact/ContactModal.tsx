@@ -40,12 +40,11 @@ export const ContactModal: React.FC<ContactModalProps> = ({
 
     console.log({ response });
   };
+
   const onClose = () => {
     closeModal();
     clearErrors();
   };
-
-  console.log({ errors, isValid });
 
   return (
     <Modal
@@ -130,7 +129,6 @@ export const ContactModal: React.FC<ContactModalProps> = ({
         <SimpleButton
           type="submit"
           onClick={(values: any) => {
-            console.log({ submitVal: values });
             return onSubmit(values);
           }}
         >
