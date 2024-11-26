@@ -12,6 +12,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
   rounded?: 'none' | 'sm' | 'md' | 'lg';
   className?: string;
+  inputClassName?: string;
   register?: UseFormRegisterReturn;
   fieldError?: FieldError;
   errorMessage?: string;
@@ -29,6 +30,7 @@ export const Input: React.FC<InputProps> = (props: InputProps) => {
     errorMessage = '',
     rounded = 'lg',
     register,
+    inputClassName,
     ...rest
   } = props;
 
@@ -57,7 +59,7 @@ export const Input: React.FC<InputProps> = (props: InputProps) => {
           {label} {required && '*'}
         </Label>
       )}
-      <div className="flex w-full h-full flex-col gap-1">
+      <div className={clsx('flex w-full h-fit flex-col gap-1', inputClassName)}>
         <input
           id={id}
           type={type}

@@ -10,7 +10,7 @@ export const Label = ({ id, className, children }: BaseLabel) => {
   return (
     <label
       className={clsx(
-        'block text-base font-medium text-gray-500 mb-1 text-start',
+        'block text-base font-medium text-gray-500 dark:text-gray-200 mb-1 text-start',
         className
       )}
       htmlFor={id}

@@ -31,6 +31,7 @@ export default {
         'th-light-gray-4': '#ECECEC',
         'lighter-gray-1': '#262931',
         'darker-gray-1': '#212429',
+        'neon-pink': '#9461fd',
       },
       screens: {
         xs: '320px',
