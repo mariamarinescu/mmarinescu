@@ -9,86 +9,11 @@ import 'swiper/css/zoom';
 import { A11y, Navigation, Pagination, Scrollbar, Zoom } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SwiperImage } from '.';
+import { imageCollection } from './imageCollection';
 
 interface IntroductionDetailsCardProps {
   style?: string;
 }
-
-const commonImgProps = {
-  width: '100%',
-  height: '100%',
-  alt: 'Portfolio image',
-  dataSwiperZoom: '3',
-  className: 'swiper-zoom-container',
-};
-
-const imageCollection = [
-  {
-    src: './img/voxa/ezgif.com-video-to-gif-2.gif',
-    isZoomable: false,
-    ...commonImgProps,
-  },
-  {
-    src: './img/voxa/Visibility-3.svg',
-    isZoomable: true,
-    ...commonImgProps,
-  },
-  {
-    src: './img/voxa/Analytics-1.svg',
-    isZoomable: true,
-    ...commonImgProps,
-  },
-  {
-    src: './img/voxa/attribution-mix@2x.png',
-    isZoomable: true,
-    ...commonImgProps,
-  },
-  {
-    src: './img/voxa/Spy-on-podcast-competitors.png',
-    isZoomable: true,
-    ...commonImgProps,
-  },
-  {
-    src: './img/voxa/low-hanging-fruits-podcast-keywords-1.png',
-    isZoomable: true,
-    ...commonImgProps,
-  },
-  {
-    src: './img/voxa/1.png',
-    isZoomable: true,
-    ...commonImgProps,
-  },
-  {
-    src: './img/voxa/2.png',
-    isZoomable: true,
-    ...commonImgProps,
-  },
-  {
-    src: './img/voxa/3.png',
-    isZoomable: true,
-    ...commonImgProps,
-  },
-  {
-    src: './img/voxa/4.png',
-    isZoomable: true,
-    ...commonImgProps,
-  },
-  {
-    src: './img/voxa/5.png',
-    isZoomable: true,
-    ...commonImgProps,
-  },
-  {
-    src: './img/voxa/6.png',
-    isZoomable: true,
-    ...commonImgProps,
-  },
-  {
-    src: './img/voxa/7.png',
-    isZoomable: true,
-    ...commonImgProps,
-  },
-];
 
 export const IntroductionDetailsCard: React.FC<
   IntroductionDetailsCardProps
@@ -109,8 +34,8 @@ export const IntroductionDetailsCard: React.FC<
         pagination={{ clickable: true }}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        {imageCollection.map(({ isZoomable, ...imageComponentProps }) => (
-          <SwiperSlide zoom={isZoomable}>
+        {imageCollection.map(({ isZoomable, id, ...imageComponentProps }) => (
+          <SwiperSlide id={id} key={id} zoom={isZoomable}>
             <SwiperImage {...imageComponentProps} />
           </SwiperSlide>
         ))}

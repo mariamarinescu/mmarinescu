@@ -35,7 +35,7 @@ export const Input: React.FC<InputProps> = (props: InputProps) => {
   const id = useId();
 
   const styles = {
-    base: 'border border-1 flex-1 appearance-none w-full py-2 px-4 bg-white text-gray-700  shadow-sm text-base focus:outline-none focus:ring-2 focus:border-transparent',
+    base: 'rounded-lg border border-1 flex-1 appearance-none w-full py-2 px-4 bg-white text-gray-700 dark:text-white shadow-sm text-base focus:outline-none focus:ring-2 focus:border-transparent',
     state: {
       normal: 'placeholder-gray-400 border-gray-300 focus:ring-purple-600',
       error: 'border-red-600 focus:ring-red-600',

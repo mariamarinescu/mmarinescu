@@ -45,7 +45,6 @@ export const IntroductionMainCard: React.FC<IntroductionMainCardProps> = ({
         </div>
 
         <div className="flex w-full h-inherit justify-end gap-1 align-center">
-          {/* <ResumeDownloadButton /> */}
           <button
             className={clsx(
               'flex items-center px-4 py-2 h-8 font-medium tracking-wide text-white capitalize',
