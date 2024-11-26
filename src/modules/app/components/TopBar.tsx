@@ -25,8 +25,8 @@ export const TopBar: React.FC<TopBarProps> = ({ isMobile }: TopBarProps) => {
       <DarkModeButton isMobile={isMobile} />
       <ContactModal
         formRef={formRef}
-        contactModalOpen={contactModalOpen}
-        setContactModalOpen={setContactModalOpen}
+        open={contactModalOpen}
+        onClose={() => setContactModalOpen(true)}
       />
     </>
   );

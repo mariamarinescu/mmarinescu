@@ -14,14 +14,13 @@ interface FormValues {
 
 interface ContactModalProps extends ModalProps {
   formRef: React.MutableRefObject<any>;
-  setContactModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  contactModalOpen: boolean;
 }
 
 export const ContactModal: React.FC<ContactModalProps> = ({
   formRef,
-  setContactModalOpen,
-  contactModalOpen,
+  open,
+  onClose: closeModal,
+  ...restProps
 }) => {
   const {
     register,
@@ -42,15 +41,15 @@ export const ContactModal: React.FC<ContactModalProps> = ({
     console.log({ response });
   };
   const onClose = () => {
-    setContactModalOpen(false);
-    return clearErrors();
+    closeModal();
+    clearErrors();
   };
 
   console.log({ errors, isValid });
 
   return (
     <Modal
-      open={contactModalOpen}
+      open={open}
       onClose={onClose}
       title="Contact me"
       classNames={{
@@ -62,6 +61,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
           borderRadius: '25px',
         },
       }}
+      {...restProps}
     >
       <form
         ref={formRef}
