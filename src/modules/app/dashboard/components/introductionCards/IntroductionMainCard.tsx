@@ -13,36 +13,46 @@ export const IntroductionMainCard: React.FC<IntroductionMainCardProps> = ({
     <div
       className={clsx(
         style,
-        'h-[94%] bg-white dark:bg-darker-gray-1 border-darker-gray-1 border rounded-r-lg md:rounded-r-none'
+        'h-[94%] bg-white dark:bg-darker-gray-1 border-darker-gray-1 border rounded-r-lg md:rounded-r-none p-8'
       )}
     >
-      <div className="w-full h-full text-black dark:text-white flex flex-col gap-4">
-        <h3 className="text-xl md:text-2xl xl:text-3xl">Hi, I'm Maria!</h3>
-
-        <div className="overflow-scroll w-full h-full text-md md:text-lg xl:text-xl">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-          </p>
+      <div className="w-full h-full text-black dark:text-white flex flex-col gap-2">
+        <div className="overflow-scroll w-full h-full text-md lg:text-lg xl:text-lg">
+          <div className="p-8 text-lg leading-relaxed">
+            <span className="first-letter">Hi! I'm Maria</span>
+            <p>
+              , a frontend software developer based in Berlin. I bring four
+              years of experience with React.js, building and refining
+              interfaces in fintech and podcast analytics.
+              <br />
+              <br />
+              In the photo gallery, you can see one of my key projects—a podcast
+              marketing analytics platform I developed at Voxalyze. This was a
+              rewarding challenge that pushed my skills to new heights.
+              <br />
+              <br />
+              By clicking the button below, you can access my CV and get to know
+              me better!
+            </p>
+          </div>
+          {/* <p>
+            <b>
+              &nbsp;&#128075; Hi! I'm Maria, a frontend software developer based
+              in Berlin!
+            </b>
+            <br />
+            &nbsp; I bring four years of experience with React.js, building and
+            refining interfaces in fintech and podcast analytics.
+            <br />
+            <b>
+              &nbsp; In the photo gallery, you can see one of my key projects—a
+              podcast marketing analytics platform I developed at Voxalyze.
+            </b>
+            This was a rewarding challenge that pushed my skills to new heights.
+            <br />
+            &nbsp; By clicking the button below, you can access my CV and get to
+            know me better!
+          </p> */}
         </div>
 
         <div className="flex w-full h-inherit justify-end gap-1 align-center">
@@ -55,7 +65,7 @@ export const IntroductionMainCard: React.FC<IntroductionMainCardProps> = ({
           <SimpleButton className="text-black hover:text-white">
             <MdOutlineFileDownload size={20} />
             <a
-              className="mx-1 text-md inline-block"
+              className="mx-1 text-md lg:text-lg inline-block"
               href="https://drive.google.com/file/d/1oyYbZ2uWGPqFRSOI_O12q4TP9P0VgMqs/view?usp=sharing"
               download="MMResume.pdf"
               data-tooltip-id="my-tooltip"

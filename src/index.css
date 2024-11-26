@@ -43,3 +43,16 @@ body {
   .linkedin-share-button:hover:not(:active) {
     opacity: 0.75;
   }
+
+  .swiper-pagination-bullet {
+    color: white;
+    background-color: gray;
+  }
+
+
+  .first-letter {
+    float: left; 
+    font-size: 2rem; 
+    line-height: 0.5; 
+    margin-right: 0.1rem; 
+  }

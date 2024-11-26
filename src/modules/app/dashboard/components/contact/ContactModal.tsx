@@ -63,7 +63,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
     >
       <div className="w-[75vw] md:w-[400px] h-full bg-transparent flex flex-col">
         <div className="flex w-full items-center justify-center">
-          <h2 className="text-gray-500 dark:text-gray-100">Contact me</h2>
+          <h3 className="text-gray-500 dark:text-gray-100">Contact me</h3>
         </div>
 
         <form
@@ -127,7 +127,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   ? 'Message cannot be empty!'
                   : ''
               }
-              inputClassName="h-[140px]"
+              inputClassName="h-full"
+              className="h-[140px] mb-4"
             />
           </div>
 
@@ -139,9 +140,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               }}
             >
               <p
-              // className={clsx(
-              //   !isValid ? 'text-black hover:text-white' : 'text-white'
-              // )}
+                className="text-base"
+                // className={clsx(
+                //   !isValid ? 'text-black hover:text-white' : 'text-white'
+                // )}
               >
                 Submit
               </p>
