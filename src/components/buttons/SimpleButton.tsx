@@ -24,7 +24,7 @@ export const SimpleButton: React.FC<SimpleButtonProps> = ({
         className,
         disabled
           ? 'bg-white border text-black'
-          : 'bg-none border-2 border-neon-pink hover:bg-neon-pink text-black hover:text-white dark:text-neon-pink dark:hover:text-white',
+          : 'bg-none border border-neon-pink hover:bg-neon-pink text-black hover:text-white dark:text-white dark:hover:text-white',
         'flex items-center px-4 py-2 font-medium tracking-wide capitalize text-center justify-center',
         'transition-colors duration-300 transform rounded-lg focus:outline-none '
       )}

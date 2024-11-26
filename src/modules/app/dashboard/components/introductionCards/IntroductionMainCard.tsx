@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { SimpleButton } from 'components/buttons';
 import { MdOutlineFileDownload } from 'react-icons/md';
 
 interface IntroductionMainCardProps {
@@ -45,15 +46,16 @@ export const IntroductionMainCard: React.FC<IntroductionMainCardProps> = ({
         </div>
 
         <div className="flex w-full h-inherit justify-end gap-1 align-center">
-          <button
+          {/* <button
             className={clsx(
               'flex items-center px-4 py-2 h-8 font-medium tracking-wide text-white capitalize',
               'transition-colors duration-300 transform bg-white border-darker-gray-1 border rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80'
             )}
-          >
-            <MdOutlineFileDownload size={20} color="black" />
+          > */}
+          <SimpleButton className="text-black hover:text-white">
+            <MdOutlineFileDownload size={20} />
             <a
-              className="mx-1 text-sm hidden xs:inline-block text-black"
+              className="mx-1 text-md inline-block"
               href="https://drive.google.com/file/d/1oyYbZ2uWGPqFRSOI_O12q4TP9P0VgMqs/view?usp=sharing"
               download="MMResume.pdf"
               data-tooltip-id="my-tooltip"
@@ -63,7 +65,7 @@ export const IntroductionMainCard: React.FC<IntroductionMainCardProps> = ({
             >
               Resume
             </a>
-          </button>
+          </SimpleButton>
         </div>
       </div>
     </div>
