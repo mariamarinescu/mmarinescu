@@ -1,5 +1,8 @@
+import { useEffect, useState } from 'react';
 import { IoMdMoon, IoMdSunny } from 'react-icons/io';
 import { Tooltip } from 'react-tooltip';
+import { useRecoilState } from 'recoil';
+import darkThemeAtom from 'src/store/darkTheme/atom';
 import { ToggleButton } from '../../../components';
 
 interface DarkModeButtonProps {
@@ -7,7 +10,19 @@ interface DarkModeButtonProps {
 }
 
 export const DarkModeButton: React.FC<DarkModeButtonProps> = ({ isMobile }) => {
-  const toggleDarkMode = () => document.body.classList.toggle('dark');
+  const [isDarkActive, setIsDarkActive] = useState(false);
+  const [darkThemeStatus, setDarkThemeStatusInStore] =
+    useRecoilState(darkThemeAtom);
+
+  useEffect(() => {
+    if (darkThemeStatus !== isDarkActive)
+      setDarkThemeStatusInStore(isDarkActive);
+  }, [isDarkActive]);
+
+  const toggleDarkMode = () => {
+    setIsDarkActive((prevState) => !prevState);
+    document.body.classList.toggle('dark');
+  };
 
   return (
     <>
