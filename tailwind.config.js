@@ -32,6 +32,7 @@ export default {
         'lighter-gray-1': '#262931',
         'darker-gray-1': '#212429',
         'neon-pink': '#9461fd',
+        'dark-theme-bg': '#121212',
       },
       screens: {
         xs: '320px',
