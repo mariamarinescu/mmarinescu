@@ -41,8 +41,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({
   };
 
   const onClose = () => {
-    closeModal();
     clearErrors();
+    return closeModal();
   };
 
   return (

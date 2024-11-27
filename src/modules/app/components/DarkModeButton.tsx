@@ -14,9 +14,9 @@ export const DarkModeButton: React.FC<DarkModeButtonProps> = ({ isMobile }) => {
       inactiveIcon={
         <IoMdMoon style={{ fontSize: '16px' }} className="text-gray-800" />
       }
-      activeBgColor="bg-th-darker-gray hover:bg-th-lighter-gray"
+      activeBgColor="bg-th-darker-gray"
       inactiveBgColor="hover:bg-th-lighter-gray"
-      className="top-4 right-4 dark:border-th-medium-gray border border-gray-950"
+      className="top-4 right-4 border-neon-pink border"
       label="Toggle dark mode"
       onChange={toggleDarkMode}
       size={isMobile ? 'sm' : 'md'}

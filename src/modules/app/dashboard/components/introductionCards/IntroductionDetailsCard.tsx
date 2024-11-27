@@ -31,11 +31,18 @@ export const IntroductionDetailsCard: React.FC<
         slidesPerView={1}
         zoom
         navigation
+        centeredSlides
+        effect="cube"
         pagination={{ clickable: true }}
         onSwiper={(swiper) => console.log(swiper)}
       >
         {imageCollection.map(({ isZoomable, id, ...imageComponentProps }) => (
-          <SwiperSlide id={id} key={id} zoom={isZoomable}>
+          <SwiperSlide
+            id={id}
+            key={id}
+            zoom={isZoomable}
+            className="text-white bg-white "
+          >
             <SwiperImage {...imageComponentProps} />
           </SwiperSlide>
         ))}

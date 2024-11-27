@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
-import { GrContact } from 'react-icons/gr';
-import { DarkModeButton, LinkedInShareButton } from '.';
+import { MdAlternateEmail } from 'react-icons/md';
+import { DarkModeButton } from '.';
 import { ContactModal } from '../dashboard/components/contact/ContactModal';
 
 interface TopBarProps {
@@ -14,10 +14,9 @@ export const TopBar: React.FC<TopBarProps> = ({ isMobile }: TopBarProps) => {
 
   return (
     <>
-      <LinkedInShareButton size={40} />
       <button onClick={() => setContactModalOpen(true)}>
-        <div className="w-10 h-10 flex rounded-full bg-black justify-center items-center">
-          <GrContact size={16} color="white" />
+        <div className="w-10 h-10 flex rounded-full justify-center items-center border border-neon-pink hover:bg-neon-pink hover:text-white dark:text-white dark:hover:text-white">
+          <MdAlternateEmail size={20} />
         </div>
       </button>
       <DarkModeButton isMobile={isMobile} />
