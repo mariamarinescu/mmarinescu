@@ -1,15 +1,15 @@
+import { ToggleButton } from 'components/buttons';
 import { useEffect, useState } from 'react';
 import { IoMdMoon, IoMdSunny } from 'react-icons/io';
 import { Tooltip } from 'react-tooltip';
 import { useRecoilState } from 'recoil';
 import darkThemeAtom from 'src/store/darkTheme/atom';
-import { ToggleButton } from '../../../components';
 
 interface DarkModeButtonProps {
   isMobile?: boolean;
 }
 
-export const DarkModeButton: React.FC<DarkModeButtonProps> = ({ isMobile }) => {
+export const DarkModeButton: React.FC<DarkModeButtonProps> = () => {
   const [isDarkActive, setIsDarkActive] = useState(false);
   const [darkThemeStatus, setDarkThemeStatusInStore] =
     useRecoilState(darkThemeAtom);
@@ -28,7 +28,7 @@ export const DarkModeButton: React.FC<DarkModeButtonProps> = ({ isMobile }) => {
     <>
       <div
         className="w-fit h-fit flex"
-        data-tooltip-content="Switch dark/light theme"
+        data-tooltip-content={`Switch ${!!darkThemeStatus ? 'light' : 'dark'} theme`}
         data-tooltip-id="theme-switch-button"
       >
         <ToggleButton
