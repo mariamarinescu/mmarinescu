@@ -2,16 +2,16 @@ import { MdAlternateEmail } from 'react-icons/md';
 import { Tooltip } from 'react-tooltip';
 
 interface ContactButtonProps {
-  setContactModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setContactFormOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const ContactButton: React.FC<ContactButtonProps> = ({
-  setContactModalOpen,
+  setContactFormOpen,
 }) => {
   return (
     <>
       <button
-        onClick={() => setContactModalOpen(true)}
+        onClick={() => setContactFormOpen(true)}
         data-tooltip-content="Contact me"
         data-tooltip-id="contact-button"
       >
