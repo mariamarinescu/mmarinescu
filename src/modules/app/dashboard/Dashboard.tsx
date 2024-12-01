@@ -1,4 +1,4 @@
-import { Introduction } from './components';
+import { Introduction } from './Introduction';
 
 export const Dashboard: React.FC = () => {
   return (

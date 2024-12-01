@@ -1,6 +1,7 @@
 import { SimpleButton } from 'components/buttons';
 import { Input, Modal } from 'components/index';
 import { useSendEmail } from 'modules/app/hooks';
+import { RefObject } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { ModalProps } from 'src/types';
 
@@ -12,7 +13,7 @@ interface FormValues {
 }
 
 interface ContactModalProps extends ModalProps {
-  formRef: React.MutableRefObject<any>;
+  formRef: RefObject<HTMLFormElement> | null;
 }
 
 export const ContactModal: React.FC<ContactModalProps> = ({
