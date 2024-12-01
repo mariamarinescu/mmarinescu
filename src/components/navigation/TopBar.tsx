@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react';
-import { DarkModeButton } from '.';
-import { ContactModal } from '../dashboard/components/contact/ContactModal';
-import { ContactButton } from './ContactButton';
+// import { DarkModeButton } from 'components';
+import { ContactButton, DarkModeButton } from 'components/buttons';
+
+import { ContactModal } from '../../modules/app/dashboard/components/contact/ContactModal';
 
 interface TopBarProps {
   isMobile?: boolean;

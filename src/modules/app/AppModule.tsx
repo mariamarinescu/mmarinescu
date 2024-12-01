@@ -1,6 +1,7 @@
 import { clsx } from 'clsx';
+import { Footer } from 'components/Footer';
+import { TopBar } from 'components/navigation';
 import { checkIsMobile } from 'src/utils';
-import { Footer, TopBar } from './components';
 import { Dashboard } from './dashboard/Dashboard';
 
 export const AppModule = () => {
