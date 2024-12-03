@@ -34,7 +34,6 @@ export const IntroductionDetailsCard: React.FC<
         centeredSlides
         effect="cube"
         pagination={{ clickable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
       >
         {imageCollection.map(({ isZoomable, id, ...imageComponentProps }) => (
           <SwiperSlide

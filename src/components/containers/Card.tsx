@@ -31,7 +31,7 @@ const Card: React.FC<CardProps> & {
   return (
     <div
       className={clsx(
-        'group overflow-scroll bg-th-light-gray-1 border border-gray-300 rounded-md transition-colors',
+        'group overflow-scroll border border-gray-300 rounded-md transition-colors',
         'hover:border-green-400 dark:hover:border-none dark:border-none dark:bg-black dark:hover:bg-black',
         className
       )}
@@ -46,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({ className, children }) => {
     <div
       className={clsx(
         'h-9 max-h-12 px-4 py-2 flex items-center justify-start border-b border-gray-300 text-gray-900 dark:text-white transition-colors',
-        'group-hover:border-green-400 dark:hover:border-none dark:border-none bg-th-light-gray-1 dark:bg-th-lighter-gray',
+        'group-hover:border-green-400 dark:hover:border-none dark:border-none dark:bg-th-lighter-gray',
         className
       )}
     >
