@@ -58,23 +58,19 @@ export default function Form({ formRef }: FormProps) {
       >
         <div className="flex flex-col w-full min-h-[400px] pt-2 pb-4 gap-2">
           <Input
-            register={register('name', {
+            {...register('name', {
               required: true,
               min: 3,
             })}
             label="First name:"
-            error={!!Object.keys(errors?.name ?? {}).length}
-            fieldError={errors?.name}
-            errorMessage={errors?.name?.message}
+            error={errors?.name?.message}
           />
           <Input
-            register={register('email', {
+            {...register('email', {
               required: true,
             })}
             label="E-mail address:"
-            error={!!Object.keys(errors?.email ?? {}).length}
-            fieldError={errors?.email}
-            errorMessage={errors?.email?.message}
+            error={errors?.email?.message}
           />
           {/* 
           <Input
