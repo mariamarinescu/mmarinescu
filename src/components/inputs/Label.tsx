@@ -1,21 +1,23 @@
 import { clsx } from 'clsx';
+import useInputStyle from './useInputStyle';
 
 interface BaseLabel {
   id: string;
   className?: string;
+  required?: boolean;
   children?: React.ReactNode;
 }
 
-export const Label = ({ id, className, children }: BaseLabel) => {
+export const Label = ({
+  id,
+  className,
+  required = false,
+  children,
+}: BaseLabel) => {
+  const styles = useInputStyle();
   return (
-    <label
-      className={clsx(
-        'block text-base font-medium text-gray-500 dark:text-gray-200 mb-1 text-start',
-        className
-      )}
-      htmlFor={id}
-    >
-      {children}
+    <label className={clsx(styles.label, className)} htmlFor={id}>
+      {children} {required && <span>*</span>}
     </label>
   );
 };
