@@ -12,16 +12,16 @@ import { SwiperImage } from '.';
 import { imageCollection } from './imageCollection';
 
 interface IntroductionDetailsCardProps {
-  style?: string;
+  className?: string;
 }
 
 export const IntroductionDetailsCard: React.FC<
   IntroductionDetailsCardProps
-> = ({ style }) => {
+> = ({ className }) => {
   return (
     <div
       className={clsx(
-        style,
+        className,
         'h-full bg-white dark:bg-lighter-gray-1 border-lighter-gray-1 border flex items-center'
       )}
     >

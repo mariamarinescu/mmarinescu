@@ -3,16 +3,16 @@ import { SimpleButton } from 'components/buttons';
 import { MdOutlineFileDownload } from 'react-icons/md';
 
 interface IntroductionMainCardProps {
-  style?: string;
+  className?: string;
 }
 
 export const IntroductionMainCard: React.FC<IntroductionMainCardProps> = ({
-  style,
+  className,
 }) => {
   return (
     <div
       className={clsx(
-        style,
+        className,
         'h-[94%] bg-white dark:bg-darker-gray-1 border-darker-gray-1 border rounded-r-lg md:rounded-r-none p-4 lg:p-8'
       )}
     >
