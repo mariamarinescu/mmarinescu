@@ -1,60 +1,41 @@
-// import { FieldValues, Path, UseFormRegister } from 'react-hook-form';
-
-// interface Props<T extends FieldValues> {
-//   label: string;
-//   name: keyof T;
-//   type?: 'text' | 'email' | 'password';
-//   register: UseFormRegister<T>;
-//   error?: string;
-//   placeholder?: string;
-// }
-
-// const FormField = <T extends FieldValues>({
-//   label,
-//   name,
-//   type = 'text',
-//   register,
-//   error,
-// }: Props<T>) => {
-//   const nameStr = name as string;
-//   return (
-//     <div className="flex flex-col gap-4 border p-2">
-//       <label className="font-bold" htmlFor={nameStr}>
-//         {label}
-//       </label>
-//       <input type={type} id={nameStr} {...register(name as Path<T>)} />
-//       {error && <span className="text-red-500">{error}</span>}
-//     </div>
-//   );
-// };
-
-// export default FormField;
-
+import clsx from 'clsx';
 import { forwardRef, useId } from 'react';
+import { Label } from './Label';
+import useInputStyle, { InputStyle } from './useInputStyle';
 
 interface Props {
   label: string;
   type?: 'text' | 'email' | 'password';
   error?: string;
   placeholder?: string;
+  required?: boolean;
+  customStyle?: Partial<InputStyle>;
 }
 
 export const Input = forwardRef<HTMLInputElement, Props>(
-  ({ label, error, placeholder, type, ...props }, ref) => {
+  (
+    { label, error, placeholder, type, required, customStyle, ...props },
+    ref
+  ) => {
     const id = useId();
+    const style = useInputStyle(customStyle);
+
     return (
-      <div className="flex flex-col gap-4 border p-2">
-        <label className="font-bold" id={id}>
+      <div className={style.container}>
+        <Label id={id} required={required}>
           {label}
-        </label>
+        </Label>
         <input
+          className={clsx(style.base, error && style.error)}
           type={type}
           placeholder={placeholder}
           id={id}
           ref={ref}
           {...props}
         />
-        {error && <span className="text-red-500">{error}</span>}
+        <div className={style.errorContainer}>
+          {error && <span className={style.errorMessage}>{error}</span>}
+        </div>
       </div>
     );
   }
