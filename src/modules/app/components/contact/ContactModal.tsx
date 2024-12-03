@@ -1,12 +1,28 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { Input, Modal, SimpleButton } from 'components/index'; // TODO: fix imports alias
 import { RefObject } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { ModalProps } from 'src/types';
+import * as z from 'zod';
 import { useSendEmail } from './useSendEmail';
 
+const FormSchema = z.object({
+  name: z.string().trim().min(3, 'Name must not be lesser than 3 characters'),
+  email: z.string().email('Invalid email. Email must be a valid email address'),
+  user_message: z
+    .string()
+    .trim()
+    .min(50, { message: 'Message must be at least 50 characters long.' })
+    .max(2300, { message: 'Message must not exceed 2300 characters.' })
+    .refine((value) => /^[a-zA-Z0-9\s.,'"\-!?]*$/.test(value), {
+      message: 'Message contains invalid characters.',
+    }),
+});
+
+type FormInputType = z.infer<typeof FormSchema>;
+
 interface FormValues {
-  firstName: string;
-  lastName: string;
+  name: string;
   email: string;
   user_message: string;
 }
@@ -27,11 +43,13 @@ export const ContactModal: React.FC<ContactModalProps> = ({
     formState: { isValid, errors },
     trigger,
     clearErrors,
-  } = useForm<FormValues>();
+  } = useForm<FormInputType>({
+    resolver: zodResolver(FormSchema),
+  });
 
   const sendEmail = useSendEmail();
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
+  const onSubmit: SubmitHandler<FormInputType> = (data) => {
     if (!isValid) {
       return trigger();
     }
@@ -73,33 +91,14 @@ export const ContactModal: React.FC<ContactModalProps> = ({
         >
           <div className="flex flex-col w-full min-h-[400px] pt-2 pb-4 gap-2">
             <Input
-              register={register('firstName', {
+              register={register('name', {
                 required: true,
                 min: 3,
               })}
               label="First name:"
-              error={!!Object.keys(errors?.firstName ?? {}).length}
-              fieldError={errors?.firstName}
-              errorMessage={
-                errors?.firstName?.type === 'required'
-                  ? 'First name is required.'
-                  : ''
-              }
-            />
-
-            <Input
-              register={register('lastName', {
-                required: true,
-                min: 3,
-              })}
-              label="Last name:"
-              error={!!Object.keys(errors?.lastName ?? {}).length}
-              fieldError={errors?.lastName}
-              errorMessage={
-                errors?.lastName?.type === 'required'
-                  ? 'Last name is required.'
-                  : ''
-              }
+              error={!!Object.keys(errors?.name ?? {}).length}
+              fieldError={errors?.name}
+              errorMessage={errors?.name?.message}
             />
             <Input
               register={register('email', {
@@ -108,11 +107,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               label="E-mail address:"
               error={!!Object.keys(errors?.email ?? {}).length}
               fieldError={errors?.email}
-              errorMessage={
-                errors?.email?.type === 'required'
-                  ? 'E-mail is required.'
-                  : 'Seems that e-mail is incorrect. Please try again!'
-              }
+              errorMessage={errors?.email?.message}
             />
 
             <Input
@@ -122,11 +117,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               label="Message:"
               error={!!Object.keys(errors?.user_message ?? {}).length}
               fieldError={errors?.user_message}
-              errorMessage={
-                errors?.user_message?.type === 'required'
-                  ? 'Message cannot be empty!'
-                  : ''
-              }
+              errorMessage={errors?.user_message?.message}
               inputClassName="h-full"
               className="h-[140px] mb-4"
             />
