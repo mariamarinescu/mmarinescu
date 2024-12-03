@@ -13,7 +13,7 @@ interface Props {
   customStyle?: Partial<InputStyle>;
 }
 
-export const TextAreaInput = forwardRef<HTMLTextAreaElement, Props>(
+export const TextArea = forwardRef<HTMLTextAreaElement, Props>(
   (
     {
       label,

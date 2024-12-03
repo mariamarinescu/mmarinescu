@@ -1,31 +1,49 @@
 import emailjs from '@emailjs/browser';
+import { UseFormReset } from 'react-hook-form';
 
 const env = import.meta.env;
 
-interface sendEmailProps {
-  ref: any;
-  event: any;
+interface DataType {
+  name: string;
+  email: string;
+  message: string;
 }
 
-export const useSendEmail = () => {
-  return ({ ref, event }: sendEmailProps) => {
-    event.preventDefault();
+interface useSendEmailProps {
+  data: DataType;
+  // event: any;
+}
+
+export const useSendEmail = (reset: UseFormReset<DataType>) => {
+  return ({ data }: useSendEmailProps) => {
+    // event.preventDefault();
+
+    const templateParams: {
+      from_name: string;
+      from_email: string;
+      message: string;
+    } = {
+      from_name: data.name,
+      from_email: data.email,
+      message: data.message,
+    };
 
     return emailjs
-      .sendForm(
+      .send(
         env.VITE_EMAILJS_SERVICE_ID,
         env.VITE_EMAILJS_TEMPLATE_ID,
-        ref.current(),
+        templateParams,
         {
           publicKey: env.VITE_EMAILJS_PUBLIC_KEY,
         }
       )
       .then(
         () => {
-          console.log('Success');
+          console.log('Email sent successfully!');
+          reset();
         },
         (error) => {
-          console.log('Failed...', error.text);
+          console.error('Error', error.text);
         }
       );
   };

@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SimpleButton } from 'components/buttons';
-import { Input, TextAreaInput } from 'components/inputs';
-import { RefObject } from 'react';
+import { TextArea } from 'components/inputs';
+import { Input } from 'components/inputs/Input';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { useSendEmail } from './useSendEmail';
@@ -9,7 +9,7 @@ import { useSendEmail } from './useSendEmail';
 const FormSchema = z.object({
   name: z.string().trim().min(3, 'Name must not be lesser than 3 characters'),
   email: z.string().email('Invalid email. Email must be a valid email address'),
-  user_message: z
+  message: z
     .string()
     .trim()
     .min(50, { message: 'Message must be at least 50 characters long.' })
@@ -19,28 +19,32 @@ const FormSchema = z.object({
     }),
 });
 
+const defaultValues = {
+  name: '',
+  email: '',
+  message: '',
+};
+
 type FormInputType = z.infer<typeof FormSchema>;
 
-interface FormProps {
-  formRef: RefObject<HTMLFormElement> | null;
-}
-
-export default function Form({ formRef }: FormProps) {
+export default function ContactForm() {
   const {
     register,
     handleSubmit,
     formState: { isValid, errors },
     trigger,
+    reset,
   } = useForm<FormInputType>({
     resolver: zodResolver(FormSchema),
+    defaultValues: defaultValues,
   });
-  const sendEmail = useSendEmail();
+  const sendEmail = useSendEmail(reset);
 
   const onSubmit: SubmitHandler<FormInputType> = (data) => {
     if (!isValid) {
       return trigger();
     }
-    const response = sendEmail({ ref: formRef, event: data });
+    const response = sendEmail({ data });
 
     ({ response });
   };
@@ -52,7 +56,6 @@ export default function Form({ formRef }: FormProps) {
       </div>
 
       <form
-        // ref={formRef}
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col h-full w-full justify-start pt-3 gap-3"
       >
@@ -72,13 +75,13 @@ export default function Form({ formRef }: FormProps) {
             error={errors?.email?.message}
             required
           />
-          <TextAreaInput
-            {...register('user_message')}
+          <TextArea
+            {...register('message')}
             rows={10}
             maxLength={2300}
             aria-describedby="char-counter"
             label="Message"
-            error={errors?.user_message?.message}
+            error={errors?.message?.message}
             required
           />
         </div>
@@ -90,14 +93,7 @@ export default function Form({ formRef }: FormProps) {
               return onSubmit(values);
             }}
           >
-            <p
-              className="text-base"
-              // className={clsx(
-              //   !isValid ? 'text-black hover:text-white' : 'text-white'
-              // )}
-            >
-              Submit
-            </p>
+            <p className="text-base">Submit</p>
           </SimpleButton>
         </div>
       </form>

@@ -1,15 +1,11 @@
 import { Modal } from 'components/index'; // TODO: fix imports alias
-import { RefObject } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { ModalProps } from 'src/types';
 import ContactForm from './ContactForm';
 
-interface ContactModalProps extends ModalProps {
-  formRef: RefObject<HTMLFormElement> | null;
-}
+interface ContactModalProps extends ModalProps {}
 
 export const ContactModal: React.FC<ContactModalProps> = ({
-  formRef,
   open,
   onClose: closeModal,
   ...restProps
@@ -38,7 +34,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
       {...restProps}
     >
       <FormProvider {...methods}>
-        <ContactForm formRef={formRef} />
+        <ContactForm />
       </FormProvider>
     </Modal>
   );
