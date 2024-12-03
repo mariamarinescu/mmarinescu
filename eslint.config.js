@@ -7,30 +7,38 @@ import reactHooks from 'eslint-plugin-react-hooks';
 
 export default [
   {
-    ignores: ['node_modules', 'dist', 'build'],
+    ignores: ['node_modules', 'dist'],
   },
   js.configs.recommended,
   {
-    files: ['**/*.js', '**/*.jsx'],
+    files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
       sourceType: 'module',
-      ecmaVersion: 'latest',
+      ecmaVersion: latest,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
       globals: {
         React: 'writable',
       },
     },
-    plugins: { react, reactHooks, importPlugin, jsxA11y },
+    plugins: {
+      react,
+      reactHooks,
+      jsxA11y,
+      importPlugin,
+    },
     rules: {
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
-
       'react/jsx-key': 'warn',
       'react/no-deprecated': 'warn',
       'react/no-unknown-property': 'warn',
       'react/self-closing-comp': 'warn',
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
-
       'import/order': [
         'warn',
         {
@@ -51,11 +59,17 @@ export default [
       ],
       'import/no-unresolved': 'error',
       'import/no-duplicates': 'warn',
-
-      'jsx-a11y/alt-text': 'warn',
       'jsx-a11y/anchor-is-valid': 'warn',
+      'jsx-a11y/no-autofocus': 'warn',
+      'jsx-a11y/alt-text': 'warn',
       'jsx-a11y/click-events-have-key-events': 'warn',
       'jsx-a11y/no-static-element-interactions': 'warn',
+    },
+  },
+  {
+    plugins: ['prettier'],
+    rules: {
+      'prettier/prettier': 'warn',
     },
   },
   prettier,
