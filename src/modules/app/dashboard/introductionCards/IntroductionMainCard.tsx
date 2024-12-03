@@ -13,7 +13,7 @@ export const IntroductionMainCard: React.FC<IntroductionMainCardProps> = ({
     <div
       className={clsx(
         className,
-        'h-[94%] bg-white dark:bg-darker-gray-1 border-darker-gray-1 border rounded-r-lg md:rounded-r-none p-4 lg:p-8'
+        'h-[94%] bg-white dark:bg-gray-dark-muted border-gray-dark-muted border rounded-r-lg md:rounded-r-none p-4 lg:p-8'
       )}
     >
       <div className="w-full h-full text-black dark:text-white flex flex-col gap-2">

@@ -22,7 +22,7 @@ export const IntroductionDetailsCard: React.FC<
     <div
       className={clsx(
         className,
-        'h-full bg-white dark:bg-lighter-gray-1 border-lighter-gray-1 border flex items-center'
+        'h-full bg-white dark:bg-gray-light-muted border-gray-light-muted border flex items-center'
       )}
     >
       <Swiper

@@ -52,8 +52,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({
       onClose={onClose}
       classNames={{
         modal:
-          'rounded-lg bg-white dark:bg-darker-gray-1 border dark:border-white text-darker-gray-1 dark:text-white text-lg xl:text-xl',
-        closeIcon: 'dark:text-white text-darker-gray-1',
+          'rounded-lg bg-white dark:bg-gray-dark-muted border dark:border-white text-gray-dark-muted dark:text-white text-lg xl:text-xl',
+        closeIcon: 'dark:text-white text-gray-dark-muted',
       }}
       styles={{
         modalContainer: {

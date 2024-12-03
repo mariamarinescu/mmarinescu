@@ -15,7 +15,7 @@ export const ContactButton: React.FC<ContactButtonProps> = ({
         data-tooltip-content="Contact me"
         data-tooltip-id="contact-button"
       >
-        <div className="w-10 h-10 flex rounded-full justify-center items-center border border-neon-pink hover:bg-neon-pink hover:text-white dark:text-white dark:hover:text-white">
+        <div className="w-10 h-10 flex rounded-full justify-center items-center border border-neon-purple hover:bg-neon-purple hover:text-white dark:text-white dark:hover:text-white">
           <MdAlternateEmail size={20} />
         </div>
       </button>

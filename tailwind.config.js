@@ -6,15 +6,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        'th-darker-gray': '#212121',
-        'th-lighter-gray': '#2F2F2F',
-        'th-medium-light-gray-1': '#B4B4B4',
-        'th-medium-light-gray-2': '#B2B2B2',
-        'th-medium-light-gray-3': '#0D0D0D',
-        'lighter-gray-1': '#262931',
-        'darker-gray-1': '#212429',
-        'neon-pink': '#9461fd',
-        'dark-theme-bg': '#121212',
+        'gray-dark': '#212121',
+        'gray-medium': '#2F2F2F',
+        'gray-light-1': '#B4B4B4',
+        'gray-light-2': '#B2B2B2',
+        'black-muted': '#0D0D0D',
+        'gray-light-muted': '#262931',
+        'gray-dark-muted': '#212429',
+        'neon-purple': '#9461fd',
+        'theme-dark-bg': '#121212',
       },
       screens: {
         xs: '320px',
