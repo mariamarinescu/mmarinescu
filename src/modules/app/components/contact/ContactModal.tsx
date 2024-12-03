@@ -1,9 +1,8 @@
-import { SimpleButton } from 'components/buttons';
-import { Input, Modal } from 'components/index';
-import { useSendEmail } from 'modules/app/hooks';
+import { Input, Modal, SimpleButton } from 'components/index'; // TODO: fix imports alias
 import { RefObject } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { ModalProps } from 'src/types';
+import { useSendEmail } from './useSendEmail';
 
 interface FormValues {
   firstName: string;
@@ -38,7 +37,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
     }
     const response = sendEmail({ ref: formRef, event: data });
 
-    console.log({ response });
+    ({ response });
   };
 
   const onClose = () => {
