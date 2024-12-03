@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SimpleButton } from 'components/buttons';
-import { Input } from 'components/inputs';
+import { Input, TextAreaInput } from 'components/inputs';
 import { RefObject } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -62,39 +62,25 @@ export default function Form({ formRef }: FormProps) {
               required: true,
               min: 3,
             })}
-            label="First name:"
+            label="First name"
             error={errors?.name?.message}
+            required
           />
           <Input
-            {...register('email', {
-              required: true,
-            })}
-            label="E-mail address:"
+            {...register('email')}
+            label="E-mail address"
             error={errors?.email?.message}
+            required
           />
-          {/* 
-          <Input
-            register={register('user_message', {
-              required: true,
-            })}
-            label="Message:"
-            error={!!Object.keys(errors?.user_message ?? {}).length}
-            fieldError={errors?.user_message}
-            errorMessage={errors?.user_message?.message}
-            inputClassName="h-full"
-            className="h-[140px] mb-4"
-          /> */}
-
-          <textarea
-            id="user_message"
-            name="user_message"
+          <TextAreaInput
+            {...register('user_message')}
             rows={10}
             maxLength={2300}
-            placeholder="Write your message here (up to 2300 characters)..."
             aria-describedby="char-counter"
+            label="Message"
+            error={errors?.user_message?.message}
             required
-          ></textarea>
-          <span id="char-counter">0/2300 characters used</span>
+          />
         </div>
 
         <div className="flex flex-col h-fit">
