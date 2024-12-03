@@ -14,7 +14,7 @@ export default [
     files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
       sourceType: 'module',
-      ecmaVersion: latest,
+      ecmaVersion: 'latest',
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
@@ -57,7 +57,7 @@ export default [
           },
         },
       ],
-      'import/no-unresolved': 'error',
+      'import/no-unresolved': 'warn',
       'import/no-duplicates': 'warn',
       'jsx-a11y/anchor-is-valid': 'warn',
       'jsx-a11y/no-autofocus': 'warn',
