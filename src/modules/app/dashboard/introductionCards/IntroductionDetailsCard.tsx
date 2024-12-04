@@ -6,9 +6,9 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/zoom';
 
+import { SwiperImage } from 'components/index';
 import { A11y, Navigation, Pagination, Scrollbar, Zoom } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { SwiperImage } from '.';
 import { imageCollection } from './imageCollection';
 
 interface IntroductionDetailsCardProps {
@@ -22,7 +22,7 @@ export const IntroductionDetailsCard: React.FC<
     <div
       className={clsx(
         className,
-        'h-full bg-white dark:bg-gray-light-muted border-gray-light-muted border flex items-center'
+        'flex h-full items-center border border-gray-light-muted bg-white dark:bg-gray-light-muted'
       )}
     >
       <Swiper
@@ -40,7 +40,7 @@ export const IntroductionDetailsCard: React.FC<
             id={id}
             key={id}
             zoom={isZoomable}
-            className="text-white bg-white "
+            className="bg-white text-white"
           >
             <SwiperImage {...imageComponentProps} />
           </SwiperSlide>

@@ -28,14 +28,12 @@ export const ChangeThemeButton: React.FC<ThemeButtonProps> = () => {
     <>
       <div
         className="flex h-fit w-fit"
-        data-tooltip-content={`Switch ${!!darkThemeStatus ? 'light' : 'dark'} theme`}
+        data-tooltip-content={`Switch to ${!!darkThemeStatus ? 'light' : 'dark'} theme`}
         data-tooltip-id="theme-switch-button"
       >
         <ToggleButton
-          activeIcon={<IoMdSunny style={{ fontSize: '20px' }} />}
-          inactiveIcon={
-            <IoMdMoon style={{ fontSize: '20px' }} className="text-gray-800" />
-          }
+          activeIcon={<IoMdSunny size={20} />}
+          inactiveIcon={<IoMdMoon size={20} className="text-gray-800" />}
           activeBgColor="bg-gray-dark"
           inactiveBgColor="hover:bg-gray-medium"
           className="right-4 top-4 border border-neon-purple"

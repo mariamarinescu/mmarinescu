@@ -20,7 +20,7 @@ export interface ButtonProps {
 
 const variantStyles = {
   primary:
-    'border border-neon-purple bg-none text-black hover:bg-neon-purple hover:text-white dark:text-white dark:hover:text-white',
+    'border border-gray-800 dark:border-gray-200 bg-none text-black hover:border-neon-purple dark:hover:border-neon-purple hover:text-white dark:text-white dark:hover:text-white',
   secondary:
     'border border-gray-300 bg-gray-100 text-gray-800 hover:bg-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600',
   text: 'bg-transparent hover:underline text-blue-500 dark:text-blue-400',

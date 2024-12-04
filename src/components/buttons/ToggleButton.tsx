@@ -46,7 +46,7 @@ const sizeClasses: SizeClasses = {
   md: {
     button: 'h-[40px] w-[72px]',
     inner: 'h-7 w-7',
-    translate: 'translate-x-8',
+    translate: 'translate-x-7',
     iconSize: 'w-4 h-4',
   },
   lg: {
