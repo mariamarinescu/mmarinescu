@@ -1,8 +1,5 @@
 import clsx from 'clsx';
-import { ButtonWithTooltip } from 'components/buttons/ButtonWithTooltip';
-import { ContactModal } from 'modules/app/components/contact';
-import { useState } from 'react';
-import { MdAlternateEmail, MdOutlineFileDownload } from 'react-icons/md';
+import { ContactButtonRow } from './ContactButtonRow';
 
 interface IntroductionMainCardProps {
   className?: string;
@@ -11,8 +8,6 @@ interface IntroductionMainCardProps {
 export const IntroductionMainCard: React.FC<IntroductionMainCardProps> = ({
   className,
 }) => {
-  const [isContactFormOpen, setContactFormOpen] = useState(false);
-
   return (
     <div
       className={clsx(
@@ -41,30 +36,7 @@ export const IntroductionMainCard: React.FC<IntroductionMainCardProps> = ({
           </div>
         </div>
 
-        <>
-          <div className="h-inherit align-center flex w-full justify-end gap-1">
-            <ButtonWithTooltip
-              onClick={() => setContactFormOpen(true)}
-              dataTooltipContent="Contact me"
-              dataTooltipId="contact-button"
-              icon={<MdAlternateEmail size={20} />}
-              size="medium"
-            />
-            <ButtonWithTooltip
-              href="https://drive.google.com/file/d/1U9z0-8gRL1Wjevx0Whm2Hq9U9AzsjLtV/view?usp=sharing"
-              dataTooltipContent="Download resume"
-              dataTooltipId="my-tooltip"
-              icon={<MdOutlineFileDownload size={20} />}
-              iconPosition="left"
-              label="Resume"
-              size="medium"
-            />
-          </div>
-          <ContactModal
-            open={isContactFormOpen}
-            onClose={() => setContactFormOpen(false)}
-          />
-        </>
+        <ContactButtonRow />
       </div>
     </div>
   );
