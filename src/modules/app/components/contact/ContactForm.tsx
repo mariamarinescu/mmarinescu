@@ -19,10 +19,10 @@ const FormSchema = z.object({
     }),
 });
 
-const defaultValues = {
-  name: '',
-  email: '',
-  message: '',
+const defaultFormValues = {
+  name: undefined,
+  email: undefined,
+  message: undefined,
 };
 
 type FormInputType = z.infer<typeof FormSchema>;
@@ -31,40 +31,47 @@ export default function ContactForm() {
   const {
     register,
     handleSubmit,
-    formState: { isValid, errors },
-    trigger,
-    reset,
+    formState: { isValid, errors, defaultValues },
   } = useForm<FormInputType>({
     resolver: zodResolver(FormSchema),
-    defaultValues: defaultValues,
+    defaultValues: defaultFormValues,
+    mode: 'onChange',
   });
-  const sendEmail = useSendEmail(reset);
+  const sendEmail = useSendEmail();
 
-  const onSubmit: SubmitHandler<FormInputType> = (data) => {
-    if (!isValid) {
-      return trigger();
+  const onSubmit: SubmitHandler<FormInputType> = async (data) => {
+    console.log({
+      isValid,
+      errors,
+      defaultValues,
+      data: data.name === '',
+    });
+    try {
+      return sendEmail({
+        from_name: data.name,
+        from_email: data.email,
+        message: data.message,
+      });
+      // console.log({ response });
+      // reset();
+    } catch (error) {
+      console.error('Error sending email:', error);
     }
-    const response = sendEmail({ data });
-
-    ({ response });
   };
 
   return (
-    <div className="w-[75vw] md:w-[400px] h-full bg-transparent flex flex-col">
+    <div className="flex h-full w-[75vw] flex-col bg-transparent md:w-[400px]">
       <div className="flex w-full items-center justify-center">
         <h3 className="text-gray-500 dark:text-gray-100">Contact me</h3>
       </div>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col h-full w-full justify-start pt-3 gap-3"
+        className="flex h-full w-full flex-col justify-start gap-3 pt-3"
       >
-        <div className="flex flex-col w-full min-h-[400px] pt-2 pb-4 gap-2">
+        <div className="flex min-h-[400px] w-full flex-col gap-0.5 pb-4 pt-2">
           <Input
-            {...register('name', {
-              required: true,
-              min: 3,
-            })}
+            {...register('name')}
             label="First name"
             error={errors?.name?.message}
             required
@@ -86,12 +93,13 @@ export default function ContactForm() {
           />
         </div>
 
-        <div className="flex flex-col h-fit">
+        <div className="flex h-fit flex-col">
           <SimpleButton
             type="submit"
             onClick={(values: any) => {
               return onSubmit(values);
             }}
+            disabled={!isValid}
           >
             <p className="text-base">Submit</p>
           </SimpleButton>
