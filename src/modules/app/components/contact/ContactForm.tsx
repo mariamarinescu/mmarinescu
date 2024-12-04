@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { SimpleButton } from 'components/buttons';
+import { Button } from 'components/buttons';
 import { TextArea } from 'components/inputs';
 import { Input } from 'components/inputs/Input';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -31,7 +31,9 @@ export default function ContactForm() {
   const {
     register,
     handleSubmit,
-    formState: { isValid, errors, defaultValues },
+    formState: { isValid, errors },
+    trigger,
+    reset,
   } = useForm<FormInputType>({
     resolver: zodResolver(FormSchema),
     defaultValues: defaultFormValues,
@@ -40,20 +42,19 @@ export default function ContactForm() {
   const sendEmail = useSendEmail();
 
   const onSubmit: SubmitHandler<FormInputType> = async (data) => {
-    console.log({
-      isValid,
-      errors,
-      defaultValues,
-      data: data.name === '',
-    });
+    if (!isValid) {
+      trigger();
+      return;
+    }
+
     try {
-      return sendEmail({
+      const response = sendEmail({
         from_name: data.name,
         from_email: data.email,
         message: data.message,
       });
-      // console.log({ response });
-      // reset();
+      console.log({ response });
+      reset();
     } catch (error) {
       console.error('Error sending email:', error);
     }
@@ -94,7 +95,7 @@ export default function ContactForm() {
         </div>
 
         <div className="flex h-fit flex-col">
-          <SimpleButton
+          <Button
             type="submit"
             onClick={(values: any) => {
               return onSubmit(values);
@@ -102,7 +103,7 @@ export default function ContactForm() {
             disabled={!isValid}
           >
             <p className="text-base">Submit</p>
-          </SimpleButton>
+          </Button>
         </div>
       </form>
     </div>
