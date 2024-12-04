@@ -1,4 +1,4 @@
-import { ContactButton, DarkModeButton } from 'components/buttons';
+import { ChangeThemeButton, ContactButton } from 'components/buttons';
 import { useState } from 'react';
 import { checkIsMobile } from 'src/utils';
 import { ContactModal } from './contact';
@@ -10,7 +10,7 @@ export const TopNavBarContent = () => {
   return (
     <>
       <ContactButton setContactFormOpen={setContactFormOpen} />
-      <DarkModeButton isMobile={isMobile} />
+      <ChangeThemeButton isMobile={isMobile} />
       <ContactModal
         open={isContactFormOpen}
         onClose={() => setContactFormOpen(false)}
