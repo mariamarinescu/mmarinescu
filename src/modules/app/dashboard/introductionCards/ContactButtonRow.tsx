@@ -19,7 +19,7 @@ export const ContactButtonRow = () => {
           label="Contact"
         />
         <ButtonWithTooltip
-          href="https://drive.google.com/file/d/1U9z0-8gRL1Wjevx0Whm2Hq9U9AzsjLtV/view?usp=sharing"
+          href="https://drive.google.com/file/d/1OddetrK6XoQl-V7YQf9WPuLLW6w-RF-O/view?usp=sharing"
           dataTooltipContent="Download resume"
           dataTooltipId="my-tooltip"
           icon={<MdOutlineFileDownload size={20} />}
