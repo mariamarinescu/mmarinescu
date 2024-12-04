@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 interface SizeClass {
   button: string;
   inner: string;
-  translate: string; // Toggle effect transition classes
+  translate: string;
   iconSize: string;
 }
 
@@ -21,7 +21,7 @@ type Size = keyof SizeClasses;
 interface ToggleButtonProps {
   initialEnabled?: boolean;
   onChange?: (enabled: boolean) => void;
-  label?: string; // Accessibility label
+  label?: string;
   activeIcon?: React.ReactNode;
   inactiveIcon?: React.ReactNode;
   className?: string;
@@ -98,19 +98,18 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
   const buttonSizeClasses = currentSizeClasses.button;
 
   return (
-    <Switch checked={enabled} onChange={handleToggle} as={React.Fragment}>
+    <Switch
+      checked={enabled}
+      onChange={handleToggle}
+      className={clsx(
+        className,
+        buttonBaseClasses,
+        buttonStateClasses,
+        buttonSizeClasses
+      )}
+    >
       {({ checked }) => (
-        <button
-          role="switch"
-          aria-checked={checked}
-          aria-label={label}
-          className={clsx(
-            className,
-            buttonBaseClasses,
-            buttonStateClasses,
-            buttonSizeClasses
-          )}
-        >
+        <>
           <span className="sr-only">{label}</span>
           <span
             className={clsx(
@@ -125,7 +124,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
               renderIcon(checked)
             )}
           </span>
-        </button>
+        </>
       )}
     </Switch>
   );
