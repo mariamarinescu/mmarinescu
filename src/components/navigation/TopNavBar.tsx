@@ -10,8 +10,8 @@ export const TopNavBar: React.FC<TopNavBarProps> = ({
   return (
     <div
       className={clsx(
-        'flex items-center gap-4 flex-row justify-end w-screen bg-white',
-        'dark:bg-gray-dark h-8 sm:h-16 xl:h-20 px-6 md:px-9 py-8 border-gray-dark border'
+        'flex w-screen flex-row items-center justify-end gap-4 bg-white',
+        'main-padding h-8 border border-gray-dark dark:bg-gray-dark sm:h-16 xl:h-20'
       )}
     >
       {children}

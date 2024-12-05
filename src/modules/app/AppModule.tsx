@@ -5,7 +5,7 @@ import { Dashboard } from './dashboard/Dashboard';
 
 export const AppModule = () => {
   return (
-    <main className="flex flex-col content-between w-screen h-screen">
+    <main className="flex h-screen w-screen flex-col content-between">
       <TopNavBar>
         <TopNavBarContent />
       </TopNavBar>

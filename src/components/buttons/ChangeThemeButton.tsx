@@ -36,7 +36,7 @@ export const ChangeThemeButton: React.FC<ThemeButtonProps> = () => {
           inactiveIcon={<IoMdMoon size={20} className="text-gray-800" />}
           activeBgColor="bg-gray-dark"
           inactiveBgColor="hover:bg-gray-medium"
-          className="right-4 top-4 border border-neon-purple"
+          className="right-4 top-4 border border-gray-800 hover:border-neon-purple dark:border-white dark:hover:border-neon-purple"
           label="Toggle dark mode"
           onChange={toggleDarkMode}
           size="md"

@@ -20,11 +20,11 @@ export interface ButtonProps {
 
 const variantStyles = {
   primary:
-    'border border-gray-800 dark:border-gray-200 bg-none text-black hover:border-neon-purple dark:hover:border-neon-purple hover:text-white dark:text-white dark:hover:text-white',
+    'border border-gray-800 dark:border-gray-200 bg-none text-black hover:border-neon-purple dark:hover:border-neon-purple hover:text-neon-purple dark:text-white dark:hover:text-neon-purple',
   secondary:
     'border border-gray-300 bg-gray-100 text-gray-800 hover:bg-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600',
   text: 'bg-transparent hover:underline text-blue-500 dark:text-blue-400',
-  icon: 'flex h-10 w-10 items-center justify-center rounded-full border border-neon-purple hover:bg-neon-purple hover:text-white dark:text-white dark:hover:text-white',
+  icon: 'flex h-10 w-10 items-center justify-center rounded-full border border-neon-purple hover:bg-neon-purple hover:text-white dark:text-white dark:hover:text-neon-purple',
 };
 
 const sizeStyles = {
