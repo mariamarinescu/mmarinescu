@@ -16,8 +16,11 @@ export const Label = ({
 }: BaseLabel) => {
   const styles = useInputStyle();
   return (
-    <label className={clsx(styles.label, className)} htmlFor={id}>
-      {children} {required && <span>*</span>}
+    <label
+      className={clsx(styles.label, className, 'prose font-serif lg:prose-xl')}
+      htmlFor={id}
+    >
+      {children} {required && <span>&nbsp;*</span>}
     </label>
   );
 };

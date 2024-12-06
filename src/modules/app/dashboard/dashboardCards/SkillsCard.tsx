@@ -13,7 +13,7 @@ import {
 } from './icons';
 import { RecoilIcon } from './icons/skillsCard/RecoilIcon';
 
-const iconClassName = 'h-8 w-8 md:h-12 md:w-12';
+const iconClassName = 'h-8 w-8 md:h-10 md:w-10';
 
 const buttonListConfig = [
   {

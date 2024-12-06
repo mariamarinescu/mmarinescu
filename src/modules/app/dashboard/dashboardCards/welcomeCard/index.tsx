@@ -15,7 +15,7 @@ export const WelcomeCard: React.FC<WelcomeCardProps> = ({ className }) => {
       )}
       title="Welcome!"
     >
-      <p className="text-pretty font-mono text-lg text-black dark:text-white">
+      <p className="prose text-pretty font-serif text-lg text-black lg:prose-xl dark:text-white">
         I'm Maria, a React.js developer with experience in fintech and podcast
         analytics, currently based in Berlin.
       </p>
