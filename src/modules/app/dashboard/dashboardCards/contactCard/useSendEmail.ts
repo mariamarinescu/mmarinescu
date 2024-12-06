@@ -3,7 +3,6 @@ import emailjs from '@emailjs/browser';
 const env = import.meta.env;
 
 interface DataType {
-  from_name: string;
   from_email: string;
   message: string;
 }
