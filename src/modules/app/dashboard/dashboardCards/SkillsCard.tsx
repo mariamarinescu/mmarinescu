@@ -3,6 +3,7 @@ import { ButtonWithTooltip } from 'components/buttons';
 import { Card } from 'components/containers';
 import {
   CSS3Icon,
+  EslintIcon,
   HTML5Icon,
   JSIcon,
   ReactIcon,
@@ -41,6 +42,12 @@ const buttonListConfig = [
     icon: <CSS3Icon className={iconClassName} />,
   },
   {
+    dataTooltipContent: 'Eslint',
+    dataTooltipId: 'my-eslint-tooltip',
+    icon: <EslintIcon className={iconClassName} />,
+  },
+
+  {
     dataTooltipContent: 'Tailwind',
     dataTooltipId: 'my-tailwind-tooltip',
     icon: <TailwindCSSIcon className={iconClassName} />,
@@ -67,7 +74,7 @@ interface SkillsCardProps {
 export const SkillsCard: React.FC<SkillsCardProps> = ({ className }) => {
   return (
     <Card title="What can I do?" className={clsx('h-full w-full', className)}>
-      <div className="align-center flex h-fit w-full flex-wrap items-center justify-start gap-2">
+      <div className="align-center flex h-fit w-full flex-wrap items-center justify-start gap-2 md:gap-4 lg:gap-5">
         {buttonListConfig.map(
           ({ dataTooltipContent, dataTooltipId, icon, href }) => (
             <ButtonWithTooltip
