@@ -17,6 +17,7 @@ const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
     ),
     label: 'Linkedin',
     className: buttonClassName,
+    id: 'linkedin-profile',
   },
   {
     href: 'https://github.com/mariamarinescu',
@@ -28,6 +29,7 @@ const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
     ),
     label: 'Github',
     className: buttonClassName,
+    id: 'github-profile',
   },
   {
     href: 'https://drive.google.com/file/d/1OddetrK6XoQl-V7YQf9WPuLLW6w-RF-O/view?usp=sharing',
@@ -36,6 +38,7 @@ const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
     ),
     label: 'Resume',
     className: buttonClassName,
+    id: 'download-resume',
   },
 ];
 
@@ -46,8 +49,14 @@ export const ContactButtonGroup = () => {
   return (
     <>
       <div className="h-inherit align-center flex w-full flex-wrap items-center justify-start gap-2">
-        {buttonListConfig.map(({ href, icon, label, className }) => (
-          <Button href={href} icon={icon} label={label} className={className} />
+        {buttonListConfig.map(({ href, icon, label, className, id }) => (
+          <Button
+            href={href}
+            icon={icon}
+            label={label}
+            className={className}
+            key={id}
+          />
         ))}
       </div>
     </>
