@@ -8,7 +8,7 @@ import {
 
 export const Dashboard: React.FC = () => {
   return (
-    <div className="main-padding min-custom-width relative flex h-fit grow flex-col items-start justify-start gap-4 bg-white dark:bg-theme-dark-bg">
+    <div className="main-padding relative flex h-fit grow flex-col items-start justify-start gap-4 bg-white dark:bg-theme-dark-bg">
       <div className="grid h-fit w-full grid-cols-1 gap-4 px-1 sm:px-6 md:grid-cols-2">
         <WelcomeCard />
         <SkillsCard />

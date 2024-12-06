@@ -14,13 +14,11 @@ export const AboutMeCard: React.FC<AboutMeCardProps> = ({ className }) => {
         <div className="float-right mb-1 ml-2 mr-2">
           <Woman className="float-right h-40 w-40" />
         </div>
-        <p className="text-justify font-mono text-gray-700 dark:text-gray-300">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged.
+        <p className="text-md text-justify font-mono text-gray-700 dark:text-gray-300 md:text-lg">
+          Away from my keyboard, I love connecting with nature on sunny days, at
+          the mountain or at the beach. On rainy days, I swap code for recipes,
+          cooking for loved ones and creating connections around the table. I
+          also enjoy quiet moments with a book or a brush.
         </p>
       </div>
     </Card>

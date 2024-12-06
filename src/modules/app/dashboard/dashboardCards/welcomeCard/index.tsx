@@ -13,10 +13,11 @@ export const WelcomeCard: React.FC<WelcomeCardProps> = ({ className }) => {
         'flex h-full w-full flex-col items-start justify-start gap-4',
         className
       )}
+      title="Welcome!"
     >
       <p className="text-pretty font-mono text-lg text-black dark:text-white">
-        Hi, I'm Maria, a web developer focused on React.js with a strong passion
-        for Python.
+        I'm Maria, a React.js developer with experience in fintech and podcast
+        analytics, currently based in Berlin.
       </p>
       <ContactButtonGroup />
     </Card>
