@@ -5,11 +5,7 @@ import { IoMdMoon, IoMdSunny } from 'react-icons/io';
 import { useRecoilState } from 'recoil';
 import darkThemeAtom from 'src/store/darkTheme/atom';
 
-interface ThemeButtonProps {
-  isMobile?: boolean;
-}
-
-export const ChangeThemeButton: React.FC<ThemeButtonProps> = () => {
+export const ThemeButton: React.FC = () => {
   const [isDarkActive, setIsDarkActive] = useState(false);
   const [darkThemeStatus, setDarkThemeStatusInStore] =
     useRecoilState(darkThemeAtom);

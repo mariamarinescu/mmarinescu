@@ -1,7 +1,10 @@
-import { SliderCard, WelcomeCard } from './introductionCards';
-import { AboutMeCard } from './introductionCards/AboutMeCard';
-import { ContactCard } from './introductionCards/ContactCard';
-import { SkillsCard } from './introductionCards/SkillsCard';
+import {
+  AboutMeCard,
+  ContactCard,
+  SkillsCard,
+  SliderCard,
+  WelcomeCard,
+} from './dashboardCards';
 
 export const Dashboard: React.FC = () => {
   return (

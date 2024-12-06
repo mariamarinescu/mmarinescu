@@ -4,7 +4,7 @@ import darkThemeAtom from 'src/store/darkTheme/atom';
 import { CVIcon, GitHubIcon, LinkedinIcon } from '../icons';
 
 const iconClassName = 'h-8 w-8';
-const buttonClassName = 'w-[120px] justify-start';
+const buttonClassName = 'w-32 justify-start';
 
 const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
   {
@@ -49,38 +49,6 @@ export const ContactButtonGroup = () => {
         {buttonListConfig.map(({ href, icon, label, className }) => (
           <Button href={href} icon={icon} label={label} className={className} />
         ))}
-        {/* <Button
-          href="https://www.linkedin.com/in/maria-marinescu"
-          icon={
-            <LinkedinIcon
-              className="h-8 w-8"
-              isDarkThemeActive={isDarkThemeActive}
-            />
-          }
-          label="Linkedin"
-          className="w-[120px] justify-start"
-        />
-
-        <Button
-          href="https://github.com/mariamarinescu"
-          icon={
-            <GitHubIcon
-              className="h-8 w-8"
-              isDarkThemeActive={isDarkThemeActive}
-            />
-          }
-          label="Github"
-          className="w-[120px] justify-start"
-        />
-
-        <Button
-          href="https://drive.google.com/file/d/1OddetrK6XoQl-V7YQf9WPuLLW6w-RF-O/view?usp=sharing"
-          icon={
-            <CVIcon className="h-8 w-8" isDarkThemeActive={isDarkThemeActive} />
-          }
-          label="Resume"
-          className="w-[120px] justify-start"
-        /> */}
       </div>
     </>
   );

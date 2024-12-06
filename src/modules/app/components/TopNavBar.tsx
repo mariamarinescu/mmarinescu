@@ -1,12 +1,7 @@
 import clsx from 'clsx';
+import { ThemeButton } from 'components/buttons';
 
-interface TopNavBarProps {
-  children?: React.ReactNode;
-}
-
-export const TopNavBar: React.FC<TopNavBarProps> = ({
-  children,
-}: TopNavBarProps) => {
+export const TopNavBar: React.FC = () => {
   return (
     <div
       className={clsx(
@@ -14,7 +9,7 @@ export const TopNavBar: React.FC<TopNavBarProps> = ({
         'main-padding h-8 border-b border-gray-dark dark:bg-gray-dark sm:h-16 xl:h-20'
       )}
     >
-      {children}
+      <ThemeButton />
     </div>
   );
 };

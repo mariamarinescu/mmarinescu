@@ -10,7 +10,7 @@ import {
   TailwindCSSIcon,
   TypescriptIcon,
 } from './icons';
-import { RecoilIcon } from './icons/RecoilIcon';
+import { RecoilIcon } from './icons/skillsCard/RecoilIcon';
 
 export const SkillsCard = ({ className }: { className?: string }) => {
   return (

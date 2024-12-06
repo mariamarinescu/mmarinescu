@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { Card } from 'components/containers';
-import ContactForm from 'modules/app/components/contact/ContactForm';
+import ContactForm from 'modules/app/dashboard/dashboardCards/contactCard/ContactForm';
 import { FormProvider, useForm } from 'react-hook-form';
 
 interface ContactCardProps {

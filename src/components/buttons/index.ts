@@ -1,4 +1,4 @@
 export * from './Button';
 export * from './ButtonWithTooltip';
-export * from './ChangeThemeButton';
+export * from './ThemeButton';
 export { ToggleButton } from './ToggleButton';
