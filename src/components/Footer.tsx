@@ -11,8 +11,8 @@ export const Footer: React.FC<FooterProps> = ({ className }: FooterProps) => {
   return (
     <div
       className={clsx(
-        'h-auto w-full border border-gray-dark bg-white text-center dark:bg-gray-dark',
-        'px-6 py-1 sm:h-10 md:px-9 xl:h-16'
+        'border border-gray-dark bg-white text-center dark:bg-gray-dark',
+        'h-auto w-full px-6 py-1 sm:h-10 md:px-9 xl:h-16'
       )}
     >
       <footer
