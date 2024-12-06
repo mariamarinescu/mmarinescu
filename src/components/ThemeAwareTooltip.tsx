@@ -25,7 +25,7 @@ export const ThemeAwareTooltip = ({
     <Tooltip
       id={id}
       place={place}
-      className="max-w-sm text-xs"
+      className="z-50 max-w-sm text-xs"
       variant={tooltipVariant}
     />
   );
