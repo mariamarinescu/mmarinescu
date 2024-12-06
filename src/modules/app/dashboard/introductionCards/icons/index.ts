@@ -1,6 +1,5 @@
 export * from './CSS3Icon';
 export * from './CVIcon';
-export * from './ContactMeIcon';
 export * from './GitHubIcon';
 export * from './HTML5Icon';
 export * from './JSIcon';

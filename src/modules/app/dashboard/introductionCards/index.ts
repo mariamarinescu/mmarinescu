@@ -1,2 +1,2 @@
-export { IntroductionDetailsCard } from './IntroductionDetailsCard';
-export { IntroductionMainCard } from './IntroductionMainCard';
+export { SliderCard } from './sliderCard';
+export { WelcomeCard } from './welcomeCard';

@@ -61,16 +61,9 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="flex h-full w-[75vw] flex-col bg-transparent md:w-[400px]">
-      <div className="flex w-full items-center justify-center">
-        <h3 className="text-gray-500 dark:text-gray-100">Contact me</h3>
-      </div>
-
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex h-full w-full flex-col justify-start gap-3 pt-3"
-      >
-        <div className="flex min-h-[400px] w-full flex-col gap-0.5 pb-4 pt-2">
+    <div className="flex h-full w-full flex-col justify-start bg-transparent">
+      <form onSubmit={handleSubmit(onSubmit)} className="h-full w-full">
+        <div className="flex w-full flex-col">
           <Input
             {...register('name')}
             label="First name"
@@ -85,7 +78,7 @@ export default function ContactForm() {
           />
           <TextArea
             {...register('message')}
-            rows={10}
+            rows={3}
             maxLength={2300}
             aria-describedby="char-counter"
             label="Message"
@@ -94,7 +87,7 @@ export default function ContactForm() {
           />
         </div>
 
-        <div className="flex h-fit flex-col">
+        <div className="flex h-fit w-full flex-col">
           <Button
             type="submit"
             onClick={(values: any) => {
