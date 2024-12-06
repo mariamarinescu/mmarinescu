@@ -8,12 +8,6 @@ const commonImgProps = {
 
 export const imageCollection = [
   {
-    src: './img/voxa/ezgif.com-video-to-gif-2.gif',
-    id: 'voxalyze_presentation_gif',
-    isZoomable: false,
-    ...commonImgProps,
-  },
-  {
     src: './img/voxa/Visibility-3.svg',
     id: 'voxalyze_presentation_1',
     isZoomable: true,
@@ -83,6 +77,12 @@ export const imageCollection = [
     src: './img/voxa/7.png',
     id: 'voxalyze_presentation_12',
     isZoomable: true,
+    ...commonImgProps,
+  },
+  {
+    src: './img/voxa/ezgif.com-video-to-gif-2.gif',
+    id: 'voxalyze_presentation_gif',
+    isZoomable: false,
     ...commonImgProps,
   },
 ];

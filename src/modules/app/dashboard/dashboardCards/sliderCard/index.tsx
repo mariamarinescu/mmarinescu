@@ -5,7 +5,14 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/zoom';
 
 import { Card, SwiperImage } from 'components/index';
-import { A11y, Navigation, Pagination, Scrollbar, Zoom } from 'swiper/modules';
+import {
+  A11y,
+  Autoplay,
+  Navigation,
+  Pagination,
+  Scrollbar,
+  Zoom,
+} from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { imageCollection } from './imageCollection';
 
@@ -18,7 +25,7 @@ export const SliderCard: React.FC<SliderCardProps> = ({ className }) => {
     <Card className={className} title="Some recent work highlights">
       <div>
         <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y, Zoom]}
+          modules={[Navigation, Pagination, Scrollbar, A11y, Zoom, Autoplay]}
           spaceBetween={50}
           slidesPerView={1}
           zoom
@@ -26,6 +33,11 @@ export const SliderCard: React.FC<SliderCardProps> = ({ className }) => {
           centeredSlides
           effect="cube"
           pagination={{ clickable: true }}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: true,
+          }}
+          loop={false}
         >
           {imageCollection.map(({ isZoomable, id, ...imageComponentProps }) => (
             <SwiperSlide
