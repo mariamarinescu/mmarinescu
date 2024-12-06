@@ -1,7 +1,13 @@
-export const GitHubIcon = ({ className }: { className?: string }) => {
+export const GitHubIcon = ({
+  className,
+  isDarkThemeActive,
+}: {
+  className?: string;
+  isDarkThemeActive?: boolean;
+}) => {
   return (
     <svg
-      fill="#000000"
+      fill={isDarkThemeActive ? '#FFFFFF' : '#000000'}
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       className={className}

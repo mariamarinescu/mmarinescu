@@ -1,4 +1,10 @@
-export const LinkedinIcon = ({ className }: { className?: string }) => {
+export const LinkedinIcon = ({
+  className,
+  isDarkThemeActive,
+}: {
+  className?: string;
+  isDarkThemeActive?: boolean;
+}) => {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -8,10 +14,10 @@ export const LinkedinIcon = ({ className }: { className?: string }) => {
     >
       <path
         d="M8 16V11M12 16V14M12 11V14M16 16V14C16 12.5 15.5 11 14 11C12.5 11 12 12.5 12 14M7.99 8H8M6 20H18C19.1046 20 20 19.1046 20 18V6C20 4.89543 19.1046 4 18 4H6C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20Z"
-        stroke="#000000"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        stroke={isDarkThemeActive ? '#FFFFFF' : '#000000'}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
