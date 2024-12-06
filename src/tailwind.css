@@ -17,6 +17,7 @@
     .min-custom-width { 
         @apply min-w-64
     }
-
-    
+    .main-text-size {
+        @apply text-base md:text-xl
+    }
 }
