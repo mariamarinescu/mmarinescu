@@ -1,63 +1,42 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    overflow-x: hidden;
-  }
-  
-  *, *::before, *::after {
-    box-sizing: inherit;
-  }
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 
 body {
-    font-family: 'roboto', sans-serif;
-    line-height: 1.5; 
-  }
-  
-  #root {
-    min-height: 100vh;
-    min-width: 100vw;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-  }
+  margin: 0;
+  font-family: sans-serif;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-  .card {
-    padding: 2em;
-  }
-  
-  .read-the-docs {
-    color: #888;
-  }
-  
-  
-  .linkedin-share-button {
-    cursor: pointer;
-  }
-  
-  .linkedin-share-button:hover:not(:active) {
-    opacity: 0.75;
-  }
+#root {
+  display: flex;
+  flex-direction: column;
+}
 
-  .swiper-pagination-bullet {
-    color: white;
-    background-color: gray;
-  }
+main {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.swiper-pagination-bullet {
+  color: white;
+  background-color: gray;
+}
 
 
-  .first-letter {
-    float: left; 
-    font-size: 2rem; 
-    line-height: 0.5; 
-    margin-right: 0.1rem; 
-  }
-
-  .swiper-button-prev,
-  .swiper-button-next {
-    color: red;
-  }
+.swiper-button-prev,
+.swiper-button-next {
+  color: red;
+}

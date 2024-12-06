@@ -5,13 +5,17 @@ import { Dashboard } from './dashboard/Dashboard';
 
 export const AppModule = () => {
   return (
-    <main className="flex h-screen w-screen flex-col content-between">
-      <TopNavBar>
-        <TopNavBarContent />
-      </TopNavBar>
-      <Dashboard />
-      <Footer />
-    </main>
+    <>
+      <header>
+        <TopNavBar>
+          <TopNavBarContent />
+        </TopNavBar>
+      </header>
+      <main>
+        <Dashboard />
+      </main>
+      <Footer className="footer" />
+    </>
   );
 };
 //
