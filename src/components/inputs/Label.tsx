@@ -17,10 +17,10 @@ export const Label = ({
   const styles = useInputStyle();
   return (
     <label
-      className={clsx(styles.label, className, 'prose font-serif lg:prose-xl')}
+      className={clsx(styles.label, className, 'custom-prose font-serif')}
       htmlFor={id}
     >
-      {children} {required && <span>&nbsp;*</span>}
+      {children} {required && <span className="text-red-600">&nbsp;*</span>}
     </label>
   );
 };

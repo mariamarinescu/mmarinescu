@@ -20,4 +20,10 @@
     .main-text-size {
         @apply text-base md:text-xl
     }
+    .custom-prose {
+        @apply prose-sm md:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl;
+    }
+    .custom-prose-title {
+        @apply prose-base md:prose-lg lg:prose-xl xl:prose-2xl
+    }
 }
