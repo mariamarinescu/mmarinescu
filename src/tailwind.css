@@ -26,4 +26,13 @@
     .custom-prose-title {
         @apply prose-base md:prose-lg lg:prose-xl xl:prose-2xl
     }
+    .custom-border {
+        @apply border border-gray-700 dark:border-gray-300 hover:border-black dark:hover:border-white
+    }
+    .custom-text-color {
+        @apply text-gray-800 dark:text-white
+    }
+    .custom-transition {
+        @apply transition duration-200
+    }
 }

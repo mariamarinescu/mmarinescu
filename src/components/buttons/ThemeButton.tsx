@@ -2,13 +2,18 @@ import { ThemeAwareTooltip } from 'components/ThemeAwareTooltip';
 import { ToggleButton } from 'components/buttons';
 import { useEffect, useState } from 'react';
 import { IoMdMoon, IoMdSunny } from 'react-icons/io';
-import { useRecoilState } from 'recoil';
-import darkThemeAtom from 'src/store/darkTheme/atom';
+import { SetterOrUpdater } from 'recoil';
 
-export const ThemeButton: React.FC = () => {
+interface ThemeButtonProps {
+  darkThemeStatus?: boolean;
+  setDarkThemeStatusInStore: SetterOrUpdater<boolean | undefined>;
+}
+
+export const ThemeButton: React.FC<ThemeButtonProps> = ({
+  darkThemeStatus,
+  setDarkThemeStatusInStore,
+}) => {
   const [isDarkActive, setIsDarkActive] = useState(false);
-  const [darkThemeStatus, setDarkThemeStatusInStore] =
-    useRecoilState(darkThemeAtom);
 
   useEffect(() => {
     if (darkThemeStatus !== isDarkActive)

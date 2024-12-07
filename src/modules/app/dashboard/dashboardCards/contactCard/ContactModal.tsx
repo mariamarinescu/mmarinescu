@@ -23,18 +23,14 @@ export const ContactModal: React.FC<ContactModalProps> = ({
       onClose={onClose}
       classNames={{
         modal:
-          'rounded-lg bg-white dark:bg-gray-dark-muted border dark:border-white text-gray-dark-muted dark:text-white text-lg xl:text-xl',
-        closeIcon: 'dark:text-white text-gray-dark-muted',
-      }}
-      styles={{
-        modalContainer: {
-          borderRadius: '25px',
-        },
+          'mx-auto min-w-44 w-full sm:w-96 rounded-lg bg-white dark:bg-gray-dark-muted custom-border text-gray-dark-muted dark:text-white text-lg xl:text-xl',
+        closeIcon: 'dark:text-white text-gray-dark-muted custom-border',
+        modalContainer: 'rounded-3xl p-4',
       }}
       {...restProps}
     >
       <FormProvider {...methods}>
-        <ContactForm />
+        <ContactForm onClose={onClose} />
       </FormProvider>
     </Modal>
   );
