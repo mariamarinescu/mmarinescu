@@ -43,7 +43,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>(
           placeholder={placeholder}
           maxLength={maxLength}
           rows={rows}
-          className={clsx(style.base, error && style.error)}
+          className={clsx(style.base, error && style.error, 'h-28')}
           {...props}
         />
         <div className={style.errorContainer}>

@@ -7,7 +7,7 @@ export interface ButtonProps {
   disabled?: boolean;
   className?: string;
   children?: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'text' | 'icon';
+  variant?: 'primary' | 'text' | 'icon';
   size?: 'small' | 'medium' | 'large';
   href?: string;
   download?: string;
@@ -21,24 +21,21 @@ export interface ButtonProps {
 const variantStyles = (disabled?: boolean) => ({
   primary: clsx(
     disabled
-      ? 'border-gray-300 hover:border-gray-300'
-      : 'border-gray-800 hover:border-neon-purple dark:hover:border-neon-purple hover:text-neon-purple',
-    'border dark:border-gray-200 bg-none text-black',
-    'dark:text-white dark:hover:text-neon-purple'
+      ? 'border-gray-400 hover:border-gray-500 dark:hover:border-white hover:text-gray-400'
+      : 'border-gray-800 dark:border-gray-200 hover:bg-gray-100 dark:hover:bg-theme-dark-bg hover:border-black text-black',
+    'border bg-none'
   ),
-  secondary:
-    'border border-gray-300 bg-gray-100 text-gray-800 hover:bg-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600',
   text: clsx(
-    disabled ? 'text-gray-300' : 'text-gray-800',
-    'bg-transparent hover:underline dark:text-white'
+    disabled ? 'text-gray-400' : 'custom-text-color',
+    'bg-transparent custom-prose mx-auto'
   ),
-  icon: 'flex items-center justify-center rounded-full border border-neon-purple hover:bg-neon-purple hover:text-white dark:text-white dark:hover:text-neon-purple',
+  icon: 'flex items-center justify-center rounded-full hover:text-white dark:text-white',
 });
 
 const sizeStyles = {
-  small: 'px-2 py-1 text-sm',
-  medium: 'px-2 py-1 lg:px-4 lg:py-2 text-base',
-  large: 'px-6 py-3 text-lg',
+  small: 'px-2 py-1 text-sm h-10 w-fit',
+  medium: 'px-4 py-2 text-base h-12 w-fit',
+  large: 'px-6 py-3 text-lg h-18 w-fit',
 };
 
 export const Button: React.FC<ButtonProps> = ({

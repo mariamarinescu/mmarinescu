@@ -26,7 +26,7 @@ export const Input = forwardRef<HTMLInputElement, Props>(
           {label}
         </Label>
         <input
-          className={clsx(style.base, error && style.error)}
+          className={clsx(style.base, error && style.error, 'h-12')}
           type={type}
           placeholder={placeholder}
           id={id}
