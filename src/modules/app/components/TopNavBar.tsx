@@ -54,7 +54,7 @@ export const TopNavBar: React.FC = () => {
           }
           onClick={() => toggleDarkMode()}
           variant="icon"
-          dataTooltipContent="Send me a message"
+          dataTooltipContent={`Switch to ${!!darkThemeStatus ? 'light' : 'dark'} theme`}
           dataTooltipId="my-email-tooltip"
           className="transition-all duration-200"
         />
