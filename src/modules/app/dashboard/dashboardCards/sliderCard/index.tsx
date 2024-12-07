@@ -34,10 +34,13 @@ export const SliderCard: React.FC<SliderCardProps> = ({ className }) => {
           effect="cube"
           pagination={{ clickable: true }}
           autoplay={{
-            delay: 2500,
+            delay: 4500,
             disableOnInteraction: true,
           }}
           loop={false}
+          keyboard={{
+            enabled: true,
+          }}
         >
           {imageCollection.map(({ isZoomable, id, ...imageComponentProps }) => (
             <SwiperSlide
@@ -46,7 +49,10 @@ export const SliderCard: React.FC<SliderCardProps> = ({ className }) => {
               zoom={isZoomable}
               className="bg-white text-white"
             >
-              <SwiperImage {...imageComponentProps} />
+              <SwiperImage
+                {...imageComponentProps}
+                className="hover:cursor-zoom-in"
+              />
             </SwiperSlide>
           ))}
         </Swiper>
