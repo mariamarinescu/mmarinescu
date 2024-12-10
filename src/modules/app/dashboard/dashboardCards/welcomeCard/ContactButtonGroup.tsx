@@ -3,7 +3,6 @@ import { useRecoilValue } from 'recoil';
 import darkThemeAtom from 'src/store/darkTheme/atom';
 import { CVIcon, GitHubIcon, LinkedinIcon } from '../icons';
 
-const iconClassName = 'h-8 w-8';
 const buttonClassName = 'w-32 justify-start';
 
 const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
@@ -11,7 +10,7 @@ const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
     href: 'https://www.linkedin.com/in/maria-marinescu',
     icon: (
       <LinkedinIcon
-        className={iconClassName}
+        className="custom-icon-size"
         isDarkThemeActive={isDarkThemeActive}
       />
     ),
@@ -23,7 +22,7 @@ const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
     href: 'https://github.com/mariamarinescu',
     icon: (
       <GitHubIcon
-        className={iconClassName}
+        className="custom-icon-size"
         isDarkThemeActive={isDarkThemeActive}
       />
     ),
@@ -34,7 +33,10 @@ const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
   {
     href: 'https://drive.google.com/file/d/1OddetrK6XoQl-V7YQf9WPuLLW6w-RF-O/view?usp=sharing',
     icon: (
-      <CVIcon className={iconClassName} isDarkThemeActive={isDarkThemeActive} />
+      <CVIcon
+        className="custom-icon-size"
+        isDarkThemeActive={isDarkThemeActive}
+      />
     ),
     label: 'Resume',
     className: buttonClassName,

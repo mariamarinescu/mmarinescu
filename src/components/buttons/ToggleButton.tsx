@@ -6,14 +6,11 @@ interface SizeClass {
   button: string;
   inner: string;
   translate: string;
-  iconSize: string;
 }
 
 interface SizeClasses {
-  xs: SizeClass;
   sm: SizeClass;
   md: SizeClass;
-  lg: SizeClass;
 }
 
 type Size = keyof SizeClasses;
@@ -25,35 +22,19 @@ interface ToggleButtonProps {
   activeIcon?: React.ReactNode;
   inactiveIcon?: React.ReactNode;
   className?: string;
-  activeBgColor?: string;
-  inactiveBgColor?: string;
   size?: Size;
 }
 
 const sizeClasses: SizeClasses = {
-  xs: {
-    button: 'h-4 w-[54px]',
-    inner: 'h-5 w-5',
-    translate: 'translate-x-6',
-    iconSize: 'w-3 h-3',
-  },
   sm: {
     button: 'h-7 w-[54px]',
     inner: 'h-5 w-5',
     translate: 'translate-x-6',
-    iconSize: 'w-3 h-3',
   },
   md: {
-    button: 'h-[40px] w-[72px]',
+    button: 'h-[38px] lg:h-[46px] w-[72px]',
     inner: 'h-7 w-7',
     translate: 'translate-x-7',
-    iconSize: 'w-4 h-4',
-  },
-  lg: {
-    button: 'h-10 w-[88px]',
-    inner: 'h-9 w-9',
-    translate: 'translate-x-10',
-    iconSize: 'w-5 h-5',
   },
 };
 
@@ -64,8 +45,6 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
   activeIcon,
   inactiveIcon,
   className,
-  activeBgColor = 'bg-green-600',
-  inactiveBgColor = 'bg-white',
   size = 'sm',
 }) => {
   const [enabled, setEnabled] = useState(initialEnabled);
@@ -83,19 +62,38 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
 
     return icon
       ? React.cloneElement(icon as React.ReactElement, {
-          className: clsx('transition-colors duration-200', {
-            'text-white group-hover:text-yellow-500': isActive,
-            'text-black group-hover:text-gray-100': !isActive,
-          }),
+          className: clsx(
+            'transition-all duration-300 ease-in-out',
+            'flex items-center justify-center w-full h-full',
+            'group-hover:scale-110 group-hover:rotate-6',
+            isActive
+              ? 'text-white dark:group-hover:text-yellow-500 dark:text-white'
+              : 'text-black dark:text-white group-hover:text-[#F6F1D5] '
+          ),
         })
       : null;
   };
 
-  const buttonBaseClasses =
-    'group inline-flex items-center rounded-full p-1 transition-colors duration-700 ease-in-out';
+  const buttonBaseClasses = clsx(
+    'group relative inline-flex items-center rounded-full p-1',
+    'transition-all duration-300 ease-in-out',
+    'overflow-hidden',
+    'hover:border-opacity-75 border border-black dark:border-white',
+    'group-hover:border-opacity-100 '
+  );
 
-  const buttonStateClasses = enabled ? activeBgColor : inactiveBgColor;
-  const buttonSizeClasses = currentSizeClasses.button;
+  const trackClasses = clsx(
+    'absolute inset-0 rounded-full',
+    'transition-all duration-300 ease-in-out',
+    'group-hover:opacity-90 group-hover:bg-theme-dark-bg dark:group-hover:bg-white'
+  );
+
+  const thumbBaseClasses = clsx(
+    'absolute top-1/2 -translate-y-1/2',
+    'transition-all duration-300 ease-in-out',
+    'flex items-center justify-center',
+    'group-hover:scale-105'
+  );
 
   return (
     <Switch
@@ -104,24 +102,24 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
       className={clsx(
         className,
         buttonBaseClasses,
-        buttonStateClasses,
-        buttonSizeClasses
+        currentSizeClasses.button,
+        'relative'
       )}
     >
       {({ checked }) => (
         <>
           <span className="sr-only">{label}</span>
+          <span className={trackClasses} />
+
           <span
             className={clsx(
-              'flex items-center justify-center rounded-full bg-transparent transition-transform duration-300 ease-in-out',
-              checked ? currentSizeClasses.translate : 'translate-x-2',
-              currentSizeClasses.inner
+              thumbBaseClasses,
+              currentSizeClasses.inner,
+              checked ? `${currentSizeClasses.translate}` : 'translate-x-2'
             )}
           >
-            {renderIcon(checked) === null ? (
-              <span className="flex items-center justify-center rounded-full bg-white" />
-            ) : (
-              renderIcon(checked)
+            {renderIcon(checked) || (
+              <span className="mx-auto flex items-center justify-center rounded-full bg-white" />
             )}
           </span>
         </>

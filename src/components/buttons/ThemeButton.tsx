@@ -1,19 +1,14 @@
 import { ThemeAwareTooltip } from 'components/ThemeAwareTooltip';
-import { ToggleButton } from 'components/buttons';
 import { useEffect, useState } from 'react';
 import { IoMdMoon, IoMdSunny } from 'react-icons/io';
-import { SetterOrUpdater } from 'recoil';
+import { useRecoilState } from 'recoil';
+import darkThemeAtom from 'src/store/darkTheme/atom';
+import { ToggleButton } from '.';
 
-interface ThemeButtonProps {
-  darkThemeStatus?: boolean;
-  setDarkThemeStatusInStore: SetterOrUpdater<boolean | undefined>;
-}
-
-export const ThemeButton: React.FC<ThemeButtonProps> = ({
-  darkThemeStatus,
-  setDarkThemeStatusInStore,
-}) => {
+export const ThemeButton: React.FC = () => {
   const [isDarkActive, setIsDarkActive] = useState(false);
+  const [darkThemeStatus, setDarkThemeStatusInStore] =
+    useRecoilState(darkThemeAtom);
 
   useEffect(() => {
     if (darkThemeStatus !== isDarkActive)
@@ -34,10 +29,8 @@ export const ThemeButton: React.FC<ThemeButtonProps> = ({
       >
         <ToggleButton
           activeIcon={<IoMdSunny size={20} />}
-          inactiveIcon={<IoMdMoon size={20} className="text-gray-800" />}
-          activeBgColor="bg-gray-dark"
-          inactiveBgColor="hover:bg-gray-medium"
-          className="right-4 top-4 border border-gray-800 hover:border-neon-purple dark:border-white dark:hover:border-neon-purple"
+          inactiveIcon={<IoMdMoon size={20} className="text-white" />}
+          className="right-4"
           label="Toggle dark mode"
           onChange={toggleDarkMode}
           size="md"

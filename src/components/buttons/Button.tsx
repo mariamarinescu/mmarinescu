@@ -1,5 +1,7 @@
 import clsx from 'clsx';
+import { ThemeAwareTooltip } from 'components/ThemeAwareTooltip';
 import { useMemo } from 'react';
+import { checkIsMobile } from 'src/utils';
 
 export interface ButtonProps {
   type?: 'button' | 'submit' | 'reset';
@@ -8,7 +10,6 @@ export interface ButtonProps {
   className?: string;
   children?: React.ReactNode;
   variant?: 'primary' | 'text' | 'icon';
-  size?: 'small' | 'medium' | 'large';
   href?: string;
   download?: string;
   dataTooltipContent?: string | null | undefined;
@@ -32,12 +33,6 @@ const variantStyles = (disabled?: boolean) => ({
   icon: 'flex items-center justify-center rounded-full hover:text-white dark:text-white',
 });
 
-const sizeStyles = {
-  small: 'px-2 py-1 text-sm h-10 w-fit',
-  medium: 'px-4 py-2 text-base h-12 w-fit',
-  large: 'px-6 py-3 text-lg h-18 w-fit',
-};
-
 export const Button: React.FC<ButtonProps> = ({
   type = 'button',
   onClick,
@@ -45,7 +40,6 @@ export const Button: React.FC<ButtonProps> = ({
   className,
   children,
   variant = 'primary',
-  size = 'medium',
   href,
   download,
   dataTooltipContent,
@@ -54,6 +48,7 @@ export const Button: React.FC<ButtonProps> = ({
   label,
   iconPosition = 'left',
 }) => {
+  const isMobile = checkIsMobile(768);
   const handleClick = useMemo(() => {
     return (event: React.MouseEvent<HTMLButtonElement>) => {
       if (onClick) {
@@ -66,13 +61,22 @@ export const Button: React.FC<ButtonProps> = ({
   const hasIcon = !!icon;
 
   const buttonContent = useMemo(() => {
-    const gapSize = size === 'small' ? 'gap-0.5' : 'gap-1';
+    const labelContent = (
+      <span
+        className={clsx(
+          variantStyles(disabled).text,
+          hasIcon ? 'hidden md:inline-flex' : 'inline-flex'
+        )}
+      >
+        {label}
+      </span>
+    );
 
     if (hasLabel && hasIcon) {
       return (
-        <div className={clsx('flex items-center', gapSize)}>
+        <div className={clsx('flex items-center')}>
           {iconPosition === 'left' && icon}
-          <span className={variantStyles(disabled).text}>{label}</span>
+          {labelContent}
           {iconPosition === 'right' && icon}
         </div>
       );
@@ -80,53 +84,77 @@ export const Button: React.FC<ButtonProps> = ({
 
     if (hasIcon) {
       return (
-        <div className={clsx('flex items-center justify-start', gapSize)}>
+        <div className={clsx('flex items-center justify-start gap-3')}>
           {icon}
         </div>
       );
     }
 
     if (hasLabel) {
-      return <span className={variantStyles(disabled).text}>{label}</span>;
+      return (
+        <span
+          className={clsx(
+            variantStyles(disabled).text,
+            hasIcon ? 'hidden md:inline-flex' : 'inline-flex'
+          )}
+        >
+          {label}
+        </span>
+      );
     }
 
     return children;
-  }, [label, icon, children, iconPosition, size]);
+  }, [label, icon, children, iconPosition]);
 
   const buttonClassName = clsx(
     className,
     disabled && 'cursor-not-allowed opacity-50',
     variantStyles(disabled)[variant],
-    sizeStyles[size],
+    'px-2 md:px-4 py-2 text-base h-11 w-fit',
     'text-center font-medium capitalize tracking-wide flex items-center',
     'transform rounded-lg transition-colors duration-300 focus:outline-none'
   );
 
+  const getTooltipContent = (isMobile: boolean) => {
+    if (isMobile) return dataTooltipContent || label;
+    return dataTooltipContent;
+  };
+
+  const tooltipContent = getTooltipContent(isMobile);
+  const tooltipId =
+    dataTooltipId || `myButton-${Math.floor(Math.random() * 4)}`;
+
   if (href) {
     return (
-      <a
-        data-tooltip-content={dataTooltipContent}
-        data-tooltip-id={dataTooltipId}
-        href={href}
-        download={download}
-        className={buttonClassName}
-        target="_blank"
-      >
-        {buttonContent}
-      </a>
+      <>
+        <a
+          data-tooltip-content={tooltipContent}
+          data-tooltip-id={tooltipId}
+          href={href}
+          download={download}
+          className={buttonClassName}
+          target="_blank"
+        >
+          {buttonContent}
+        </a>
+        <ThemeAwareTooltip id={tooltipId} place="bottom" />
+      </>
     );
   }
 
   return (
-    <button
-      data-tooltip-content={dataTooltipContent}
-      data-tooltip-id={dataTooltipId}
-      onClick={handleClick}
-      type={type}
-      disabled={disabled}
-      className={buttonClassName}
-    >
-      {buttonContent}
-    </button>
+    <>
+      <button
+        data-tooltip-content={tooltipContent}
+        data-tooltip-id={dataTooltipId}
+        onClick={handleClick}
+        type={type}
+        disabled={disabled}
+        className={buttonClassName}
+      >
+        {buttonContent}
+      </button>
+      <ThemeAwareTooltip id={tooltipId} place="bottom" />
+    </>
   );
 };

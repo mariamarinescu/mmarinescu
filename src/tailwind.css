@@ -35,4 +35,10 @@
     .custom-transition {
         @apply transition duration-200
     }
+    .custom-icon-size {
+        @apply h-7 w-7 md:h-8 md:w-8
+    }
+    .custom-icon-button-gap {
+        @apply gap-0.2 xs:gap-0.5 md:gap-1 xl:gap-1.5
+    }
 }
