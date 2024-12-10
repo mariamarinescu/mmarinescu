@@ -49,8 +49,7 @@ export default function ContactForm({ onClose }: { onClose: () => void }) {
     } else {
       try {
         const response = await sendEmail({
-          from_name: data.name,
-
+          // from_name: data.name,
           from_email: data.email,
           message: data.message,
         });
