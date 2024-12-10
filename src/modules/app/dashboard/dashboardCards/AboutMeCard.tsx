@@ -20,7 +20,7 @@ export const AboutMeCard: React.FC<AboutMeCardProps> = ({ className }) => {
             />
           </div>
         </div>
-        <p className="custom-prose text-pretty text-justify font-serif text-black dark:text-gray-300">
+        <p className="custom-prose text-pretty font-serif text-black dark:text-gray-300">
           Away from my keyboard, I love connecting with nature on sunny days, at
           the mountain or at the beach. On rainy days, I swap code for recipes,
           cooking for loved ones and creating connections around the table. I
