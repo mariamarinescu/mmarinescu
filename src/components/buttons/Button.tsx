@@ -74,7 +74,7 @@ export const Button: React.FC<ButtonProps> = ({
 
     if (hasLabel && hasIcon) {
       return (
-        <div className={clsx('flex items-center')}>
+        <div className="flex items-center gap-1">
           {iconPosition === 'left' && icon}
           {labelContent}
           {iconPosition === 'right' && icon}
@@ -83,11 +83,7 @@ export const Button: React.FC<ButtonProps> = ({
     }
 
     if (hasIcon) {
-      return (
-        <div className={clsx('flex items-center justify-start gap-3')}>
-          {icon}
-        </div>
-      );
+      return <div className="flex items-center justify-start">{icon}</div>;
     }
 
     if (hasLabel) {
@@ -110,7 +106,7 @@ export const Button: React.FC<ButtonProps> = ({
     className,
     disabled && 'cursor-not-allowed opacity-50',
     variantStyles(disabled)[variant],
-    'px-2 md:px-4 py-2 text-base h-11 w-fit',
+    'px-2 md:px-4 text-base h-11 w-fit',
     'text-center font-medium capitalize tracking-wide flex items-center',
     'transform rounded-lg transition-colors duration-300 focus:outline-none'
   );
