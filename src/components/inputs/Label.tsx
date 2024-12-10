@@ -17,7 +17,7 @@ export const Label = ({
   const styles = useInputStyle();
   return (
     <label
-      className={clsx(styles.label, className, 'custom-prose font-serif')}
+      className={clsx(styles.label, className, 'custom-prose font-poppins')}
       htmlFor={id}
     >
       {children} {required && <span className="text-red-600">&nbsp;*</span>}

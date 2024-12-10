@@ -10,12 +10,12 @@ export const WelcomeCard: React.FC<WelcomeCardProps> = ({ className }) => {
   return (
     <Card
       className={clsx(
-        'flex h-full w-full flex-col items-start justify-start gap-4',
+        'flex h-full w-full min-w-fit flex-col items-start justify-start gap-4',
         className
       )}
       title="Welcome!"
     >
-      <p className="custom-prose main-text-size text-pretty font-serif text-lg text-black dark:text-white">
+      <p className="custom-prose main-text-size font-poppins text-pretty text-lg text-black dark:text-white">
         I'm Maria, a React.js developer with experience in fintech and podcast
         analytics, currently based in Berlin.
       </p>

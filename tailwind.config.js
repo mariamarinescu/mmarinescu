@@ -14,10 +14,14 @@ export default {
         'gray-light-muted': '#262931',
         'gray-dark-muted': '#212429',
         'neon-purple': '#9461fd',
+        'neon-green': '#2cff05',
         'theme-dark-bg': '#121212',
       },
       screens: {
         xs: '320px',
+      },
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
       },
     },
   },

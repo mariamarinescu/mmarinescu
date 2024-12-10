@@ -16,7 +16,7 @@ const Card: React.FC<CardProps> = ({ className, title, children }) => {
       )}
     >
       {title && (
-        <p className="custom-prose-title font-serif text-gray-500 dark:text-white">
+        <p className="custom-prose-title font-poppins text-gray-500 dark:text-white">
           {title}
         </p>
       )}
