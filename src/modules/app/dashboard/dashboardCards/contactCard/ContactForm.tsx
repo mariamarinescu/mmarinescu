@@ -27,7 +27,7 @@ const defaultFormValues = {
 
 type FormInputType = z.infer<typeof FormSchema>;
 
-export default function ContactForm({ onClose }: { onClose: () => void }) {
+export default function ContactForm({ onClose }: { onClose?: () => void }) {
   const {
     register,
     handleSubmit,
@@ -55,7 +55,7 @@ export default function ContactForm({ onClose }: { onClose: () => void }) {
         });
         console.log({ response });
         reset();
-        onClose();
+        onClose?.();
       } catch (error) {
         console.error('Error sending email:', error);
       }
