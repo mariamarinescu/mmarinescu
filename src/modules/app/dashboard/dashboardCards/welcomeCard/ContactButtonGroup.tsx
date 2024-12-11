@@ -1,7 +1,7 @@
 import { Button } from 'components/buttons';
 import { useRecoilValue } from 'recoil';
 import darkThemeAtom from 'src/store/darkTheme/atom';
-import { CVIcon, GitHubIcon, LinkedinIcon } from '../icons';
+import { GitHubIcon, LinkedinIcon } from '../icons';
 
 const buttonClassName = 'w-32 justify-start';
 
@@ -30,18 +30,6 @@ const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
     className: buttonClassName,
     id: 'github-profile',
   },
-  {
-    href: 'https://drive.google.com/file/d/1OddetrK6XoQl-V7YQf9WPuLLW6w-RF-O/view?usp=sharing',
-    icon: (
-      <CVIcon
-        className="custom-icon-size"
-        isDarkThemeActive={isDarkThemeActive}
-      />
-    ),
-    label: 'Resume',
-    className: buttonClassName,
-    id: 'download-resume',
-  },
 ];
 
 export const ContactButtonGroup = () => {
@@ -50,7 +38,7 @@ export const ContactButtonGroup = () => {
 
   return (
     <>
-      <div className="h-inherit align-center flex w-full flex-wrap items-center justify-start gap-2">
+      <div className="h-inherit align-center flex w-full flex-wrap items-center justify-end gap-2">
         {buttonListConfig.map(({ href, icon, label, className, id }) => (
           <Button
             href={href}

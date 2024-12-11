@@ -18,10 +18,10 @@
         @apply min-w-64
     }
     .main-text-size {
-        @apply text-base md:text-xl
+        @apply text-base md:text-lg
     }
     .custom-prose {
-        @apply prose-sm md:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl;
+        @apply prose-sm md:prose-base lg:prose-base xl:prose-xl 
     }
     .custom-prose-title {
         @apply prose-base md:prose-lg lg:prose-xl xl:prose-2xl
@@ -40,5 +40,11 @@
     }
     .custom-icon-button-gap {
         @apply gap-0.2 xs:gap-0.5 md:gap-1 xl:gap-1.5
+    }
+    .title-text-color { 
+        @apply text-gray-950 dark:text-gray-50
+    }
+    .content-text-color { 
+        @apply text-gray-700 dark:text-gray-200
     }
 }

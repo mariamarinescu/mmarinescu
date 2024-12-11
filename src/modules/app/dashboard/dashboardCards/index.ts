@@ -1,5 +1,5 @@
 export * from './AboutMeCard';
 export * from './SkillsCard';
-export * from './contactCard';
 export { SliderCard } from './sliderCard';
+export { StepperCard } from './stepperCard';
 export { WelcomeCard } from './welcomeCard';

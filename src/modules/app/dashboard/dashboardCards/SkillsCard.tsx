@@ -42,7 +42,7 @@ const buttonListConfig = [
   {
     dataTooltipContent: 'Eslint',
     dataTooltipId: 'my-eslint-tooltip',
-    icon: <EslintIcon className="h-9 w-9" />,
+    icon: <EslintIcon className="custom-icon-size" />,
   },
 
   {

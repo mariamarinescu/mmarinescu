@@ -7,7 +7,7 @@ import { z } from 'zod';
 import { useSendEmail } from './useSendEmail';
 
 const FormSchema = z.object({
-  name: z.string(),
+  // name: z.string(),
   email: z.string().email('Invalid email. Email must be a valid email address'),
   message: z
     .string()
@@ -20,7 +20,7 @@ const FormSchema = z.object({
 });
 
 const defaultFormValues = {
-  name: undefined,
+  // name: undefined,
   email: undefined,
   message: undefined,
 };
@@ -67,12 +67,12 @@ export default function ContactForm({ onClose }: { onClose?: () => void }) {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex h-full w-full flex-col gap-3">
           <div className="flex w-full flex-col gap-3">
-            <Input
+            {/* <Input
               {...register('name')}
               label="Name"
               error={errors?.name?.message}
               required
-            />
+            /> */}
             <Input
               {...register('email')}
               label="E-mail address"

@@ -15,9 +15,9 @@ export const WelcomeCard: React.FC<WelcomeCardProps> = ({ className }) => {
       )}
       title="Welcome!"
     >
-      <p className="custom-prose main-text-size font-poppins text-pretty text-lg text-black dark:text-white">
+      <p className="custom-prose main-text-size font-poppins content-text-color text-pretty text-lg">
         I'm Maria, a React.js developer with experience in fintech and podcast
-        analytics, currently based in Berlin.
+        analytics.
       </p>
       <ContactButtonGroup />
     </Card>
