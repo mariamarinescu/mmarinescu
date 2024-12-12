@@ -13,7 +13,7 @@ export const AboutMeCard: React.FC<AboutMeCardProps> = ({ className }) => {
         <div className="float-right mb-1 ml-3 w-3/12 md:w-6/12 xl:mb-3 xl:ml-6 xl:w-4/12">
           <div className="h-full w-full pt-2">
             <img
-              src="public/img/me.jpg"
+              src="./img/me.jpg"
               width="100%"
               height="100%"
               className="rounded-lg object-contain"

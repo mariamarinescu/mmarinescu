@@ -28,23 +28,23 @@ export const getStepsData = (isDarkTheme?: boolean): StepType[] => [
       <ul className="font-poppins mb-4 flex gap-3 text-sm">
         <div className="flex flex-col gap-3">
           <li className={skillRowClassName}>
-            <img src="public/img/React-icon.png" className={skillIconSize} />
+            <img src="./img/React-icon.png" className={skillIconSize} />
             <p>React.js</p>
           </li>
 
           <li className={skillRowClassName}>
-            <img src="public/img/Typescript.png" className={skillIconSize} />
+            <img src="./img/Typescript.png" className={skillIconSize} />
             <p>Typescript</p>
           </li>
 
           <li className={skillRowClassName}>
-            <img src="public/img/ESlint.svg" className={skillIconSize} />
+            <img src="./img/ESLint.svg" className={skillIconSize} />
             <p>Eslint</p>
           </li>
 
           <li className={skillRowClassName}>
             <img
-              src="public/img/Google-Tag-Manager.webp"
+              src="./img/Google-Tag-Manager.webp"
               className={skillIconSize}
             />
             <p>google-tag-manager</p>
@@ -53,25 +53,22 @@ export const getStepsData = (isDarkTheme?: boolean): StepType[] => [
 
         <div className="flex flex-col gap-3">
           <li className={skillRowClassName}>
-            <img
-              src="public/img/react-hook-form.svg"
-              className={skillIconSize}
-            />
+            <img src="./img/react-hook-form.svg" className={skillIconSize} />
             <p>react-hook-form</p>
           </li>
 
           <li className={skillRowClassName}>
-            <img src="public/img/tailwindcss.svg" className={skillIconSize} />
+            <img src="./img/tailwindcss.svg" className={skillIconSize} />
             <p>tailwind CSS</p>
           </li>
 
           <li className={skillRowClassName}>
-            <img src="public/img/tanstack.png" className={skillIconSize} />
+            <img src="./img/tanstack.png" className={skillIconSize} />
             <p>Tanstack</p>
           </li>
 
           <li className={skillRowClassName}>
-            <img src="public/img/recoil.png" className={skillIconSize} />
+            <img src="./img/recoil.png" className={skillIconSize} />
             <p>recoil.js</p>
           </li>
         </div>
@@ -89,38 +86,38 @@ export const getStepsData = (isDarkTheme?: boolean): StepType[] => [
       <ul className="font-poppins mb-4 flex gap-3 text-sm">
         <div className="flex flex-col gap-3">
           <li className={skillRowClassName}>
-            <img src="public/img/React-icon.png" className={skillIconSize} />
+            <img src="./img/React-icon.png" className={skillIconSize} />
             <p>React.js</p>
           </li>
           <li className={skillRowClassName}>
-            <img src="public/img/Typescript.png" className={skillIconSize} />
+            <img src="./img/Typescript.png" className={skillIconSize} />
             <p>Typescript</p>
           </li>
           <li className={skillRowClassName}>
-            <img src="public/img/ESlint.svg" className={skillIconSize} />
+            <img src="./img/ESLint.svg" className={skillIconSize} />
             <p>Eslint</p>
           </li>
           <li className={skillRowClassName}>
-            <img src="public/img/styled.svg" className={skillIconSize} />
+            <img src="./img/styled.svg" className={skillIconSize} />
             <p>styled-components</p>
           </li>
         </div>
 
         <div className="flex flex-col gap-3">
           <li className={skillRowClassName}>
-            <img src="public/img/GraphQL.png" className={skillIconSize} />
+            <img src="./img/GraphQL.png" className={skillIconSize} />
             <p>GraphQL</p>
           </li>
           <li className={skillRowClassName}>
-            <img src="public/img/tanstack.png" className={skillIconSize} />
+            <img src="./img/tanstack.png" className={skillIconSize} />
             <p>Tanstack</p>
           </li>
           <li className={skillRowClassName}>
-            <img src="public/img/formik.png" className={skillIconSize} />
+            <img src="./img/formik.png" className={skillIconSize} />
             <p>Formik</p>
           </li>
           <li className={skillRowClassName}>
-            <img src="public/img/storybook.png" className={skillIconSize} />
+            <img src="./img/storybook.png" className={skillIconSize} />
             <p>Storybook</p>
           </li>
         </div>
