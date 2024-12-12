@@ -20,6 +20,5 @@ export default defineConfig(({ mode }) => {
         src: path.resolve(__dirname, './src'),
       },
     },
-    base: '/mm-me/',
   };
 });
