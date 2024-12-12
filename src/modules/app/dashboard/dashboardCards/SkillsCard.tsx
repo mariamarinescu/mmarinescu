@@ -7,11 +7,9 @@ import {
   HTML5Icon,
   JSIcon,
   ReactIcon,
-  ReduxIcon,
   TailwindCSSIcon,
   TypescriptIcon,
 } from './icons';
-import { RecoilIcon } from './icons/skillsCard/RecoilIcon';
 
 const buttonListConfig = [
   {
@@ -50,18 +48,6 @@ const buttonListConfig = [
     dataTooltipId: 'my-tailwind-tooltip',
     icon: <TailwindCSSIcon className="custom-icon-size" />,
     href: 'https://tailwindcss.com',
-  },
-  {
-    dataTooltipContent: 'Recoil.js',
-    dataTooltipId: 'my-recoil-tooltip',
-    icon: <RecoilIcon className="custom-icon-size" />,
-    href: 'https://recoiljs.org',
-  },
-  {
-    dataTooltipContent: 'Redux.js',
-    dataTooltipId: 'my-redux-tooltip',
-    icon: <ReduxIcon className="custom-icon-size" />,
-    href: 'https://redux.js.org',
   },
 ];
 
