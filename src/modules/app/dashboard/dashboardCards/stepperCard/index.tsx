@@ -141,7 +141,7 @@ export const StepperCard = ({ className }: { className: string }) => {
         ))}
         <div className="flex w-full justify-end">
           <Button
-            href="https://drive.google.com/file/d/1OddetrK6XoQl-V7YQf9WPuLLW6w-RF-O/view?usp=sharing"
+            href="https://drive.google.com/file/d/1YRgVTwL7BoN56tbgzDW-i_DAWoEtTmjx/view?usp=sharing"
             icon={
               <CVIcon
                 className="custom-icon-size"
