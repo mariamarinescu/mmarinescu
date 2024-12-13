@@ -56,7 +56,7 @@ const ReadMoreReadLess = ({
           className={clsx(
             fontSize,
             transition,
-            'text-primary-500 mx-2 cursor-pointer'
+            'mx-2 cursor-pointer text-blue-600'
           )}
         >
           {trimText ? toggleText : null}
