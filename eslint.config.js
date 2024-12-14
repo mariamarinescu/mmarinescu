@@ -24,12 +24,29 @@ export default [
         React: 'writable',
       },
     },
-    plugins: {
+    plugins: [
       react,
       reactHooks,
       jsxA11y,
       importPlugin,
-    },
+      prettier,
+      '@typescript-eslint',
+      'unused-imports',
+      'simple-import-sort',
+      '@typescript-eslint',
+    ],
+    extends: [
+      'react-app',
+      'airbnb',
+      'airbnb/hooks',
+      'plugin:@typescript-eslint/recommended',
+      'prettier',
+      'plugin:prettier/recommended',
+      'plugin:jest/recommended',
+      'plugin:jsx-a11y/recommended',
+      'plugin:react/perf',
+      'plugin:security/recommended',
+    ],
     rules: {
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
@@ -64,11 +81,6 @@ export default [
       'jsx-a11y/alt-text': 'warn',
       'jsx-a11y/click-events-have-key-events': 'warn',
       'jsx-a11y/no-static-element-interactions': 'warn',
-    },
-  },
-  {
-    plugins: ['prettier'],
-    rules: {
       'prettier/prettier': 'warn',
     },
   },
