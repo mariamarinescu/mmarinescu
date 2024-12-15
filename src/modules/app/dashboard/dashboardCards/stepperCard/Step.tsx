@@ -1,14 +1,6 @@
 import ReadMoreReadLess from 'modules/app/components/ReadMoreReadLess';
 import React from 'react';
-
-export interface StepType {
-  title: string;
-  content: string;
-  completed: boolean;
-  active: boolean;
-  icon: React.ReactNode;
-  skillSet: React.ReactNode;
-}
+import { StepType } from '.';
 
 type StepProps = {
   step: StepType;
@@ -16,7 +8,7 @@ type StepProps = {
 };
 
 export const Step: React.FC<StepProps> = React.memo(({ step, isLast }) => {
-  const { title, content, completed, icon, skillSet } = step;
+  const { title, href, content, completed, icon, skillSet } = step;
 
   return (
     <div className="flex gap-3">
@@ -33,9 +25,15 @@ export const Step: React.FC<StepProps> = React.memo(({ step, isLast }) => {
         )}
       </div>
       <div>
-        <h3 className="md:text-md custom-prose-title title-text-color mt-1 text-sm font-medium lg:text-lg">
-          {title}
-        </h3>
+        <a
+          className="md:text-md custom-prose-title title-text-color mt-1 w-fit items-start justify-start text-start text-sm font-medium lg:text-lg"
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <div className="flex w-full items-start justify-start"> {title}</div>
+        </a>
+
         <p className="md:text-md content-text-color custom-prose mb-4 text-sm">
           <ReadMoreReadLess text={content} limit={100} />
         </p>

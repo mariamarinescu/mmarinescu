@@ -1,7 +1,7 @@
 import { Button } from 'components/buttons';
 import { useRecoilValue } from 'recoil';
 import darkThemeAtom from 'src/store/darkTheme/atom';
-import { GitHubIcon, LinkedinIcon } from '../icons';
+import { CVIcon, GitHubIcon, LinkedinIcon } from '../icons';
 
 const buttonClassName = 'w-32 justify-start';
 
@@ -29,6 +29,18 @@ const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
     label: 'Github',
     className: buttonClassName,
     id: 'github-profile',
+  },
+  {
+    href: 'https://drive.google.com/file/d/1YRgVTwL7BoN56tbgzDW-i_DAWoEtTmjx/view?usp=sharing',
+    label: 'Resume',
+    className: buttonClassName,
+    id: 'download-resume',
+    icon: (
+      <CVIcon
+        className="custom-icon-size"
+        isDarkThemeActive={isDarkThemeActive}
+      />
+    ),
   },
 ];
 

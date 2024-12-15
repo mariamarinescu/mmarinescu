@@ -1,6 +1,5 @@
 import { clsx } from 'clsx';
 import { Card } from 'components/containers';
-import { ContactButtonGroup } from './ContactButtonGroup';
 
 interface WelcomeCardProps {
   className?: string;
@@ -15,11 +14,10 @@ export const WelcomeCard: React.FC<WelcomeCardProps> = ({ className }) => {
       )}
       title="Welcome!"
     >
-      <p className="custom-prose main-text-size font-poppins content-text-color text-pretty text-lg">
+      <p className="custom-prose main-text-size content-text-color text-pretty font-poppins text-lg">
         I'm Maria, a React.js developer with experience in fintech and podcast
         analytics.
       </p>
-      <ContactButtonGroup />
     </Card>
   );
 };
