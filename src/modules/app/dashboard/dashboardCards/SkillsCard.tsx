@@ -9,7 +9,7 @@ import {
   TypescriptIcon,
 } from './icons';
 
-const customIconSize = 'h-12 w-12';
+const customIconSize = 'h-8 xl:h-10 w-8 xl:w-10';
 
 const buttonListConfig = [
   {
@@ -37,18 +37,6 @@ const buttonListConfig = [
     dataTooltipId: 'my-css-tooltip',
     icon: <CSS3Icon className={customIconSize} />,
   },
-  // {
-  //   dataTooltipContent: 'Eslint',
-  //   dataTooltipId: 'my-eslint-tooltip',
-  //   icon: <EslintIcon className={customIconSize} />,
-  // },
-
-  // {
-  //   dataTooltipContent: 'Tailwind',
-  //   dataTooltipId: 'my-tailwind-tooltip',
-  //   icon: <TailwindCSSIcon className={customIconSize} />,
-  //   href: 'https://tailwindcss.com',
-  // },
 ];
 
 interface SkillsCardProps {
@@ -65,7 +53,7 @@ export const SkillsCard: React.FC<SkillsCardProps> = ({ className }) => {
             dataTooltipContent={dataTooltipContent}
             dataTooltipId={dataTooltipId}
             icon={icon}
-            className="h-20 cursor-default"
+            className="h-16 cursor-default xl:h-16"
           />
         ))}
       </div>
