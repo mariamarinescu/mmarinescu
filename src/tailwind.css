@@ -21,7 +21,7 @@
         @apply text-base md:text-lg
     }
     .custom-prose {
-        @apply prose-sm md:prose-base lg:prose-base
+        @apply prose-sm md:prose-base lg:prose-lg
     }
     .custom-prose-title {
         @apply prose-lg md:prose-xl xl:prose-2xl
