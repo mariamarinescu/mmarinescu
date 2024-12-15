@@ -130,6 +130,7 @@ export const Button: React.FC<ButtonProps> = ({
           download={download}
           className={buttonClassName}
           target="_blank"
+          rel="noreferrer"
         >
           {buttonContent}
         </a>

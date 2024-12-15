@@ -3,52 +3,52 @@ import { ButtonWithTooltip } from 'components/buttons';
 import { Card } from 'components/containers';
 import {
   CSS3Icon,
-  EslintIcon,
   HTML5Icon,
   JSIcon,
   ReactIcon,
-  TailwindCSSIcon,
   TypescriptIcon,
 } from './icons';
+
+const customIconSize = 'h-12 w-12';
 
 const buttonListConfig = [
   {
     dataTooltipContent: 'Javascript',
     dataTooltipId: 'my-js-tooltip',
-    icon: <JSIcon className="custom-icon-size" />,
+    icon: <JSIcon className={customIconSize} />,
   },
   {
     dataTooltipContent: 'Typescript',
     dataTooltipId: 'my-typescript-tooltip',
-    icon: <TypescriptIcon className="custom-icon-size" />,
+    icon: <TypescriptIcon className={customIconSize} />,
   },
   {
     dataTooltipContent: 'React.js',
     dataTooltipId: 'my-react-tooltip',
-    icon: <ReactIcon className="custom-icon-size" />,
+    icon: <ReactIcon className={customIconSize} />,
   },
   {
     dataTooltipContent: 'HTML5',
     dataTooltipId: 'my-html-tooltip',
-    icon: <HTML5Icon className="custom-icon-size" />,
+    icon: <HTML5Icon className={customIconSize} />,
   },
   {
     dataTooltipContent: 'CSS3',
     dataTooltipId: 'my-css-tooltip',
-    icon: <CSS3Icon className="custom-icon-size" />,
+    icon: <CSS3Icon className={customIconSize} />,
   },
-  {
-    dataTooltipContent: 'Eslint',
-    dataTooltipId: 'my-eslint-tooltip',
-    icon: <EslintIcon className="custom-icon-size" />,
-  },
+  // {
+  //   dataTooltipContent: 'Eslint',
+  //   dataTooltipId: 'my-eslint-tooltip',
+  //   icon: <EslintIcon className={customIconSize} />,
+  // },
 
-  {
-    dataTooltipContent: 'Tailwind',
-    dataTooltipId: 'my-tailwind-tooltip',
-    icon: <TailwindCSSIcon className="custom-icon-size" />,
-    href: 'https://tailwindcss.com',
-  },
+  // {
+  //   dataTooltipContent: 'Tailwind',
+  //   dataTooltipId: 'my-tailwind-tooltip',
+  //   icon: <TailwindCSSIcon className={customIconSize} />,
+  //   href: 'https://tailwindcss.com',
+  // },
 ];
 
 interface SkillsCardProps {
@@ -59,17 +59,15 @@ export const SkillsCard: React.FC<SkillsCardProps> = ({ className }) => {
   return (
     <Card title="What can I do?" className={clsx('h-full w-full', className)}>
       <div className="align-center flex h-fit w-full flex-wrap items-center justify-start gap-2 md:gap-4 lg:gap-5">
-        {buttonListConfig.map(
-          ({ dataTooltipContent, dataTooltipId, icon, href }) => (
-            <ButtonWithTooltip
-              key={dataTooltipId}
-              dataTooltipContent={dataTooltipContent}
-              dataTooltipId={dataTooltipId}
-              icon={icon}
-              href={href}
-            />
-          )
-        )}
+        {buttonListConfig.map(({ dataTooltipContent, dataTooltipId, icon }) => (
+          <ButtonWithTooltip
+            key={dataTooltipId}
+            dataTooltipContent={dataTooltipContent}
+            dataTooltipId={dataTooltipId}
+            icon={icon}
+            className="h-20 cursor-default"
+          />
+        ))}
       </div>
     </Card>
   );
