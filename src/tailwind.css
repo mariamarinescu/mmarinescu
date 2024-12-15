@@ -24,7 +24,7 @@
         @apply prose-sm md:prose-base lg:prose-base
     }
     .custom-prose-title {
-        @apply prose-base md:prose-lg lg:prose-xl xl:prose-2xl
+        @apply prose-lg md:prose-xl xl:prose-2xl
     }
     .custom-border {
         @apply border border-gray-700 dark:border-gray-300 hover:border-black dark:hover:border-white
