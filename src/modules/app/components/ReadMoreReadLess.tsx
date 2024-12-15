@@ -5,7 +5,7 @@ import clsx from 'clsx';
 interface ReadMoreReadLessProps {
   text: string;
   limit?: number;
-  fontSize?: string;
+  defaultOpen?: boolean;
 }
 
 const DEFAULT_LIMIT = 340;
@@ -13,7 +13,7 @@ const DEFAULT_LIMIT = 340;
 const ReadMoreReadLess: React.FC<ReadMoreReadLessProps> = ({
   limit = DEFAULT_LIMIT,
   text,
-  fontSize = 'text-sm',
+  defaultOpen = false,
 }) => {
   const [readMore, setReadMore] = useState(false);
   const [value, setValue] = useState('');
@@ -36,26 +36,22 @@ const ReadMoreReadLess: React.FC<ReadMoreReadLessProps> = ({
 
   useEffect(() => textHandler(), [textHandler]);
 
+  useEffect(() => {
+    if (defaultOpen) {
+      setReadMore(defaultOpen);
+    }
+  }, []);
+
   return (
     <div className="flex h-fit w-fit flex-col rounded-lg text-start">
       <span>
-        <span
-          className={clsx(
-            fontSize,
-            transition,
-            'content-text-color font-poppins'
-          )}
-        >
+        <span className={clsx(transition, 'content-text-color font-poppins')}>
           {value}
         </span>
         <span
           role="none"
           onClick={toggleReadMore}
-          className={clsx(
-            fontSize,
-            transition,
-            'mx-2 cursor-pointer text-blue-600'
-          )}
+          className={clsx(transition, 'mx-2 cursor-pointer text-blue-600')}
         >
           {trimText ? toggleText : null}
         </span>
