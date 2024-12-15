@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 import clsx from 'clsx';
 
-interface PropTypes {
+interface ReadMoreReadLessProps {
   text: string;
   limit?: number;
   fontSize?: string;
@@ -10,20 +10,18 @@ interface PropTypes {
 
 const DEFAULT_LIMIT = 340;
 
-const ReadMoreReadLess = ({
+const ReadMoreReadLess: React.FC<ReadMoreReadLessProps> = ({
   limit = DEFAULT_LIMIT,
   text,
   fontSize = 'text-sm',
-}: PropTypes) => {
+}) => {
   const [readMore, setReadMore] = useState(false);
   const [value, setValue] = useState('');
   const trimText = text.length > limit;
   const toggleText = !readMore ? 'more...' : '...less';
   const transition = 'transition-opacity duration-1000 ease-in-out';
 
-  const toggleReadMore = useCallback(() => {
-    setReadMore(!readMore);
-  }, [readMore]);
+  const toggleReadMore = () => setReadMore((prevState) => !prevState);
 
   const textHandler = useCallback(() => {
     if (readMore) {
@@ -45,7 +43,7 @@ const ReadMoreReadLess = ({
           className={clsx(
             fontSize,
             transition,
-            'font-poppins content-text-color'
+            'content-text-color font-poppins'
           )}
         >
           {value}
