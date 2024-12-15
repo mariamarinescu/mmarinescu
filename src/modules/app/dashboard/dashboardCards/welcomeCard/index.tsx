@@ -14,7 +14,7 @@ export const WelcomeCard: React.FC<WelcomeCardProps> = ({ className }) => {
       )}
       title="Welcome!"
     >
-      <p className="custom-prose main-text-size content-text-color text-pretty font-poppins text-lg">
+      <p className="content-text-color prose-base text-pretty font-poppins md:prose-lg lg:prose-xl">
         I'm Maria, a React.js developer with experience in fintech and podcast
         analytics.
       </p>

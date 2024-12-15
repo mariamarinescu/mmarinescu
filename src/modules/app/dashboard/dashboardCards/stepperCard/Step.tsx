@@ -26,7 +26,7 @@ export const Step: React.FC<StepProps> = React.memo(({ step, isLast }) => {
       </div>
       <div>
         <a
-          className="md:text-md custom-prose-title title-text-color mt-1 w-fit items-start justify-start text-start text-sm font-medium lg:text-lg"
+          className="custom-prose-title title-text-color mt-4 w-fit items-start justify-start text-start font-medium"
           href={href}
           target="_blank"
           rel="noreferrer"
@@ -34,8 +34,8 @@ export const Step: React.FC<StepProps> = React.memo(({ step, isLast }) => {
           <div className="flex w-full items-start justify-start"> {title}</div>
         </a>
 
-        <p className="md:text-md content-text-color custom-prose mb-4 text-sm">
-          <ReadMoreReadLess text={content} limit={100} />
+        <p className="content-text-color custom-prose mb-4 text-sm">
+          <ReadMoreReadLess text={content} limit={100} defaultOpen />
         </p>
         {skillSet}
       </div>
