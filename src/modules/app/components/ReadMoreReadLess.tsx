@@ -43,7 +43,7 @@ const ReadMoreReadLess: React.FC<ReadMoreReadLessProps> = ({
   }, []);
 
   return (
-    <div className="flex h-fit w-fit flex-col rounded-lg text-start">
+    <span className="flex h-fit w-fit flex-col rounded-lg text-start">
       <span>
         <span className={clsx(transition, 'content-text-color font-poppins')}>
           {value}
@@ -56,7 +56,7 @@ const ReadMoreReadLess: React.FC<ReadMoreReadLessProps> = ({
           {trimText ? toggleText : null}
         </span>
       </span>
-    </div>
+    </span>
   );
 };
 
