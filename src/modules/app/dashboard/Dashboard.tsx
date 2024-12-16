@@ -14,8 +14,8 @@ export const Dashboard: React.FC = () => {
         <SkillsCard />
       </div>
       <div className="grid h-fit w-full grid-cols-1 gap-4 px-1 sm:px-6 md:grid-cols-12">
-        <AboutMeCard className="col-span-1 md:col-span-3" />
-        <StepperCard className="col-span-1 md:col-span-9" />
+        <AboutMeCard className="col-span-1 md:col-span-4" />
+        <StepperCard className="col-span-1 md:col-span-8" />
       </div>
       <div className="grid h-fit w-full grid-cols-1 gap-4 px-1 sm:px-6">
         <SliderCard />
