@@ -67,12 +67,12 @@ export const ContactButtonGroup = () => {
           />
         ))}
         <ButtonWithTooltip
-          label="Contact me"
+          label="Contact"
           className={buttonClassName}
           onClick={toggleContactModal}
           icon={
             <EmailIcon
-              className="custom-icon-size"
+              className="h-6 w-6"
               isDarkThemeActive={isDarkThemeActive}
             />
           }
