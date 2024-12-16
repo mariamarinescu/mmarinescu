@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Loader from 'components/Loader';
 import { ThemeAwareTooltip } from 'components/ThemeAwareTooltip';
 import { useMemo } from 'react';
 import { checkIsMobile } from 'src/utils';
@@ -7,6 +8,7 @@ export interface ButtonProps {
   type?: 'button' | 'submit' | 'reset';
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
+  isLoading?: boolean;
   className?: string;
   children?: React.ReactNode;
   variant?: 'primary' | 'text' | 'icon';
@@ -27,7 +29,7 @@ const variantStyles = (disabled?: boolean) => ({
     'border bg-none'
   ),
   text: clsx(
-    disabled ? 'text-gray-400' : 'custom-text-color',
+    disabled ? 'text-gray-400' : 'text-black',
     'bg-transparent custom-prose mx-auto'
   ),
   icon: 'flex items-center justify-center rounded-full hover:text-white dark:text-white',
@@ -37,6 +39,7 @@ export const Button: React.FC<ButtonProps> = ({
   type = 'button',
   onClick,
   disabled = false,
+  isLoading = false,
   className,
   children,
   variant = 'primary',
@@ -132,7 +135,7 @@ export const Button: React.FC<ButtonProps> = ({
           target="_blank"
           rel="noreferrer"
         >
-          {buttonContent}
+          {isLoading ? <Loader /> : buttonContent}
         </a>
         <ThemeAwareTooltip id={tooltipId} place="bottom" />
       </>
@@ -149,7 +152,7 @@ export const Button: React.FC<ButtonProps> = ({
         disabled={disabled}
         className={buttonClassName}
       >
-        {buttonContent}
+        {isLoading ? <Loader /> : buttonContent}
       </button>
       <ThemeAwareTooltip id={tooltipId} place="bottom" />
     </>
