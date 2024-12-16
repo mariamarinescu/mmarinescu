@@ -1,7 +1,9 @@
-import { Button } from 'components/buttons';
+import { Button, ButtonWithTooltip } from 'components/buttons';
+import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import darkThemeAtom from 'src/store/darkTheme/atom';
-import { CVIcon, GitHubIcon, LinkedinIcon } from '../icons';
+import { ContactModal } from '../contactCard/ContactModal';
+import { CVIcon, EmailIcon, GitHubIcon, LinkedinIcon } from '../icons';
 
 const buttonClassName = 'w-32 justify-start';
 
@@ -47,6 +49,10 @@ const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
 export const ContactButtonGroup = () => {
   const isDarkThemeActive = useRecoilValue(darkThemeAtom);
   const buttonListConfig = getButtonListConfig(isDarkThemeActive);
+  const [isContactModalOpen, setContactModalOpen] = useState(false);
+
+  const toggleContactModal = () =>
+    setContactModalOpen((prevState) => !prevState);
 
   return (
     <>
@@ -60,7 +66,21 @@ export const ContactButtonGroup = () => {
             key={id}
           />
         ))}
+        <ButtonWithTooltip
+          label="Contact me"
+          className={buttonClassName}
+          onClick={toggleContactModal}
+          icon={
+            <EmailIcon
+              className="custom-icon-size"
+              isDarkThemeActive={isDarkThemeActive}
+            />
+          }
+          dataTooltipContent="Contact me"
+          dataTooltipId="contact-me-button"
+        />
       </div>
+      <ContactModal open={isContactModalOpen} onClose={toggleContactModal} />
     </>
   );
 };

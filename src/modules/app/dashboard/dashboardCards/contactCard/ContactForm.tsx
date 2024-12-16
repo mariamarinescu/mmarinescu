@@ -1,8 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from 'components/buttons';
 import { Input, TextArea } from 'components/inputs';
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+
+import { toast } from 'react-toastify';
 import { z } from 'zod';
 import { useSendEmail } from './useSendEmail';
 
@@ -28,10 +30,12 @@ const defaultFormValues = {
 type FormInputType = z.infer<typeof FormSchema>;
 
 export default function ContactForm({ onClose }: { onClose?: () => void }) {
+  const [isAPIError, setAPIError] = useState(true);
+
   const {
     register,
     handleSubmit,
-    formState: { isValid, errors },
+    formState: { isValid, errors, isSubmitting },
     trigger,
     reset,
   } = useForm<FormInputType>({
@@ -39,6 +43,7 @@ export default function ContactForm({ onClose }: { onClose?: () => void }) {
     defaultValues: defaultFormValues,
     mode: 'onSubmit',
   });
+
   const sendEmail = useSendEmail();
 
   const onSubmit: SubmitHandler<any> = useCallback(async (data) => {
@@ -49,30 +54,35 @@ export default function ContactForm({ onClose }: { onClose?: () => void }) {
     } else {
       try {
         const response = await sendEmail({
-          // from_name: data.name,
           from_email: data.email,
           message: data.message,
         });
-        console.log({ response });
-        reset();
+        toast.success('Email sent successfully');
         onClose?.();
+        reset();
+        return response;
       } catch (error) {
         console.error('Error sending email:', error);
+        setAPIError(true);
       }
     }
   }, []);
 
+  useEffect(() => {
+    if (isAPIError) {
+      setAPIError(false);
+      toast.error(
+        'An error occurred while trying to send the email! Please try again.'
+      );
+    }
+  }, [isAPIError]);
+
   return (
-    <div className="flex h-full w-full flex-col justify-start bg-transparent">
+    <div className="flex h-full w-full flex-col justify-start bg-transparent p-2">
+      <h6>Just send me a message...</h6>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex h-full w-full flex-col gap-3">
+        <div className="flex h-full w-full flex-col gap-3 pt-7">
           <div className="flex w-full flex-col gap-3">
-            {/* <Input
-              {...register('name')}
-              label="Name"
-              error={errors?.name?.message}
-              required
-            /> */}
             <Input
               {...register('email')}
               label="E-mail address"
@@ -95,8 +105,9 @@ export default function ContactForm({ onClose }: { onClose?: () => void }) {
               onClick={(values: any) => {
                 return onSubmit(values);
               }}
-              disabled={!isValid}
+              disabled={!isValid || isSubmitting}
               className="w-full"
+              isLoading={isSubmitting}
               label="Submit"
             />
           </div>
