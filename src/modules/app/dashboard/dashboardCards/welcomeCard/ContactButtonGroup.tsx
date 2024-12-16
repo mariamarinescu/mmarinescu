@@ -1,5 +1,6 @@
 import { Button, ButtonWithTooltip } from 'components/buttons';
 import { useState } from 'react';
+import ReactGA from 'react-ga4';
 import { useRecoilValue } from 'recoil';
 import darkThemeAtom from 'src/store/darkTheme/atom';
 import { ContactModal } from '../contactCard/ContactModal';
@@ -51,9 +52,13 @@ export const ContactButtonGroup = () => {
   const buttonListConfig = getButtonListConfig(isDarkThemeActive);
   const [isContactModalOpen, setContactModalOpen] = useState(false);
 
-  const toggleContactModal = () =>
+  const toggleContactModal = () => {
+    ReactGA.event({
+      category: 'User',
+      action: 'Opened contact modal',
+    });
     setContactModalOpen((prevState) => !prevState);
-
+  };
   return (
     <>
       <div className="h-inherit align-center mt-5 flex w-full flex-wrap items-center justify-end gap-2">

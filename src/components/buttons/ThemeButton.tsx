@@ -1,5 +1,6 @@
 import { ThemeAwareTooltip } from 'components/ThemeAwareTooltip';
 import { useEffect, useState } from 'react';
+import ReactGA from 'react-ga4';
 import { IoMdMoon, IoMdSunny } from 'react-icons/io';
 import { useRecoilState } from 'recoil';
 import darkThemeAtom from 'src/store/darkTheme/atom';
@@ -18,6 +19,10 @@ export const ThemeButton: React.FC = () => {
   const toggleDarkMode = () => {
     setIsDarkActive((prevState) => !prevState);
     document.body.classList.toggle('dark');
+    ReactGA.event({
+      category: 'User',
+      action: 'Clicked theme button',
+    });
   };
 
   return (

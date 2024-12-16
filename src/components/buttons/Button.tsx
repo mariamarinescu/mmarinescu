@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import Loader from 'components/Loader';
 import { ThemeAwareTooltip } from 'components/ThemeAwareTooltip';
 import { useMemo } from 'react';
+import ReactGA from 'react-ga4';
 import { checkIsMobile } from 'src/utils';
 
 export interface ButtonProps {
@@ -134,6 +135,12 @@ export const Button: React.FC<ButtonProps> = ({
           className={buttonClassName}
           target="_blank"
           rel="noreferrer"
+          onClick={() => {
+            ReactGA.event({
+              category: 'User',
+              action: 'Submitted form',
+            });
+          }}
         >
           {isLoading ? <Loader /> : buttonContent}
         </a>

@@ -2,6 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from 'components/buttons';
 import { Input, TextArea } from 'components/inputs';
 import { useCallback, useEffect, useState } from 'react';
+import ReactGA from 'react-ga4';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { toast } from 'react-toastify';
@@ -9,7 +10,6 @@ import { z } from 'zod';
 import { useSendEmail } from './useSendEmail';
 
 const FormSchema = z.object({
-  // name: z.string(),
   email: z.string().email('Invalid email. Email must be a valid email address'),
   message: z
     .string()
@@ -47,7 +47,10 @@ export default function ContactForm({ onClose }: { onClose?: () => void }) {
   const sendEmail = useSendEmail();
 
   const onSubmit: SubmitHandler<any> = useCallback(async (data) => {
-    console.log({ data: data.target });
+    ReactGA.event({
+      category: 'User',
+      action: 'Submitted form',
+    });
     if (!isValid && !data.email.length) {
       trigger();
       return;
@@ -60,8 +63,16 @@ export default function ContactForm({ onClose }: { onClose?: () => void }) {
         toast.success('Email sent successfully');
         onClose?.();
         reset();
+        ReactGA.event({
+          category: 'User',
+          action: 'Submitted form successfully',
+        });
         return response;
       } catch (error) {
+        ReactGA.event({
+          category: 'User',
+          action: 'Submitted form with error',
+        });
         console.error('Error sending email:', error);
         setAPIError(true);
       }
@@ -102,9 +113,7 @@ export default function ContactForm({ onClose }: { onClose?: () => void }) {
           <div className="mt-3 flex h-fit w-full flex-col">
             <Button
               type="submit"
-              onClick={(values: any) => {
-                return onSubmit(values);
-              }}
+              onClick={onSubmit}
               disabled={!isValid || isSubmitting}
               className="w-full"
               isLoading={isSubmitting}
