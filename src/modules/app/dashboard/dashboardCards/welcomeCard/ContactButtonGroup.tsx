@@ -56,7 +56,7 @@ export const ContactButtonGroup = () => {
 
   return (
     <>
-      <div className="h-inherit align-center flex w-full flex-wrap items-center justify-end gap-2">
+      <div className="h-inherit align-center mt-5 flex w-full flex-wrap items-center justify-end gap-2">
         {buttonListConfig.map(({ href, icon, label, className, id }) => (
           <Button
             href={href}
