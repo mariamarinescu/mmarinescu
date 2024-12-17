@@ -34,7 +34,7 @@ const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
     id: 'github-profile',
   },
   {
-    href: 'https://drive.google.com/file/d/1YRgVTwL7BoN56tbgzDW-i_DAWoEtTmjx/view?usp=sharing',
+    href: 'https://drive.google.com/file/d/1jAJcdkcsiK1cOIWmreTzeKLIRRAWeKC-/view?usp=sharing',
     label: 'Resume',
     className: buttonClassName,
     id: 'download-resume',
