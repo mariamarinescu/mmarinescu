@@ -8,7 +8,7 @@ type StepProps = {
 };
 
 export const Step: React.FC<StepProps> = React.memo(({ step, isLast }) => {
-  const { title, href, content, completed, icon, skillSet } = step;
+  const { title, href, content, completed, icon } = step;
 
   return (
     <div className="flex gap-1 md:gap-3 xl:gap-4">
