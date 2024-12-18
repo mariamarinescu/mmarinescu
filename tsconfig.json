@@ -1,16 +1,30 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
   "compilerOptions": {
-    "baseUrl": "./",
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "src",
     "paths": {
-      "components/*": ["src/components/*"],
-      "modules/*": ["src/modules/*"],
-      "src/*": ["src/*"]
+      "components/*": ["components/*"],
+      "modules/*": ["modules/*"],
+      "store/*": ["store/*"],
+      "utils/*": ["utils/*"],
+      "src/*": ["*"]
     },
-    "typeRoots": ["./node_modules/@types", "./src"]
-  }
+    "typeRoots": ["./node_modules/@types", "./src"],
+    "types": ["jest", "node"]
+  },
+  "include": ["src"]
 }
