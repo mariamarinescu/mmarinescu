@@ -12,7 +12,7 @@ export const Step: React.FC<StepProps> = React.memo(({ step, isLast }) => {
   return (
     <div className="flex gap-1 md:gap-3 xl:gap-4">
       <div className="flex flex-col items-center">
-        <div className="rounded-full bg-transparent pb-2 pr-2">
+        <div className="rounded-full bg-transparent">
           <div className="m-1 flex size-10 items-center justify-center rounded-full bg-transparent">
             {icon}
           </div>
