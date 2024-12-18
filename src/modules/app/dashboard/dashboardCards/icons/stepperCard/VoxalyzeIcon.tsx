@@ -1,6 +1,6 @@
-export const VoxalyzeIcon: React.FC<{
-  isDarkTheme?: boolean;
-}> = ({ isDarkTheme }) => {
+import { FC } from 'react';
+
+export const VoxalyzeIcon: FC = () => {
   return (
     <svg
       version="1.0"
@@ -10,12 +10,15 @@ export const VoxalyzeIcon: React.FC<{
       viewBox="0 0 2660.000000 2660.000000"
       preserveAspectRatio="xMidYMid meet"
     >
-      <metadata>
-        Created by potrace 1.14, written by Peter Selinger 2001-2017
-      </metadata>
+      <defs>
+        <linearGradient id="myGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="7.54%" stop-color="#ED0568" />
+          <stop offset="109.81%" stop-color="#3805ED" />
+        </linearGradient>
+      </defs>
       <g
+        fill="url(#myGradient)"
         transform="translate(0.000000,2660.000000) scale(0.100000,-0.100000)"
-        fill={isDarkTheme ? '#FFFFFF' : '#000000'}
         stroke="none"
       >
         <path

@@ -1,6 +1,6 @@
-export const DeutscheFintechSolutionsIcon: React.FC<{
-  isDarkTheme?: boolean;
-}> = ({ isDarkTheme }) => {
+import { FC } from 'react';
+
+export const DeutscheFintechSolutionsIcon: FC = () => {
   return (
     <svg
       version="1.0"
@@ -12,7 +12,7 @@ export const DeutscheFintechSolutionsIcon: React.FC<{
     >
       <g
         transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)"
-        fill={isDarkTheme ? '#FFFFFF' : '#000000'}
+        fill="#2767cb"
         stroke="none"
       >
         <path

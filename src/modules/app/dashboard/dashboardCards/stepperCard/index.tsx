@@ -26,7 +26,7 @@ export const getStepsData = (isDarkTheme?: boolean): StepType[] => [
       'Implementing podcast marketing analytics platform alongside a backend developer and our CTO, taking ownership of the majority of frontend development, balancing independent work with regular request for feedback on both technical and professional development. Developed and maintained reusable UI component library, implemented state management, data querying and more.',
     completed: false,
     active: true,
-    icon: <VoxalyzeIcon isDarkTheme={isDarkTheme} />,
+    icon: <VoxalyzeIcon />,
     skillSet: (
       <ul className="mb-4 flex gap-3 font-poppins text-sm">
         <div className="flex flex-col gap-3">
@@ -112,10 +112,10 @@ export const getStepsData = (isDarkTheme?: boolean): StepType[] => [
     title: 'Deutsche Fintech Solutions',
     href: 'https://www.linkedin.com/company/deutsche-fintech-solutions',
     content:
-      'Contributed to a react web-app as part of an agile team, engaging daily with distributed teams. Participated in transitioning from GraphQl to REST API and in the migration of the mono-repo to micro-frontend services. Also developed and maintained the reusable UI component library, implemented state management, data querying and more.',
+      'Contributed to a react web-app as part of an agile team, engaging daily with distributed teams. Participated in transitioning from GraphQl to REST API and in the migration of the mono-repo to micro-frontend services. Also developed and maintained the reusable UI component library.',
     completed: false,
     active: false,
-    icon: <DeutscheFintechSolutionsIcon isDarkTheme={isDarkTheme} />,
+    icon: <DeutscheFintechSolutionsIcon />,
     skillSet: (
       <ul className="mb-4 flex gap-3 font-poppins text-sm">
         <div className="flex flex-col gap-3">
