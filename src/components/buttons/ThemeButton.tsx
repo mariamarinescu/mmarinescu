@@ -1,6 +1,5 @@
 import { ThemeAwareTooltip } from 'components/ThemeAwareTooltip';
 import { useEffect, useState } from 'react';
-import ReactGA from 'react-ga4';
 import { IoMdMoon, IoMdSunny } from 'react-icons/io';
 import { useRecoilState } from 'recoil';
 import darkThemeAtom from 'src/store/darkTheme/atom';
@@ -10,20 +9,26 @@ export const ThemeButton: React.FC = () => {
   const [isDarkActive, setIsDarkActive] = useState(false);
   const [darkThemeStatus, setDarkThemeStatusInStore] =
     useRecoilState(darkThemeAtom);
-
-  useEffect(() => {
-    if (darkThemeStatus !== isDarkActive)
-      setDarkThemeStatusInStore(isDarkActive);
-  }, [isDarkActive]);
+  const [initialization, setInitialization] = useState(true);
 
   const toggleDarkMode = () => {
-    setIsDarkActive((prevState) => !prevState);
-    document.body.classList.toggle('dark');
-    ReactGA.event({
-      category: 'User',
-      action: 'Clicked theme button',
+    setIsDarkActive((prevState) => {
+      const currentState = !prevState;
+      setDarkThemeStatusInStore(currentState);
+      return currentState;
     });
+    document.body.classList.toggle('dark');
   };
+
+  useEffect(() => {
+    if (initialization) {
+      if (isDarkActive !== darkThemeStatus && darkThemeStatus !== undefined) {
+        setIsDarkActive(darkThemeStatus);
+        document.body.classList.add('dark');
+        setInitialization(false);
+      }
+    }
+  }, []);
 
   return (
     <>

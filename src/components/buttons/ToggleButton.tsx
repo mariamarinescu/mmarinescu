@@ -66,7 +66,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
             'transition-all duration-300 ease-in-out',
             'flex items-center justify-center w-full h-full',
             'group-hover:scale-110 group-hover:rotate-6',
-            isActive
+            !isActive
               ? 'text-white dark:group-hover:text-yellow-500 dark:text-white'
               : 'text-black dark:text-white group-hover:text-[#F6F1D5] '
           ),
