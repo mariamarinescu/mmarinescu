@@ -11,9 +11,9 @@ export const Step: React.FC<StepProps> = React.memo(({ step, isLast }) => {
   const { title, href, content, completed, icon, skillSet } = step;
 
   return (
-    <div className="flex gap-3">
+    <div className="flex gap-1 md:gap-3 xl:gap-4">
       <div className="flex flex-col items-center">
-        <div className="rounded-full bg-transparent p-2">
+        <div className="rounded-full bg-transparent px-2 pb-2">
           <div className="m-1 flex size-10 items-center justify-center rounded-full bg-transparent">
             {icon}
           </div>
@@ -24,9 +24,9 @@ export const Step: React.FC<StepProps> = React.memo(({ step, isLast }) => {
           />
         )}
       </div>
-      <div>
+      <div className="flex flex-col gap-4">
         <a
-          className="custom-prose-title title-text-color mt-4 w-fit items-start justify-start text-start font-medium"
+          className="custom-prose-title title-text-color w-fit items-start justify-start text-start font-medium"
           href={href}
           target="_blank"
           rel="noreferrer"
@@ -37,7 +37,7 @@ export const Step: React.FC<StepProps> = React.memo(({ step, isLast }) => {
         <p className="content-text-color custom-prose mb-4 text-sm">
           <ReadMoreReadLess text={content} limit={100} defaultOpen />
         </p>
-        {skillSet}
+        {/* {skillSet} */}
       </div>
     </div>
   );

@@ -1,10 +1,7 @@
-import { Button, ButtonWithTooltip } from 'components/buttons';
-import { useState } from 'react';
-import ReactGA from 'react-ga4';
+import { Button } from 'components/buttons';
 import { useRecoilValue } from 'recoil';
 import darkThemeAtom from 'src/store/darkTheme/atom';
-import { ContactModal } from '../contactCard/ContactModal';
-import { CVIcon, EmailIcon, GitHubIcon, LinkedinIcon } from '../icons';
+import { CVIcon, GitHubIcon, LinkedinIcon } from '../icons';
 
 const buttonClassName = 'w-32 justify-start';
 
@@ -53,15 +50,6 @@ const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
 export const ContactButtonGroup = () => {
   const isDarkThemeActive = useRecoilValue(darkThemeAtom);
   const buttonListConfig = getButtonListConfig(isDarkThemeActive);
-  const [isContactModalOpen, setContactModalOpen] = useState(false);
-
-  const toggleContactModal = () => {
-    ReactGA.event({
-      category: 'User',
-      action: 'Opened contact modal',
-    });
-    setContactModalOpen((prevState) => !prevState);
-  };
 
   return (
     <>
@@ -78,22 +66,7 @@ export const ContactButtonGroup = () => {
             />
           )
         )}
-        <ButtonWithTooltip
-          label="Contact"
-          className={buttonClassName}
-          onClick={toggleContactModal}
-          icon={
-            <EmailIcon
-              className="h-6 w-6"
-              isDarkThemeActive={isDarkThemeActive}
-            />
-          }
-          dataTooltipContent="Contact me"
-          dataTooltipId="contact-me-button"
-          data-testid="contact-button"
-        />
       </div>
-      <ContactModal open={isContactModalOpen} onClose={toggleContactModal} />
     </>
   );
 };

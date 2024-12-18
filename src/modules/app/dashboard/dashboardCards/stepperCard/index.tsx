@@ -112,7 +112,7 @@ export const getStepsData = (isDarkTheme?: boolean): StepType[] => [
     title: 'Deutsche Fintech Solutions',
     href: 'https://www.linkedin.com/company/deutsche-fintech-solutions',
     content:
-      'Took part of the migration from a mono-repo web app to micro front-end services and in the transition from GraphQL to REST APIs with react-query',
+      'Contributed to a react web-app as part of an agile team, engaging daily with distributed teams. Participated in transitioning from GraphQl to REST API and in the migration of the mono-repo to micro-frontend services. Also developed and maintained the reusable UI component library, implemented state management, data querying and more.',
     completed: false,
     active: false,
     icon: <DeutscheFintechSolutionsIcon isDarkTheme={isDarkTheme} />,
@@ -202,17 +202,20 @@ export const getStepsData = (isDarkTheme?: boolean): StepType[] => [
 export const StepperCard = ({ className }: { className: string }) => {
   const isDarkThemeActive = useRecoilValue(darkThemeAtom);
   const stepsData = getStepsData(isDarkThemeActive);
+
   return (
     <Card title="A bit about my professional life..." className={className}>
-      <div className="main-text-size poppins content-text-color flex w-full flex-col text-pretty font-poppins">
-        {stepsData.map((step, index) => (
-          <Step
-            key={index}
-            step={step as any}
-            isLast={index === stepsData.length - 1}
-            data-testid={`step-${index}`}
-          />
-        ))}
+      <div className="flex h-full w-full flex-col justify-between">
+        <div className="main-text-size poppins content-text-color flex w-full flex-col text-pretty font-poppins">
+          {stepsData.map((step, index) => (
+            <Step
+              key={index}
+              step={step as any}
+              isLast={index === stepsData.length - 1}
+              data-testid={`step-${index}`}
+            />
+          ))}
+        </div>
         <div className="flex w-full justify-end">
           <ContactButtonGroup data-testid="contact-button-group" />
         </div>
