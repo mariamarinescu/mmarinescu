@@ -1,4 +1,3 @@
-import ReadMoreReadLess from 'modules/app/components/ReadMoreReadLess';
 import React from 'react';
 import { StepType } from '.';
 
@@ -35,7 +34,7 @@ export const Step: React.FC<StepProps> = React.memo(({ step, isLast }) => {
         </a>
 
         <p className="content-text-color custom-prose mb-4 text-sm">
-          <ReadMoreReadLess text={content} limit={100} defaultOpen />
+          {content}
         </p>
         {/* {skillSet} */}
       </div>

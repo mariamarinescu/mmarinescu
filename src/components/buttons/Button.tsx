@@ -31,7 +31,7 @@ const variantStyles = (disabled?: boolean) => ({
     'border bg-none'
   ),
   text: clsx(
-    disabled ? 'text-gray-400' : 'text-black',
+    disabled ? 'text-gray-400' : 'text-black dark:text-white',
     'bg-transparent custom-prose mx-auto'
   ),
   icon: 'flex items-center justify-center rounded-full hover:text-white dark:text-white',
