@@ -8,7 +8,11 @@ interface AboutMeCardProps {
 
 export const AboutMeCard: React.FC<AboutMeCardProps> = ({ className }) => {
   return (
-    <Card className={clsx(className)} title="Who am I?">
+    <Card
+      className={clsx(className)}
+      title="Who am I?"
+      data-testid="about-me-card"
+    >
       <div>
         <div className="float-right mb-1 ml-3 w-3/12 md:w-6/12 xl:mb-3 xl:ml-6 xl:w-4/12">
           <div className="h-full w-full pt-2">
@@ -17,10 +21,15 @@ export const AboutMeCard: React.FC<AboutMeCardProps> = ({ className }) => {
               width="100%"
               height="100%"
               className="rounded-lg object-contain"
+              alt="Image not found!"
+              data-testid="about-me-image"
             />
           </div>
         </div>
-        <p className="custom-prose font-poppins content-text-color text-pretty">
+        <p
+          className="custom-prose content-text-color text-pretty font-poppins"
+          data-testid="about-me-description"
+        >
           Away from my keyboard, I love connecting with nature on sunny days,
           somewhere in Berlin and around! I love this city, as we have so many
           beautiful forest-like parks, and I also love spending a full weekend

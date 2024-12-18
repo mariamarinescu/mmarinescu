@@ -20,6 +20,7 @@ const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
     label: 'Linkedin',
     className: buttonClassName,
     id: 'linkedin-profile',
+    'data-testid': 'linkedin-button',
   },
   {
     href: 'https://github.com/mariamarinescu',
@@ -32,6 +33,7 @@ const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
     label: 'Github',
     className: buttonClassName,
     id: 'github-profile',
+    'data-testid': 'github-button',
   },
   {
     href: 'https://drive.google.com/file/d/1jAJcdkcsiK1cOIWmreTzeKLIRRAWeKC-/view?usp=sharing',
@@ -44,6 +46,7 @@ const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
         isDarkThemeActive={isDarkThemeActive}
       />
     ),
+    'data-testid': 'resume-button',
   },
 ];
 
@@ -59,18 +62,22 @@ export const ContactButtonGroup = () => {
     });
     setContactModalOpen((prevState) => !prevState);
   };
+
   return (
     <>
       <div className="h-inherit align-center mt-5 flex w-full flex-wrap items-center justify-end gap-2">
-        {buttonListConfig.map(({ href, icon, label, className, id }) => (
-          <Button
-            href={href}
-            icon={icon}
-            label={label}
-            className={className}
-            key={id}
-          />
-        ))}
+        {buttonListConfig.map(
+          ({ href, icon, label, className, id, 'data-testid': testId }) => (
+            <Button
+              href={href}
+              icon={icon}
+              label={label}
+              className={className}
+              key={id}
+              data-testid={testId}
+            />
+          )
+        )}
         <ButtonWithTooltip
           label="Contact"
           className={buttonClassName}
@@ -83,6 +90,7 @@ export const ContactButtonGroup = () => {
           }
           dataTooltipContent="Contact me"
           dataTooltipId="contact-me-button"
+          data-testid="contact-button"
         />
       </div>
       <ContactModal open={isContactModalOpen} onClose={toggleContactModal} />

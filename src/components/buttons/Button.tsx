@@ -20,6 +20,7 @@ export interface ButtonProps {
   icon?: React.ReactNode;
   label?: string;
   iconPosition?: 'left' | 'right';
+  id?: string;
 }
 
 const variantStyles = (disabled?: boolean) => ({
@@ -48,6 +49,7 @@ export const Button: React.FC<ButtonProps> = ({
   download,
   dataTooltipContent,
   dataTooltipId,
+  id,
   icon,
   label,
   iconPosition = 'left',
@@ -63,6 +65,8 @@ export const Button: React.FC<ButtonProps> = ({
 
   const hasLabel = !!label;
   const hasIcon = !!icon;
+  const tooltipId =
+    dataTooltipId || `myButton-${Math.floor(Math.random() * 4)}`;
 
   const buttonContent = useMemo(() => {
     const labelContent = (
@@ -71,6 +75,7 @@ export const Button: React.FC<ButtonProps> = ({
           variantStyles(disabled).text,
           hasIcon ? 'hidden md:inline-flex' : 'inline-flex'
         )}
+        data-testid={`button-label-${id || tooltipId}`}
       >
         {label}
       </span>
@@ -78,7 +83,10 @@ export const Button: React.FC<ButtonProps> = ({
 
     if (hasLabel && hasIcon) {
       return (
-        <div className="flex items-center gap-1">
+        <div
+          className="flex items-center gap-1"
+          data-testid={`button-content-${id || tooltipId}`}
+        >
           {iconPosition === 'left' && icon}
           {labelContent}
           {iconPosition === 'right' && icon}
@@ -87,7 +95,14 @@ export const Button: React.FC<ButtonProps> = ({
     }
 
     if (hasIcon) {
-      return <div className="flex items-center justify-start">{icon}</div>;
+      return (
+        <div
+          className="flex items-center justify-start"
+          data-testid={`button-icon-${id || tooltipId}`}
+        >
+          {icon}
+        </div>
+      );
     }
 
     if (hasLabel) {
@@ -97,6 +112,7 @@ export const Button: React.FC<ButtonProps> = ({
             variantStyles(disabled).text,
             hasIcon ? 'hidden md:inline-flex' : 'inline-flex'
           )}
+          data-testid={`button-label-${id || tooltipId}`}
         >
           {label}
         </span>
@@ -121,8 +137,6 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const tooltipContent = getTooltipContent(isMobile);
-  const tooltipId =
-    dataTooltipId || `myButton-${Math.floor(Math.random() * 4)}`;
 
   if (href) {
     return (
@@ -141,8 +155,13 @@ export const Button: React.FC<ButtonProps> = ({
               action: 'Submitted form',
             });
           }}
+          data-testid={`button-link-${id || tooltipId}`}
         >
-          {isLoading ? <Loader /> : buttonContent}
+          {isLoading ? (
+            <Loader data-testid={`button-loader-${id || tooltipId}`} />
+          ) : (
+            buttonContent
+          )}
         </a>
         <ThemeAwareTooltip id={tooltipId} place="bottom" />
       </>
@@ -158,8 +177,13 @@ export const Button: React.FC<ButtonProps> = ({
         type={type}
         disabled={disabled}
         className={buttonClassName}
+        data-testid={`button-element-${id || tooltipId}`}
       >
-        {isLoading ? <Loader /> : buttonContent}
+        {isLoading ? (
+          <Loader data-testid={`button-loader-${id || tooltipId}`} />
+        ) : (
+          buttonContent
+        )}
       </button>
       <ThemeAwareTooltip id={tooltipId} place="bottom" />
     </>

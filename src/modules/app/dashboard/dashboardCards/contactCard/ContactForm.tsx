@@ -89,7 +89,10 @@ export default function ContactForm({ onClose }: { onClose?: () => void }) {
   }, [isAPIError]);
 
   return (
-    <div className="flex h-full w-full flex-col justify-start bg-transparent p-2">
+    <div
+      className="flex h-full w-full flex-col justify-start bg-transparent p-2"
+      data-testid="contact-form"
+    >
       <h6>Just send me a message...</h6>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex h-full w-full flex-col gap-3 pt-7">

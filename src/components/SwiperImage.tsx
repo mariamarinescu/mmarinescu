@@ -21,6 +21,7 @@ export const SwiperImage: React.FC<SwiperImageProps> = ({
     <div
       className={clsx('swiper-zoom-container', className)}
       data-swiper-zoom={dataSwiperZoom || '3'}
+      data-testid="swiper-image"
     >
       <img
         src={src}

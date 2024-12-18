@@ -35,6 +35,7 @@ export const Input = forwardRef<HTMLInputElement, Props>(
           placeholder={placeholder}
           id={id}
           ref={ref}
+          data-testid={`input-${id}`}
           {...props}
         />
         <div className={style.errorContainer}>

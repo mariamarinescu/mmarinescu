@@ -15,7 +15,7 @@ interface PropTypes {
 }
 
 const Loader = ({ size = 'base', className = 'm-auto' }: PropTypes) => {
-  const baseClass = clsx(
+  const baseClassName = clsx(
     'bg-gray-900 dark:bg-gray-100',
     SIZE_MAP[size],
     'rounded-full'
@@ -23,9 +23,9 @@ const Loader = ({ size = 'base', className = 'm-auto' }: PropTypes) => {
 
   return (
     <div className={clsx(className, 'm-auto flex h-fit w-fit')}>
-      <div className={clsx(baseClass, 'mr-1 animate-bounce')} />
-      <div className={clsx(baseClass, 'animate-bounce200 mr-1')} />
-      <div className={clsx(baseClass, 'animate-bounce400')} />
+      <div className={clsx(baseClassName, 'mr-1 animate-bounce')} />
+      <div className={clsx(baseClassName, 'animate-bounce200 mr-1')} />
+      <div className={clsx(baseClassName, 'animate-bounce400')} />
     </div>
   );
 };

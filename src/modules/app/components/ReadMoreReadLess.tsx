@@ -1,11 +1,11 @@
-import { useCallback, useEffect, useState } from 'react';
-
 import clsx from 'clsx';
+import { useCallback, useEffect, useState } from 'react';
 
 interface ReadMoreReadLessProps {
   text: string;
   limit?: number;
   defaultOpen?: boolean;
+  id?: string;
 }
 
 const DEFAULT_LIMIT = 340;
@@ -14,6 +14,7 @@ const ReadMoreReadLess: React.FC<ReadMoreReadLessProps> = ({
   limit = DEFAULT_LIMIT,
   text,
   defaultOpen = false,
+  id,
 }) => {
   const [readMore, setReadMore] = useState(false);
   const [value, setValue] = useState('');
@@ -43,7 +44,10 @@ const ReadMoreReadLess: React.FC<ReadMoreReadLessProps> = ({
   }, []);
 
   return (
-    <span className="flex h-fit w-fit flex-col rounded-lg text-start">
+    <span
+      className="flex h-fit w-fit flex-col rounded-lg text-start"
+      data-testid={`read-more-read-less-${id}`}
+    >
       <span>
         <span className={clsx(transition, 'content-text-color font-poppins')}>
           {value}

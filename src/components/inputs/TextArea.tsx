@@ -44,6 +44,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>(
           maxLength={maxLength}
           rows={rows}
           className={clsx(style.base, error && style.error, 'h-28')}
+          data-testid={`textarea-${id}`}
           {...props}
         />
         <div className={style.errorContainer}>

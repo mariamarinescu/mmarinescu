@@ -27,6 +27,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
         closeIcon: 'dark:text-white text-gray-dark-muted custom-border',
         modalContainer: 'rounded-3xl p-4',
       }}
+      data-testid="contact-modal"
       {...restProps}
     >
       <FormProvider {...methods}>

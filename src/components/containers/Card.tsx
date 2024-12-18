@@ -14,9 +14,10 @@ const Card: React.FC<CardProps> = ({ className, title, children }) => {
         !!title && 'flex flex-col gap-4',
         'rounded-lg border border-gray-light-muted bg-white p-4 dark:bg-gray-light-muted xs:p-5 lg:p-8'
       )}
+      data-testid="card"
     >
       {title && (
-        <p className="custom-prose-title font-poppins title-text-color">
+        <p className="custom-prose-title title-text-color font-poppins">
           {title}
         </p>
       )}

@@ -9,17 +9,16 @@ export const AppModule = () => {
   }, []);
 
   return (
-    <div className="bg-white dark:bg-theme-dark-bg">
+    <div className="bg-white dark:bg-theme-dark-bg" data-testid="app-module">
       <header>
-        <TopNavBar />
+        <TopNavBar data-testid="top-nav-bar" />
       </header>
       <main>
-        <Dashboard />
+        <Dashboard data-testid="dashboard" />
       </main>
       <footer>
-        <Footer />
+        <Footer data-testid="footer" />
       </footer>
     </div>
   );
 };
-//

@@ -19,6 +19,7 @@ export const Label = ({
     <label
       className={clsx(styles.label, className, 'custom-prose font-poppins')}
       htmlFor={id}
+      data-testid={`label-${id}`}
     >
       {children} {required && <span className="text-red-600">&nbsp;*</span>}
     </label>

@@ -105,11 +105,12 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
         currentSizeClasses.button,
         'relative'
       )}
+      data-testid="toggle-button"
     >
       {({ checked }) => (
         <>
           <span className="sr-only">{label}</span>
-          <span className={trackClasses} />
+          <span className={trackClasses} data-testid="toggle-track" />
 
           <span
             className={clsx(
@@ -117,6 +118,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
               currentSizeClasses.inner,
               checked ? `${currentSizeClasses.translate}` : 'translate-x-2'
             )}
+            data-testid="toggle-thumb"
           >
             {renderIcon(checked) || (
               <span className="mx-auto flex items-center justify-center rounded-full bg-white" />

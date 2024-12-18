@@ -27,6 +27,7 @@ export const ThemeAwareTooltip = ({
       place={place}
       className="z-50 max-w-sm text-xs"
       variant={tooltipVariant}
+      data-testid="tooltip"
     />
   );
 };

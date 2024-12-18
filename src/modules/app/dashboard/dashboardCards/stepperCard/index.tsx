@@ -31,47 +31,77 @@ export const getStepsData = (isDarkTheme?: boolean): StepType[] => [
       <ul className="mb-4 flex gap-3 font-poppins text-sm">
         <div className="flex flex-col gap-3">
           <li className={skillRowClassName}>
-            <img src="./img/React-icon.png" className={skillIconSize} />
+            <img
+              src="./img/React-icon.png"
+              className={skillIconSize}
+              alt="React.js"
+              data-testid="react-icon"
+            />
             <p>React.js</p>
           </li>
-
           <li className={skillRowClassName}>
-            <img src="./img/Typescript.png" className={skillIconSize} />
+            <img
+              src="./img/Typescript.png"
+              className={skillIconSize}
+              alt="Typescript"
+              data-testid="typescript-icon"
+            />
             <p>Typescript</p>
           </li>
-
           <li className={skillRowClassName}>
-            <img src="./img/ESLint.svg" className={skillIconSize} />
+            <img
+              src="./img/ESLint.svg"
+              className={skillIconSize}
+              alt="Eslint"
+              data-testid="eslint-icon"
+            />
             <p>Eslint</p>
           </li>
-
           <li className={skillRowClassName}>
             <img
               src="./img/Google-Tag-Manager.webp"
               className={skillIconSize}
+              alt="Google Tag Manager"
+              data-testid="google-tag-manager-icon"
             />
             <p>google-tag-manager</p>
           </li>
         </div>
-
         <div className="flex flex-col gap-3">
           <li className={skillRowClassName}>
-            <img src="./img/react-hook-form.svg" className={skillIconSize} />
+            <img
+              src="./img/react-hook-form.svg"
+              className={skillIconSize}
+              alt="React Hook Form"
+              data-testid="react-hook-form-icon"
+            />
             <p>react-hook-form</p>
           </li>
-
           <li className={skillRowClassName}>
-            <img src="./img/tailwindcss.svg" className={skillIconSize} />
+            <img
+              src="./img/tailwindcss.svg"
+              className={skillIconSize}
+              alt="Tailwind CSS"
+              data-testid="tailwind-css-icon"
+            />
             <p>tailwind CSS</p>
           </li>
-
           <li className={skillRowClassName}>
-            <img src="./img/tanstack.png" className={skillIconSize} />
+            <img
+              src="./img/tanstack.png"
+              className={skillIconSize}
+              alt="Tanstack"
+              data-testid="tanstack-icon"
+            />
             <p>Tanstack</p>
           </li>
-
           <li className={skillRowClassName}>
-            <img src="./img/recoil.png" className={skillIconSize} />
+            <img
+              src="./img/recoil.png"
+              className={skillIconSize}
+              alt="Recoil.js"
+              data-testid="recoil-icon"
+            />
             <p>recoil.js</p>
           </li>
         </div>
@@ -90,38 +120,77 @@ export const getStepsData = (isDarkTheme?: boolean): StepType[] => [
       <ul className="mb-4 flex gap-3 font-poppins text-sm">
         <div className="flex flex-col gap-3">
           <li className={skillRowClassName}>
-            <img src="./img/React-icon.png" className={skillIconSize} />
+            <img
+              src="./img/React-icon.png"
+              className={skillIconSize}
+              alt="React.js"
+              data-testid="react-icon"
+            />
             <p>React.js</p>
           </li>
           <li className={skillRowClassName}>
-            <img src="./img/Typescript.png" className={skillIconSize} />
+            <img
+              src="./img/Typescript.png"
+              className={skillIconSize}
+              alt="Typescript"
+              data-testid="typescript-icon"
+            />
             <p>Typescript</p>
           </li>
           <li className={skillRowClassName}>
-            <img src="./img/ESLint.svg" className={skillIconSize} />
+            <img
+              src="./img/ESLint.svg"
+              className={skillIconSize}
+              alt="Eslint"
+              data-testid="eslint-icon"
+            />
             <p>Eslint</p>
           </li>
           <li className={skillRowClassName}>
-            <img src="./img/styled.svg" className={skillIconSize} />
+            <img
+              src="./img/styled.svg"
+              className={skillIconSize}
+              alt="styled-components"
+              data-testid="styled-components-icon"
+            />
             <p>styled-components</p>
           </li>
         </div>
-
         <div className="flex flex-col gap-3">
           <li className={skillRowClassName}>
-            <img src="./img/GraphQL.png" className={skillIconSize} />
+            <img
+              src="./img/GraphQL.png"
+              className={skillIconSize}
+              alt="GraphQL"
+              data-testid="graphql-icon"
+            />
             <p>GraphQL</p>
           </li>
           <li className={skillRowClassName}>
-            <img src="./img/tanstack.png" className={skillIconSize} />
+            <img
+              src="./img/tanstack.png"
+              className={skillIconSize}
+              alt="Tanstack"
+              data-testid="tanstack-icon"
+            />
             <p>Tanstack</p>
           </li>
           <li className={skillRowClassName}>
-            <img src="./img/formik.png" className={skillIconSize} />
+            <img
+              src="./img/formik.png"
+              className={skillIconSize}
+              alt="Formik"
+              data-testid="formik-icon"
+            />
             <p>Formik</p>
           </li>
           <li className={skillRowClassName}>
-            <img src="./img/storybook.png" className={skillIconSize} />
+            <img
+              src="./img/storybook.png"
+              className={skillIconSize}
+              alt="Storybook"
+              data-testid="storybook-icon"
+            />
             <p>Storybook</p>
           </li>
         </div>
@@ -141,20 +210,11 @@ export const StepperCard = ({ className }: { className: string }) => {
             key={index}
             step={step as any}
             isLast={index === stepsData.length - 1}
+            data-testid={`step-${index}`}
           />
         ))}
         <div className="flex w-full justify-end">
-          {/* <Button
-            href="https://drive.google.com/file/d/1YRgVTwL7BoN56tbgzDW-i_DAWoEtTmjx/view?usp=sharing"
-            icon={
-              <CVIcon
-                className="custom-icon-size"
-                isDarkThemeActive={isDarkThemeActive}
-              />
-            }
-            label="Resume"
-          /> */}
-          <ContactButtonGroup />
+          <ContactButtonGroup data-testid="contact-button-group" />
         </div>
       </div>
     </Card>

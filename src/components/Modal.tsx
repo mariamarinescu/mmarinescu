@@ -20,6 +20,7 @@ export const Modal: React.FC<ModalProps> = ({
       closeIcon={
         <RiCloseLargeLine size={22} className="text-black dark:text-white" />
       }
+      data-testid="modal"
     >
       {children}
     </ResponsiveModal>

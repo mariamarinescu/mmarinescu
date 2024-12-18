@@ -23,7 +23,7 @@ interface SliderCardProps {
 export const SliderCard: React.FC<SliderCardProps> = ({ className }) => {
   return (
     <Card className={className} title="A glimpse of Voxalyze's frontend">
-      <div>
+      <div data-testid="slider-card">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y, Zoom, Autoplay]}
           spaceBetween={50}
