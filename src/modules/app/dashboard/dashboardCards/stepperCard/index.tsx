@@ -1,6 +1,4 @@
 import { Card } from 'components/index';
-import { useRecoilValue } from 'recoil';
-import darkThemeAtom from 'src/store/darkTheme/atom';
 import { DeutscheFintechSolutionsIcon, VoxalyzeIcon } from '../icons';
 import { ContactButtonGroup } from '../welcomeCard/ContactButtonGroup';
 import Step from './Step';
@@ -18,7 +16,7 @@ export interface StepType {
 const skillRowClassName = 'flex gap-2';
 const skillIconSize = 'w-5 h-5';
 
-export const getStepsData = (isDarkTheme?: boolean): StepType[] => [
+export const getStepsData = (): StepType[] => [
   {
     title: 'Voxalyze',
     href: 'https://www.linkedin.com/company/voxalyze',
@@ -200,8 +198,7 @@ export const getStepsData = (isDarkTheme?: boolean): StepType[] => [
 ];
 
 export const StepperCard = ({ className }: { className: string }) => {
-  const isDarkThemeActive = useRecoilValue(darkThemeAtom);
-  const stepsData = getStepsData(isDarkThemeActive);
+  const stepsData = getStepsData();
 
   return (
     <Card title="A bit about my professional life..." className={className}>
