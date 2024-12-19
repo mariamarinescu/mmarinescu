@@ -5,13 +5,9 @@ import { useMemo } from 'react';
 import ReactGA from 'react-ga4';
 import { checkIsMobile } from 'src/utils';
 
-export interface ButtonProps {
-  type?: 'button' | 'submit' | 'reset';
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  disabled?: boolean;
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
-  className?: string;
-  children?: React.ReactNode;
   variant?: 'primary' | 'text' | 'icon';
   href?: string;
   download?: string;
@@ -20,7 +16,6 @@ export interface ButtonProps {
   icon?: React.ReactNode;
   label?: string;
   iconPosition?: 'left' | 'right';
-  id?: string;
 }
 
 const variantStyles = (disabled?: boolean) => ({
@@ -53,6 +48,7 @@ export const Button: React.FC<ButtonProps> = ({
   icon,
   label,
   iconPosition = 'left',
+  ...rest
 }) => {
   const isMobile = checkIsMobile(768);
   const handleClick = useMemo(() => {
@@ -178,6 +174,7 @@ export const Button: React.FC<ButtonProps> = ({
         disabled={disabled}
         className={buttonClassName}
         data-testid={`button-element-${id || tooltipId}`}
+        {...rest}
       >
         {isLoading ? (
           <Loader data-testid={`button-loader-${id || tooltipId}`} />
