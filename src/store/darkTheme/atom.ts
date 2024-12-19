@@ -2,7 +2,7 @@ import { atom } from 'recoil';
 
 const darkThemeAtom = atom<boolean>({
   key: 'darkTheme',
-  default: true,
+  default: false,
 });
 
 export default darkThemeAtom;
