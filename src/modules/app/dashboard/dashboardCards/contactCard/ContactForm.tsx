@@ -30,7 +30,7 @@ const defaultFormValues = {
 type FormInputType = z.infer<typeof FormSchema>;
 
 export default function ContactForm({ onClose }: { onClose?: () => void }) {
-  const [isAPIError, setAPIError] = useState(true);
+  const [isAPIError, setAPIError] = useState(false);
 
   const {
     register,
