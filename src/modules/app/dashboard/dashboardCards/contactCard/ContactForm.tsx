@@ -3,7 +3,7 @@ import { Button } from 'components/buttons';
 import { Input, TextArea } from 'components/inputs';
 import { useCallback, useEffect, useState } from 'react';
 import ReactGA from 'react-ga4';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
 
 import { toast } from 'react-toastify';
 import { z } from 'zod';
@@ -14,7 +14,7 @@ const FormSchema = z.object({
   message: z
     .string()
     .trim()
-    .min(50, { message: 'Message must be at least 50 characters long.' })
+    .min(25, { message: 'Message must be at least 25 characters long.' })
     .max(2300, { message: 'Message must not exceed 2300 characters.' })
     .refine((value) => /^[a-zA-Z0-9\s.,'"\-!?]*$/.test(value), {
       message: 'Message contains invalid characters.',
@@ -22,7 +22,6 @@ const FormSchema = z.object({
 });
 
 const defaultFormValues = {
-  // name: undefined,
   email: undefined,
   message: undefined,
 };
@@ -46,15 +45,13 @@ export default function ContactForm({ onClose }: { onClose?: () => void }) {
 
   const sendEmail = useSendEmail();
 
-  const onSubmit: SubmitHandler<any> = useCallback(async (data) => {
-    ReactGA.event({
-      category: 'User',
-      action: 'Submitted form',
-    });
-    if (!isValid && !data.email.length) {
-      trigger();
-      return;
-    } else {
+  const onValid: SubmitHandler<FormInputType> = useCallback(
+    async (data) => {
+      ReactGA.event({
+        category: 'User',
+        action: 'Submitted form',
+      });
+
       try {
         const response = await sendEmail({
           from_email: data.email,
@@ -76,8 +73,13 @@ export default function ContactForm({ onClose }: { onClose?: () => void }) {
         console.error('Error sending email:', error);
         setAPIError(true);
       }
-    }
-  }, []);
+    },
+    [onClose, reset, sendEmail]
+  );
+
+  const onInvalid: SubmitErrorHandler<FormInputType> = useCallback(() => {
+    trigger();
+  }, [trigger]);
 
   useEffect(() => {
     if (isAPIError) {
@@ -94,7 +96,7 @@ export default function ContactForm({ onClose }: { onClose?: () => void }) {
       data-testid="contact-form"
     >
       <h6>Just send me a message...</h6>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onValid, onInvalid)}>
         <div className="flex h-full w-full flex-col gap-3 pt-7">
           <div className="flex w-full flex-col gap-3">
             <Input
@@ -116,7 +118,6 @@ export default function ContactForm({ onClose }: { onClose?: () => void }) {
           <div className="mt-3 flex h-fit w-full flex-col">
             <Button
               type="submit"
-              onClick={onSubmit}
               disabled={!isValid || isSubmitting}
               className="w-full"
               isLoading={isSubmitting}
