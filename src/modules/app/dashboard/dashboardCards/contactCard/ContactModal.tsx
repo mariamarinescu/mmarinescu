@@ -1,4 +1,4 @@
-import { Modal } from 'components/index'; // TODO: fix imports alias
+import { Modal } from 'components/index'; // TODO: fix imports aliases
 import { FormProvider, useForm } from 'react-hook-form';
 import { ModalProps } from 'src/types';
 import ContactForm from './ContactForm';
