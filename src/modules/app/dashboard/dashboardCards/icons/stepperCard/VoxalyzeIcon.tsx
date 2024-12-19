@@ -12,8 +12,8 @@ export const VoxalyzeIcon: FC = () => {
     >
       <defs>
         <linearGradient id="myGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="7.54%" stop-color="#ED0568" />
-          <stop offset="109.81%" stop-color="#3805ED" />
+          <stop offset="7.54%" stopColor="#ED0568" />
+          <stop offset="109.81%" stopColor="#3805ED" />
         </linearGradient>
       </defs>
       <g
