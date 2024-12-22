@@ -8,6 +8,7 @@ import { checkIsMobile } from 'src/utils';
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   id: string;
+  ariaLabel?: string;
   isLoading?: boolean;
   variant?: 'primary' | 'text' | 'icon';
   href?: string;
@@ -49,6 +50,7 @@ export const Button: React.FC<ButtonProps> = ({
   icon,
   label,
   iconPosition = 'left',
+  ariaLabel,
   ...rest
 }) => {
   const isMobile = checkIsMobile(768);
@@ -177,6 +179,7 @@ export const Button: React.FC<ButtonProps> = ({
         disabled={disabled}
         className={buttonClassName}
         data-testid={`button-element-${id || tooltipId}`}
+        aria-label=""
         {...rest}
       >
         {isLoading ? (

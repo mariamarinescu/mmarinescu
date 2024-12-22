@@ -18,6 +18,7 @@ const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
     className: buttonClassName,
     id: 'linkedin-profile',
     'data-testid': 'linkedin-button',
+    ariaLabel: 'Access my Linkedin profile',
   },
   {
     href: 'https://github.com/mariamarinescu',
@@ -31,6 +32,7 @@ const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
     className: buttonClassName,
     id: 'github-profile',
     'data-testid': 'github-button',
+    ariaLabel: 'Access my Github profile',
   },
   {
     href: 'https://drive.google.com/file/d/1jAJcdkcsiK1cOIWmreTzeKLIRRAWeKC-/view?usp=sharing',
@@ -44,6 +46,7 @@ const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
       />
     ),
     'data-testid': 'resume-button',
+    ariaLabel: 'Read or download my resume',
   },
 ];
 
@@ -55,9 +58,18 @@ export const ContactButtonGroup = () => {
     <>
       <div className="h-inherit align-center mt-5 flex w-full flex-wrap items-center justify-end gap-2">
         {buttonListConfig.map(
-          ({ href, icon, label, className, id, 'data-testid': testId }) => (
+          ({
+            href,
+            icon,
+            label,
+            className,
+            id,
+            'data-testid': testId,
+            ariaLabel,
+          }) => (
             <Button
               id={id}
+              ariaLabel={ariaLabel}
               href={href}
               icon={icon}
               label={label}
