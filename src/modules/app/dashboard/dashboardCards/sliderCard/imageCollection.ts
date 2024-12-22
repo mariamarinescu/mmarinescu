@@ -80,7 +80,7 @@ export const imageCollection = [
     ...commonImgProps,
   },
   {
-    src: './img/voxa/ezgif.com-video-to-gif-2.gif',
+    src: './img/voxa/ezgif.com-video-to-gif-2.webp',
     id: 'voxalyze_presentation_gif',
     isZoomable: false,
     ...commonImgProps,
