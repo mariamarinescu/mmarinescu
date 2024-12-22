@@ -36,15 +36,15 @@ export const AboutMeCard: FC<AboutMeCardProps> = ({ className }) => {
             <div className="float-right w-3/12 md:w-6/12 xl:w-6/12">
               <img
                 src="./img/me.webp"
-                width="100%"
-                height="100%"
+                width="800"
+                height="600"
                 className="rounded-lg object-contain"
                 alt="Image not found!"
                 data-testid="about-me-image"
               />
             </div>
             <p
-              className="custom-prose content-text-color text-pretty font-poppins"
+              className="custom-prose content-text-color text-pretty font-sans"
               data-testid="about-me-description"
             >
               I am a passionate nature lover who enjoys exploring the diverse

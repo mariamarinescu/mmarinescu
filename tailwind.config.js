@@ -21,7 +21,14 @@ export default {
         xs: '320px',
       },
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
+        sans: [
+          'Inter', // System font, widely available on most systems
+          'Segoe UI', // Windows
+          'Roboto', // Android & Google products
+          'Helvetica Neue', // macOS
+          'Arial', // Fallback for older systems
+          'sans-serif', // Generic sans-serif
+        ],
       },
     },
   },

@@ -126,7 +126,7 @@ export const Button: React.FC<ButtonProps> = ({
     disabled && 'cursor-not-allowed opacity-50',
     variantStyles(disabled)[variant],
     'px-2 md:px-4 text-base h-11 w-fit',
-    'text-center font-medium capitalize tracking-wide flex items-center font-poppins',
+    'text-center font-medium capitalize tracking-wide flex items-center font-sans',
     'transform rounded-lg transition-colors duration-300 focus:outline-none'
   );
 

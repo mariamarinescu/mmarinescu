@@ -26,7 +26,7 @@ export const getStepsData = (): StepType[] => [
     active: true,
     icon: <VoxalyzeIcon />,
     skillSet: (
-      <ul className="mb-4 flex gap-3 font-poppins text-sm">
+      <ul className="mb-4 flex gap-3 font-sans text-sm">
         <div className="flex flex-col gap-3">
           <li className={skillRowClassName}>
             <img
@@ -115,7 +115,7 @@ export const getStepsData = (): StepType[] => [
     active: false,
     icon: <DeutscheFintechSolutionsIcon />,
     skillSet: (
-      <ul className="mb-4 flex gap-3 font-poppins text-sm">
+      <ul className="mb-4 flex gap-3 font-sans text-sm">
         <div className="flex flex-col gap-3">
           <li className={skillRowClassName}>
             <img
@@ -203,7 +203,7 @@ export const StepperCard = ({ className }: { className: string }) => {
   return (
     <Card title="A bit about my professional life..." className={className}>
       <div className="flex h-full w-full flex-col justify-between">
-        <div className="main-text-size poppins content-text-color flex w-full flex-col text-pretty font-poppins">
+        <div className="main-text-size poppins content-text-color flex w-full flex-col text-pretty font-sans">
           {stepsData.map((step, index) => (
             <Step
               key={index}

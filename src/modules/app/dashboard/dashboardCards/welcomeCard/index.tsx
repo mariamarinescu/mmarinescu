@@ -16,7 +16,7 @@ export const WelcomeCard: React.FC<WelcomeCardProps> = ({ className }) => {
       data-testid="welcome-card"
     >
       <p
-        className="content-text-color prose-base text-pretty font-poppins md:prose-lg lg:prose-xl"
+        className="content-text-color prose-base text-pretty font-sans md:prose-lg lg:prose-xl"
         data-testid="welcome-message"
       >
         I'm Maria, a React.js developer with experience in fintech and podcast

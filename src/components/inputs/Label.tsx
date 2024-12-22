@@ -17,7 +17,7 @@ export const Label = ({
   const styles = useInputStyle();
   return (
     <label
-      className={clsx(styles.label, className, 'custom-prose font-poppins')}
+      className={clsx(styles.label, className, 'custom-prose font-sans')}
       htmlFor={id}
       data-testid={`label-${id}`}
     >
