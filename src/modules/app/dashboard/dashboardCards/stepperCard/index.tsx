@@ -30,7 +30,7 @@ export const getStepsData = (): StepType[] => [
         <div className="flex flex-col gap-3">
           <li className={skillRowClassName}>
             <img
-              src="./img/React-icon.png"
+              src="./img/React-icon.webp"
               className={skillIconSize}
               alt="React.js"
               data-testid="react-icon"
@@ -39,7 +39,7 @@ export const getStepsData = (): StepType[] => [
           </li>
           <li className={skillRowClassName}>
             <img
-              src="./img/Typescript.png"
+              src="./img/Typescript.webp"
               className={skillIconSize}
               alt="Typescript"
               data-testid="typescript-icon"
@@ -86,7 +86,7 @@ export const getStepsData = (): StepType[] => [
           </li>
           <li className={skillRowClassName}>
             <img
-              src="./img/tanstack.png"
+              src="./img/tanstack.webp"
               className={skillIconSize}
               alt="Tanstack"
               data-testid="tanstack-icon"
@@ -95,7 +95,7 @@ export const getStepsData = (): StepType[] => [
           </li>
           <li className={skillRowClassName}>
             <img
-              src="./img/recoil.png"
+              src="./img/recoil.webp"
               className={skillIconSize}
               alt="Recoil.js"
               data-testid="recoil-icon"
@@ -119,7 +119,7 @@ export const getStepsData = (): StepType[] => [
         <div className="flex flex-col gap-3">
           <li className={skillRowClassName}>
             <img
-              src="./img/React-icon.png"
+              src="./img/React-icon.webp"
               className={skillIconSize}
               alt="React.js"
               data-testid="react-icon"
@@ -128,7 +128,7 @@ export const getStepsData = (): StepType[] => [
           </li>
           <li className={skillRowClassName}>
             <img
-              src="./img/Typescript.png"
+              src="./img/Typescript.webp"
               className={skillIconSize}
               alt="Typescript"
               data-testid="typescript-icon"
@@ -157,7 +157,7 @@ export const getStepsData = (): StepType[] => [
         <div className="flex flex-col gap-3">
           <li className={skillRowClassName}>
             <img
-              src="./img/GraphQL.png"
+              src="./img/GraphQL.webp"
               className={skillIconSize}
               alt="GraphQL"
               data-testid="graphql-icon"
@@ -166,7 +166,7 @@ export const getStepsData = (): StepType[] => [
           </li>
           <li className={skillRowClassName}>
             <img
-              src="./img/tanstack.png"
+              src="./img/tanstack.webp"
               className={skillIconSize}
               alt="Tanstack"
               data-testid="tanstack-icon"
@@ -175,7 +175,7 @@ export const getStepsData = (): StepType[] => [
           </li>
           <li className={skillRowClassName}>
             <img
-              src="./img/formik.png"
+              src="./img/formik.webp"
               className={skillIconSize}
               alt="Formik"
               data-testid="formik-icon"
@@ -184,7 +184,7 @@ export const getStepsData = (): StepType[] => [
           </li>
           <li className={skillRowClassName}>
             <img
-              src="./img/storybook.png"
+              src="./img/storybook.webp"
               className={skillIconSize}
               alt="Storybook"
               data-testid="storybook-icon"

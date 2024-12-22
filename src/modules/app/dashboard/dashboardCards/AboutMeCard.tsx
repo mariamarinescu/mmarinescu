@@ -35,7 +35,7 @@ export const AboutMeCard: FC<AboutMeCardProps> = ({ className }) => {
           <div>
             <div className="float-right w-3/12 md:w-6/12 xl:w-6/12">
               <img
-                src="./img/me.jpg"
+                src="./img/me.webp"
                 width="100%"
                 height="100%"
                 className="rounded-lg object-contain"
