@@ -12,15 +12,6 @@ export default defineConfig(({ mode }) => {
     },
     server: {
       port: 3000,
-      headers: {
-        'Content-Security-Policy': `
-          default-src 'self'; 
-          script-src 'self'; 
-          style-src 'self'; 
-          img-src 'self' data:; 
-          connect-src 'self';
-        `.replace(/\n\s+/g, ' '),
-      },
     },
     plugins: [react(), EnvironmentPlugin('all', { prefix: 'VITE_' })],
     resolve: {
