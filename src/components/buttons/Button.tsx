@@ -7,6 +7,7 @@ import { checkIsMobile } from 'src/utils';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  id: string;
   isLoading?: boolean;
   variant?: 'primary' | 'text' | 'icon';
   href?: string;
@@ -141,6 +142,7 @@ export const Button: React.FC<ButtonProps> = ({
           data-tooltip-content={tooltipContent}
           data-tooltip-id={tooltipId}
           href={href}
+          id={id}
           download={download}
           className={buttonClassName}
           target="_blank"
@@ -171,6 +173,7 @@ export const Button: React.FC<ButtonProps> = ({
         data-tooltip-id={dataTooltipId}
         onClick={handleClick}
         type={type}
+        id={id}
         disabled={disabled}
         className={buttonClassName}
         data-testid={`button-element-${id || tooltipId}`}

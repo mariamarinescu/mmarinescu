@@ -15,26 +15,31 @@ const buttonListConfig = [
   {
     dataTooltipContent: 'Javascript',
     dataTooltipId: 'my-js-tooltip',
+    id: 'js-icon',
     icon: <JSIcon className={customIconSize} />,
   },
   {
     dataTooltipContent: 'Typescript',
     dataTooltipId: 'my-typescript-tooltip',
+    id: 'typescript-icon',
     icon: <TypescriptIcon className={customIconSize} />,
   },
   {
     dataTooltipContent: 'React.js',
     dataTooltipId: 'my-react-tooltip',
+    id: 'react-icon',
     icon: <ReactIcon className={customIconSize} />,
   },
   {
     dataTooltipContent: 'HTML5',
     dataTooltipId: 'my-html-tooltip',
+    id: 'html-icon',
     icon: <HTML5Icon className={customIconSize} />,
   },
   {
     dataTooltipContent: 'CSS3',
     dataTooltipId: 'my-css-tooltip',
+    id: 'css-icon',
     icon: <CSS3Icon className={customIconSize} />,
   },
 ];
@@ -54,16 +59,19 @@ export const SkillsCard: React.FC<SkillsCardProps> = ({ className }) => {
         className="align-center flex h-fit w-full flex-wrap items-center justify-start gap-2 md:gap-4 lg:gap-5"
         data-testid="skills-card-buttons"
       >
-        {buttonListConfig.map(({ dataTooltipContent, dataTooltipId, icon }) => (
-          <ButtonWithTooltip
-            key={dataTooltipId}
-            dataTooltipContent={dataTooltipContent}
-            dataTooltipId={dataTooltipId}
-            icon={icon}
-            className="h-16 cursor-default xl:h-16"
-            data-testid={`button-${dataTooltipId}`}
-          />
-        ))}
+        {buttonListConfig.map(
+          ({ dataTooltipContent, dataTooltipId, id, icon }) => (
+            <ButtonWithTooltip
+              id={id}
+              key={dataTooltipId}
+              dataTooltipContent={dataTooltipContent}
+              dataTooltipId={dataTooltipId}
+              icon={icon}
+              className="h-16 cursor-default xl:h-16"
+              data-testid={`button-${dataTooltipId}`}
+            />
+          )
+        )}
       </div>
     </Card>
   );

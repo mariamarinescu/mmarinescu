@@ -58,6 +58,7 @@ export const AboutMeCard: FC<AboutMeCardProps> = ({ className }) => {
           </div>
           <div className="h-inherit align-center mt-3 flex w-full flex-wrap items-center justify-end">
             <ButtonWithTooltip
+              id="contact-button"
               label="Contact"
               className="w-32 justify-start"
               onClick={toggleContactModal}

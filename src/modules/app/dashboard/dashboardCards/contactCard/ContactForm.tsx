@@ -117,6 +117,7 @@ export default function ContactForm({ onClose }: { onClose?: () => void }) {
           </div>
           <div className="mt-3 flex h-fit w-full flex-col">
             <Button
+              id="submit-button"
               type="submit"
               disabled={!isValid || isSubmitting}
               className="w-full"

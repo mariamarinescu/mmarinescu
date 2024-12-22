@@ -57,6 +57,7 @@ export const ContactButtonGroup = () => {
         {buttonListConfig.map(
           ({ href, icon, label, className, id, 'data-testid': testId }) => (
             <Button
+              id={id}
               href={href}
               icon={icon}
               label={label}
