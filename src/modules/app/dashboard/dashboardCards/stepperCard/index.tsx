@@ -21,7 +21,7 @@ export const getStepsData = (): StepType[] => [
     title: 'Voxalyze',
     href: 'https://www.linkedin.com/company/voxalyze',
     content:
-      'Implementing podcast marketing analytics platform alongside a backend developer and our CTO, taking ownership of the majority of frontend development, balancing independent work with regular request for feedback on both technical and professional development. Developed and maintained reusable UI component library, implemented state management, data querying and more.',
+      'Implemented podcast marketing analytics platform alongside a backend developer and our CTO, taking ownership of the majority of frontend development. Developed and maintained reusable UI component library, implemented state management, data querying and more.',
     completed: false,
     active: true,
     icon: <VoxalyzeIcon />,
