@@ -35,7 +35,7 @@ const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
     ariaLabel: 'Access my Github profile',
   },
   {
-    href: 'https://drive.google.com/file/d/1fhYgNE696jqoJhkZdBN8WDev8umaP-LO/view?usp=sharing',
+    href: 'https://drive.google.com/file/d/1ERmh7sn0F1VAcOPNrKGbh2PqCuds7Pc-/view?usp=sharing',
     label: 'Resume',
     className: buttonClassName,
     id: 'download-resume',
