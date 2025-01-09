@@ -46,7 +46,7 @@ const getButtonListConfig = (isDarkThemeActive: boolean | undefined) => [
       />
     ),
     'data-testid': 'resume-button',
-    ariaLabel: 'Read or download my resume',
+    ariaLabel: 'Navigate to resume',
   },
 ];
 
