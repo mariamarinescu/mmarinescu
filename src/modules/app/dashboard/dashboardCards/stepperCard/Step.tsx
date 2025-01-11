@@ -28,7 +28,7 @@ export const Step: React.FC<StepProps> = React.memo(({ step, isLast }) => {
           className="custom-prose-title title-text-color w-fit items-start justify-start text-start font-medium"
           href={href}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           <div className="flex w-full items-start justify-start"> {title}</div>
         </a>

@@ -148,7 +148,7 @@ export const Button: React.FC<ButtonProps> = ({
           download={download}
           className={buttonClassName}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           onClick={() => {
             ReactGA.event({
               category: 'User',
