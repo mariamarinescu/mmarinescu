@@ -11,7 +11,6 @@ interface AboutMeCardProps {
 }
 
 export const AboutMeCard: FC<AboutMeCardProps> = ({ className }) => {
-  // const isDarkThemeActive = useRecoilValue(darkThemeAtom);
   const [isContactModalOpen, setContactModalOpen] = useState(false);
 
   const toggleContactModal = () => {
@@ -45,13 +44,12 @@ export const AboutMeCard: FC<AboutMeCardProps> = ({ className }) => {
               className="custom-prose content-text-color text-pretty font-sans"
               data-testid="about-me-description"
             >
-              I am a passionate nature lover who enjoys exploring the diverse
-              natural spaces of Berlin. I love spending my weekends camping in
-              the mountains and exploring the city's beautiful forests and
-              parks. On rainy days, I enjoy cooking and playing video games with
-              my loved ones. I am a fan of strategy and RPG games, but I have
-              not had much time to play them recently. I also enjoy reading and
-              riding my bicycle around the city.
+              I am in love with nature and I enjoy exploring the diverse natural
+              spaces of Berlin. I love the city's beautiful forests and parks,
+              also love camping in the mountains. On rainy days, I enjoy cooking
+              and playing video games with my loved ones. I am a fan of strategy
+              and RPG games and I am proud of my cooking skills. I also enjoy
+              reading and riding my bicycle around the city.
             </p>
           </div>
           <div className="h-inherit align-center mt-3 flex w-full flex-wrap items-center justify-end">
@@ -60,12 +58,7 @@ export const AboutMeCard: FC<AboutMeCardProps> = ({ className }) => {
               label="Contact"
               className="w-32 justify-start"
               onClick={toggleContactModal}
-              icon={
-                <EmailIcon
-                  className="h-6 w-6"
-                  // isDarkThemeActive={isDarkThemeActive}
-                />
-              }
+              icon={<EmailIcon className="h-6 w-6" />}
               dataTooltipContent="Contact me"
               dataTooltipId="contact-me-button"
               data-testid="contact-button"
