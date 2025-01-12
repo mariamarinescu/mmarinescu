@@ -10,7 +10,7 @@ export const AppModule = () => {
 
   return (
     <div
-      className="flex flex-col justify-between bg-white dark:bg-theme-dark-bg"
+      className="flex h-full flex-col justify-between bg-white dark:bg-theme-dark-bg"
       data-testid="app-module"
     >
       <header>
