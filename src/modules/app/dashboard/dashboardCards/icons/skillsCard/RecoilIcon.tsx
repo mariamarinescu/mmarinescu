@@ -1,6 +1,4 @@
-import { IconType } from 'components/interfaces';
-
-export const RecoilIcon: React.FC<IconType> = ({ className }) => (
+export const RecoilIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

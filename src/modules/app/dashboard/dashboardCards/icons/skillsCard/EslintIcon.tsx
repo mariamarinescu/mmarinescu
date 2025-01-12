@@ -1,6 +1,4 @@
-import { IconType } from 'components/interfaces';
-
-export const EslintIcon: React.FC<IconType> = ({ className }) => (
+export const EslintIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg
     viewBox="0 0 32 32"
     xmlns="http://www.w3.org/2000/svg"

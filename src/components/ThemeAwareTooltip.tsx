@@ -8,7 +8,7 @@ export const ThemeAwareTooltip = ({
   id: string;
   place?: PlacesType;
 }) => {
-  const [tooltipVariant, setVariant] = useState<'dark' | 'light'>('dark');
+  const [tooltipVariant] = useState<'dark' | 'light'>('dark');
   // const darkThemeStatus = useRecoilValue(darkThemeAtom);
 
   // useEffect(() => {

@@ -1,6 +1,6 @@
-import { IconType } from 'components/interfaces';
-
-export const TypescriptIcon: React.FC<IconType> = ({ className }) => (
+export const TypescriptIcon: React.FC<{ className?: string }> = ({
+  className,
+}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     aria-label="TypeScript"

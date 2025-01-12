@@ -1,6 +1,6 @@
-import { IconType } from 'components/interfaces';
-
-export const TailwindCSSIcon: React.FC<IconType> = ({ className }) => (
+export const TailwindCSSIcon: React.FC<{ className?: string }> = ({
+  className,
+}) => (
   <svg
     width="800px"
     height="800px"

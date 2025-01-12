@@ -61,7 +61,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
     const icon = isActive ? activeIcon : inactiveIcon;
 
     return icon
-      ? React.cloneElement(icon as React.ReactElement, {
+      ? React.cloneElement(icon as any, {
           className: clsx(
             'transition-all duration-300 ease-in-out',
             'flex items-center justify-center w-full h-full',

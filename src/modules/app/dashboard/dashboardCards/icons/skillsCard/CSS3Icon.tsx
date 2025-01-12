@@ -1,6 +1,6 @@
-import { IconType } from 'components/interfaces';
-
-export const CSS3Icon: React.FC<IconType> = ({ className }) => (
+export const CSS3Icon: React.FC<{
+  className?: string;
+}> = ({ className }) => (
   <svg
     height="800px"
     width="800px"

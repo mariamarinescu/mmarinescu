@@ -1,6 +1,4 @@
-import { IconType } from 'components/interfaces';
-
-export const JSIcon: React.FC<IconType> = ({ className }) => (
+export const JSIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     aria-label="JavaScript"
