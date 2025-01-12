@@ -7,6 +7,13 @@ import { RecoilRoot } from 'recoil';
 import './index.css';
 import './tailwind.css';
 
+/**
+ * The main application component.
+ *
+ * This component sets up the global providers: animation presence, state management, and toast notifications.
+ *
+ * @returns {JSX.Element} The rendered application component.
+ */
 const App = () => {
   return (
     <AnimatePresence>
