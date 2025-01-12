@@ -23,20 +23,21 @@ export const Step: React.FC<StepProps> = React.memo(({ step, isLast }) => {
           />
         )}
       </div>
-      <div className="flex flex-col gap-4">
-        <a
-          className="custom-prose-title title-text-color w-fit items-start justify-start text-start font-medium"
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div className="flex w-full items-start justify-start"> {title}</div>
-        </a>
+      <div className="flex flex-col gap-2">
+        <div className="m-0 flex h-fit w-full items-start justify-start p-0">
+          <a className="" href={href} target="_blank" rel="noopener noreferrer">
+            <p
+              className="p-0custom-prose-title title-text-color m-0 text-start font-medium"
+              style={{ margin: 0 }}
+            >
+              {title}
+            </p>
+          </a>
+        </div>
 
         <p className="content-text-color custom-prose mb-4 text-sm">
           {content}
         </p>
-        {/* {skillSet} */}
       </div>
     </div>
   );
