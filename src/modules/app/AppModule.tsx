@@ -9,7 +9,10 @@ export const AppModule = () => {
   }, []);
 
   return (
-    <div className="bg-white dark:bg-theme-dark-bg" data-testid="app-module">
+    <div
+      className="flex flex-col justify-between bg-white dark:bg-theme-dark-bg"
+      data-testid="app-module"
+    >
       <header>
         <TopNavBar data-testid="top-nav-bar" />
       </header>

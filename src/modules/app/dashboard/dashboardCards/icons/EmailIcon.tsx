@@ -1,18 +1,18 @@
-import { IconWithDarkThemeType } from 'components/interfaces';
+import clsx from 'clsx';
 
-export const EmailIcon: React.FC<IconWithDarkThemeType> = ({
-  className,
-  isDarkThemeActive,
-}) => (
+interface IconWithDarkThemeType {
+  className?: string;
+}
+
+export const EmailIcon: React.FC<IconWithDarkThemeType> = ({ className }) => (
   <svg
-    fill={isDarkThemeActive ? '#FFFFFF' : '#000000'}
     version="1.1"
     id="Icons"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 32 32"
     xmlSpace="preserve"
-    className={className}
+    className={clsx(className, 'fill-black dark:fill-white')}
   >
     <g>
       <path d="M16,16.8l13.8-9.2C29.2,5.5,27.3,4,25,4H7C4.7,4,2.8,5.5,2.2,7.6L16,16.8z" />

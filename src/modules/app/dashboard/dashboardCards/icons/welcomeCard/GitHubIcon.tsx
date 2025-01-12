@@ -1,14 +1,14 @@
-import { IconWithDarkThemeType } from 'components/interfaces';
+import { clsx } from 'clsx';
 
-export const GitHubIcon: React.FC<IconWithDarkThemeType> = ({
-  className,
-  isDarkThemeActive,
-}) => (
+interface IconWithDarkThemeType {
+  className?: string;
+}
+
+export const GitHubIcon: React.FC<IconWithDarkThemeType> = ({ className }) => (
   <svg
-    fill={isDarkThemeActive ? '#FFFFFF' : '#000000'}
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
-    className={className}
+    className={clsx(className, 'fill-black dark:fill-white')}
   >
     <g data-name="Layer 2">
       <rect width="24" height="24" opacity="0" />

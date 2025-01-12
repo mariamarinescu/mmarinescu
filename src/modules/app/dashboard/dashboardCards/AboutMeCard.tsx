@@ -3,8 +3,6 @@ import { ButtonWithTooltip } from 'components/buttons';
 import { Card } from 'components/containers';
 import { FC, useState } from 'react';
 import ReactGA from 'react-ga4';
-import { useRecoilValue } from 'recoil';
-import darkThemeAtom from 'src/store/darkTheme/atom';
 import { ContactModal } from './contactCard/ContactModal';
 import { EmailIcon } from './icons';
 
@@ -13,7 +11,7 @@ interface AboutMeCardProps {
 }
 
 export const AboutMeCard: FC<AboutMeCardProps> = ({ className }) => {
-  const isDarkThemeActive = useRecoilValue(darkThemeAtom);
+  // const isDarkThemeActive = useRecoilValue(darkThemeAtom);
   const [isContactModalOpen, setContactModalOpen] = useState(false);
 
   const toggleContactModal = () => {
@@ -65,7 +63,7 @@ export const AboutMeCard: FC<AboutMeCardProps> = ({ className }) => {
               icon={
                 <EmailIcon
                   className="h-6 w-6"
-                  isDarkThemeActive={isDarkThemeActive}
+                  // isDarkThemeActive={isDarkThemeActive}
                 />
               }
               dataTooltipContent="Contact me"

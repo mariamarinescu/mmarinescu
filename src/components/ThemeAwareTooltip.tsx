@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { PlacesType, Tooltip } from 'react-tooltip';
-import { useRecoilValue } from 'recoil';
-import darkThemeAtom from 'src/store/darkTheme/atom';
 
 export const ThemeAwareTooltip = ({
   id,
@@ -11,15 +9,15 @@ export const ThemeAwareTooltip = ({
   place?: PlacesType;
 }) => {
   const [tooltipVariant, setVariant] = useState<'dark' | 'light'>('dark');
-  const darkThemeStatus = useRecoilValue(darkThemeAtom);
+  // const darkThemeStatus = useRecoilValue(darkThemeAtom);
 
-  useEffect(() => {
-    if (!!darkThemeStatus) {
-      setVariant('light');
-    } else {
-      setVariant('dark');
-    }
-  }, [darkThemeStatus]);
+  // useEffect(() => {
+  //   if (!!darkThemeStatus) {
+  //     setVariant('light');
+  //   } else {
+  //     setVariant('dark');
+  //   }
+  // }, [darkThemeStatus]);
 
   return (
     <Tooltip
