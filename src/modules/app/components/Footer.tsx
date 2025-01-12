@@ -18,7 +18,7 @@ export const Footer: React.FC<FooterProps> = ({ className }: FooterProps) => {
       data-testid="footer"
     >
       <div className="mx-auto flex h-10 items-center justify-center py-2">
-        <p className="text-md custom-prose font-sans text-gray-800 dark:text-gray-light-1">
+        <p className="text-md custom-prose font-sans text-gray-800 dark:text-white">
           &copy; {currentYear} Maria-Fontica Marinescu. All rights reserved.
         </p>
       </div>
