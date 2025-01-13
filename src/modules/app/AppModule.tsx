@@ -21,20 +21,17 @@ export const AppModule = (): JSX.Element => {
 
   return (
     <div
-      className="flex h-full flex-col justify-between bg-white dark:bg-theme-dark-bg"
+      className="flex min-h-screen flex-col justify-between bg-white dark:bg-theme-dark-bg"
       data-testid="app-module"
     >
-      {/* Top Navigation Bar */}
       <header role="banner">
         <TopNavBar data-testid="top-nav-bar" />
       </header>
 
-      {/* Main Content */}
       <main role="main" className="flex-grow">
         <Dashboard data-testid="dashboard" />
       </main>
 
-      {/* Footer */}
       <footer role="contentinfo">
         <Footer data-testid="footer" />
       </footer>
