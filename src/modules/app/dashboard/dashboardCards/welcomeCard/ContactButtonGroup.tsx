@@ -23,7 +23,7 @@ const getButtonListConfig = () => [
     ariaLabel: 'Access my Github profile',
   },
   {
-    href: 'https://drive.google.com/file/d/1xBYvPrbfEXDRY_5BiUEOxSf87CT1Sgy4/view?usp=sharing',
+    href: 'https://drive.google.com/file/d/159ZUZmArnAXdVG-ReRp-32UcmgYE8cX4/view?usp=sharing',
     label: 'Resume',
     className: buttonClassName,
     id: 'download-resume',
